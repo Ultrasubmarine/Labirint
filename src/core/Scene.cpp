@@ -6,7 +6,7 @@
 //
 
 #include "Scene.hpp"
-
+#include "GetPath.h"
 
 SceneObject* CreateSceneObject(Scene* scene, uint SCENE_OBJ_SETTINGS)
 {
@@ -38,7 +38,7 @@ void Scene::OnDeleteObject(SceneObject* obj)
     }
     if(settings & SCENE_OBJ_RENDER)
     {
-        _tick.erase(obj);
+        _render.erase(obj);
     }
 };
 
@@ -54,13 +54,36 @@ void Scene::OnCreateObject(SceneObject *obj)
     }
     if(settings & SCENE_OBJ_RENDER)
     {
-        _tick.insert(obj);
+        _render.insert(obj);
     }
 };
 
-void Scene::Render()
+void Scene::Render(SDL_Renderer *render)
 {
-    
+    for(auto obj : _render)
+    {
+        if(obj->texture)
+        SDL_RenderCopy(render, obj->texture, &obj->srcrect, &obj->dstrect);
+        //<#const SDL_Rect *dstrect#>)
+    }
 };
 
+void Scene::TestLoadObject(SDL_Renderer *render)
+{
+    auto frog = CreateSceneObject(this, SCENE_OBJ_RENDER);
+    
+
+    char *image_path = GetPath(CFSTR("resources/images/frog"), CFSTR("bmp"));
+    //Put your own bmp image here
+    SDL_Surface *bmpSurf = SDL_LoadBMP(image_path);
+    
+    free(image_path);
+    SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(render, bmpSurf);
+    SDL_FreeSurface(bmpSurf);
+    
+    
+   // SDL_Rect r =
+    frog->SetTexture(bmpTex);
+    
+};
 

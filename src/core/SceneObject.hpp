@@ -15,9 +15,9 @@
 #define SCENE_OBJ_NOTHING       0x0
 #define SCENE_OBJ_RENDER        0x1
 #define SCENE_OBJ_TICK          0x2
-#define SCENE_OBJ_RENDER_TICK   0x1 | 0x2
+#define SCENE_OBJ_RENDER_TICK   (SCENE_OBJ_RENDER | SCENE_OBJ_TICK)
 
-
+#include <SDL2/SDL.h>
 
 class SceneObject
 {
@@ -43,6 +43,20 @@ public:
     
     CallBack<SceneObject*> OnCreated;
     CallBack<SceneObject*> OnDeleted;
+    
+    
+    
+    //temp place for this stuff    
+    SDL_Texture *texture;
+    SDL_Rect srcrect;
+    SDL_Rect dstrect;
+
+    
+    //transform
+    //texture
+    
+    void SetTexture(SDL_Texture* texture);
+    void SetRect();
 };
 
 

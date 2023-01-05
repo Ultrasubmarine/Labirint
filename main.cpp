@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
         g->Input();
       //  g->Tick(0.44);//TODO GET TIME
         g->Render();
+        sleep(0.05f);
     }
 //
 //    delete g;
@@ -145,27 +146,6 @@ int main(int argc, char *argv[])
 //
     return 0;
     
-}
-
-
-
-//use free() to returned string
-char * GetPath(CFStringRef name, CFStringRef type)
-{
-#ifdef __APPLE__
-    CFURLRef manifest_url = CFBundleCopyResourceURL(CFBundleGetMainBundle(),
-                                                    name, type,
-                                                    NULL);
-    char * manifest_path = (char *)malloc(PATH_MAX);
-    CFURLGetFileSystemRepresentation(manifest_url, true, (Uint8 *)manifest_path, PATH_MAX);
-    
-    if (manifest_url != NULL)
-        {
-          CFRelease(manifest_url);
-        }
-    return manifest_path;
-#endif
-    return NULL;
 }
 
 

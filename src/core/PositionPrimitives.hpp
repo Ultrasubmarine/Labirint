@@ -11,3 +11,20 @@
 #include <stdio.h>
 
 #endif /* PositionPrimitives_hpp */
+
+
+template<T>
+struct Point2D
+{
+    T x;
+    T y;
+}
+
+
+template<T>
+struct Point3D
+{
+    T x;
+    T y;
+    T z;
+}

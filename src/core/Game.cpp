@@ -23,8 +23,13 @@ int Game::Init()
                      SDL_WINDOWPOS_UNDEFINED,
                      500, 500,
                      SDL_WINDOW_RESIZABLE);
-   
+    
+    render = SDL_CreateRenderer(window, -1,
+            SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+    
+    
     scene = new Scene();
+    scene->TestLoadObject(render);
     
     return 0;
 }
@@ -39,7 +44,7 @@ void Game::Render()
     SDL_SetRenderDrawColor(render, 0xff, 0xFf, 0xFf, 0xFF);
     SDL_RenderClear(render);
     
-    scene->Render();
+    scene->Render(render);
    //        SDL_RenderCopy(render, Background_Tx, NULL, NULL);
    //
    //      //  Loading_Surf = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);

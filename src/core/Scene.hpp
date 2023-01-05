@@ -22,7 +22,6 @@ class Scene
  
     //World
     //UI
-    
     std::set<SceneObject*> _allObjects; // structure?? vector, set?
     
     std::set<SceneObject*> _render; // set? with render stuff
@@ -36,8 +35,12 @@ public:
     void OnDeleteObject(SceneObject* obj);
     void OnCreateObject(SceneObject* obj);
     
-    void Render();
+    void Render(SDL_Renderer *render);
     void Tick();
+    
+    
+    //test
+    void TestLoadObject(SDL_Renderer *render);
 };
 
 
