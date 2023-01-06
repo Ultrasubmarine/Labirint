@@ -38,6 +38,7 @@ void Scene::OnDeleteObject(SceneObject* obj)
     }
     if(settings & SCENE_OBJ_RENDER)
     {
+       // _RenderSystem->AddRenderObj(obj);
         _render.erase(obj);
     }
 };
@@ -60,12 +61,12 @@ void Scene::OnCreateObject(SceneObject *obj)
 
 void Scene::Render(SDL_Renderer *render)
 {
-    for(auto obj : _render)
-    {
-        if(obj->texture)
-        SDL_RenderCopy(render, obj->texture, &obj->srcrect, &obj->dstrect);
-        //<#const SDL_Rect *dstrect#>)
-    }
+//    for(auto obj : _render)
+//    {
+//        if(obj->texture)
+//        SDL_RenderCopy(render, obj->texture, &obj->srcrect, &obj->dstrect);
+//        //<#const SDL_Rect *dstrect#>)
+//    }
 };
 
 void Scene::TestLoadObject(SDL_Renderer *render)
@@ -83,7 +84,7 @@ void Scene::TestLoadObject(SDL_Renderer *render)
     
     
    // SDL_Rect r =
-    frog->SetTexture(bmpTex);
+ //   frog->SetTexture(bmpTex);
     
 };
 

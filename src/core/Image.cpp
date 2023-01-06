@@ -9,34 +9,44 @@
 
 Image::Image(SDL_Texture *texture, SDL_Rect *srcrect)
 {
-    SetImage(texture, srcrect);
+    SetTexture(texture, srcrect);
 }
 
 Image::~Image()
 {
-    if(this->texture)
-        SDL_DestroyTexture(texture);
+    if(this->_texture)
+        SDL_DestroyTexture(_texture);
 }
 
-void Image::SetImage(SDL_Texture *texture, SDL_Rect* srcrect)
+void Image::SetTexture(SDL_Texture *texture, SDL_Rect* srcrect)
 {
     //TODO Create special texture loader (load, delete texture)
-    if(this->texture)
+    if(this->_texture)
         SDL_DestroyTexture(texture);
     
-    this->texture = texture;
+    this->_texture = texture;
     if(srcrect)
     {
-        this->srcrect.x = srcrect->x;
-        this->srcrect.y = srcrect->y;
-        this->srcrect.w = srcrect->w;
-        this->srcrect.h = srcrect->h;
+        this->_srcrect.x = srcrect->x;
+        this->_srcrect.y = srcrect->y;
+        this->_srcrect.w = srcrect->w;
+        this->_srcrect.h = srcrect->h;
         
         return;
     }
     
-    SDL_QueryTexture(texture, NULL, NULL, &this->srcrect.w , &this->srcrect.h);
+    SDL_QueryTexture(texture, NULL, NULL, &this->_srcrect.w , &this->_srcrect.h);
     
-    this->srcrect.x = 0;
-    this->srcrect.y = 0;
+    this->_srcrect.x = 0;
+    this->_srcrect.y = 0;
+}
+
+SDL_Texture* Image::GetTexture()
+{
+    return _texture;
+}
+
+const SDL_Rect& Image::GetRect()
+{
+    return _srcrect;
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		022337A12968747E0080A8BA /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0223379F2968645B0080A8BA /* Image.cpp */; };
+		022337A429687B2F0080A8BA /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337A229687B200080A8BA /* Render.cpp */; };
+		022337A529689BAE0080A8BA /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0223379D29674A0C0080A8BA /* Transform.cpp */; };
 		026DF92B29520C0C00D8E415 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02696DDB29251EFA0099F80F /* main.cpp */; };
 		029A304D29114F8500FD3779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A304C29114F8500FD3779 /* Assets.xcassets */; };
 		029A305D2911647E00FD3779 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029A305C2911647E00FD3779 /* SDL2.framework */; };
@@ -25,6 +27,8 @@
 		0223379E29674A0C0080A8BA /* Transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = SOURCE_ROOT; };
 		0223379F2968645B0080A8BA /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
 		022337A02968645B0080A8BA /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Image.hpp; sourceTree = "<group>"; };
+		022337A229687B200080A8BA /* Render.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Render.cpp; sourceTree = "<group>"; };
+		022337A329687B200080A8BA /* Render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Render.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
 		029A304629114F8500FD3779 /* Labirint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Labirint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A304C29114F8500FD3779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		02C6F77C295215DA0032572C /* core */ = {
 			isa = PBXGroup;
 			children = (
+				022337A229687B200080A8BA /* Render.cpp */,
+				022337A329687B200080A8BA /* Render.hpp */,
 				0223379D29674A0C0080A8BA /* Transform.cpp */,
 				0223379E29674A0C0080A8BA /* Transform.hpp */,
 				02C6F78D29524B030032572C /* SceneObject.cpp */,
@@ -210,6 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				022337A529689BAE0080A8BA /* Transform.cpp in Sources */,
+				022337A429687B2F0080A8BA /* Render.cpp in Sources */,
 				022337A12968747E0080A8BA /* Image.cpp in Sources */,
 				02C6F78C295224C90032572C /* Scene.cpp in Sources */,
 				02C6F789295215DA0032572C /* game_labirint.cpp in Sources */,

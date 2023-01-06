@@ -15,6 +15,8 @@
 #include <functional>   // std::bind
 
 #include "SceneObject.hpp"
+#include "Render.hpp"
+
 #include <vector>
 
 class Scene
@@ -41,6 +43,9 @@ public:
     
     //test
     void TestLoadObject(SDL_Renderer *render);
+    
+    // tmp
+    RenderSystem* _RenderSystem;
 };
 
 

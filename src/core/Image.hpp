@@ -15,15 +15,19 @@
 class Image
 {
 private:
-    SDL_Texture *texture;
-    SDL_Rect srcrect;
+    SDL_Texture *_texture;
+    SDL_Rect _srcrect;
     
+    uint _layer;
 public:
     
     Image(SDL_Texture *texture, SDL_Rect* srcrect = NULL);
     ~Image();
     
-    void SetImage(SDL_Texture *texture, SDL_Rect* srcrect = NULL);
+    void SetTexture(SDL_Texture *texture, SDL_Rect* srcrect = NULL);
+    
+    SDL_Texture* GetTexture();
+    const SDL_Rect& GetRect();
 };
 
 #endif /* Image_hpp */
