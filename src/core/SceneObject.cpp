@@ -14,15 +14,15 @@ uint SceneObject::GetSettings()
     
 };
 
-pair<int,int> SceneObject::GetPosition()
-{
-    return _position;
-}
+//pair<int,int> SceneObject::GetPosition()
+//{
+//  //  return _position;
+//}
 
 void SceneObject::SetPosition(int x, int y)
 {
-    _position.first = x;
-    _position.second = y;
+//    _position.first = x;
+//    _position.second = y;
 }
 
 
@@ -40,4 +40,10 @@ void SceneObject::SetTexture(SDL_Texture* texture)
     dstrect.y = 480/2;
     dstrect.w = srcrect.w;
     dstrect.h = srcrect.h;
+}
+
+
+Transform& SceneObject::GetTransform()
+{
+    return _transform;
 }
