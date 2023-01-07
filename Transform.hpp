@@ -25,6 +25,7 @@ class Transform
     bool _dirty;
 public:
     
+    Transform();
     const Point2D<int>& GetPosition();
     const Point2D<float>& GetScale();
     

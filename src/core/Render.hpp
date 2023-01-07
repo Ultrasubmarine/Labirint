@@ -12,24 +12,28 @@
 #include <set>
 
 #include "SceneObject.hpp"
+#include <map>
+#include <set>
+
 #include <SDL2/SDL.h>
 
-struct RenderObj
-{
-    SceneObject* sceneObj;
-    SDL_Rect dstrect;
-};
 
 class RenderSystem
 {
-    SDL_Renderer *render;
+    SDL_Renderer *_render;
     
-   
+    std::map<SceneObject*, SDL_Rect> _objects;
+    
 public:
+    
+    RenderSystem(SDL_Window *window);
+    ~RenderSystem();
+    
     void AddRenderObj(SceneObject *obj);
     void DeleteRenderObj(SceneObject *obj);
     
-    void Render(std::set<RenderObj*> renderObjects);
+    void Render();
+    SDL_Renderer* GetRenderer();
 };
 
 #endif /* Render_hpp */

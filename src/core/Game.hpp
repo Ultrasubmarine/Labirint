@@ -12,40 +12,40 @@
 #include <SDL2/SDL.h>
 
 #include "Scene.hpp"
+#include "Render.hpp"
+#include "TextureLoader.hpp"
+
 class Game
 {
-    
-    static Game* single;
+    //    Game() = default;
+    //
+    //    Game& operator= (const Game& ) = delete;
+    //    Game(const Game& ) = delete;
+    //
+    //
 public:
-//    Game() = default;
-//
-//    Game& operator= (const Game& ) = delete;
-//    Game(const Game& ) = delete;
-//
-//
-    
+
     int Init();
     
     void Input();
     void Tick(float delta);
     void Render();
-//
-//    bool play = true;
-    
-    
-    
+
     SDL_Event event;
     SDL_Window *window;
-    SDL_Renderer *render;
-    bool _dirtyRender = false;
+    
+    RenderSystem *renderSystem;
+    Scene* scene;
+    TextureLoader *textureLoader;
+    
     
     bool play = true;
-    
-    
-    Scene* scene;
-    
-public:
+
     ~Game();
+    
+    //test
+    void TestSceneObj();
+    
 };
 
 #endif /* Game_hpp */

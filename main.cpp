@@ -18,11 +18,10 @@
 #include <cmath>
 
 #include <CoreFoundation/CoreFoundation.h>
-#include <SDL2/SDL_render.h>
 #include <cstdio>
+#include "CoreFunctions.hpp"
 
-
-char * GetPath(CFStringRef name, CFStringRef type);
+//char * GetPath(CFStringRef name, CFStringRef type);
 Uint32 getpixel(SDL_Surface *surface, int x, int y);
 
 using namespace std;
@@ -35,14 +34,33 @@ int main(int argc, char *argv[])
 {
 
     Game *g = new Game();
+   // InitGame(g);
     
-  
     if(g->Init())
         return -1;
 
-    
+    InitGame(g);
  //   Game::CreateSceneObject(SCENE_OBJ_RENDER_TICK);
     
+//    auto frog = CreateSceneObject(SCENE_OBJ_RENDER);
+//    frog->
+//   char *image_path = GetPath(CFSTR("resources/images/frog"), CFSTR("bmp"));
+//   //Put your own bmp image here
+//   SDL_Surface *bmpSurf = SDL_LoadBMP(image_path);
+//
+//   free(image_path);
+//   SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(render, bmpSurf);
+//   SDL_FreeSurface(bmpSurf);
+   //
+   //
+   //   // SDL_Rect r =
+   // //   frog->SetTexture(bmpTex);
+ //   CreateSceneObject(SCENE_OBJ_RENDER);
+    
+ 
+    auto frog = CreateSceneObject(SCENE_OBJ_RENDER);
+    frog->SetImageTexture(g->textureLoader->GetTexture("frog"));
+    frog->GetTransform().SetPosition(50,50);
     while(g->play)
     {
         g->Input();

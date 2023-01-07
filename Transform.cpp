@@ -52,3 +52,8 @@ void Transform::ClearDirty()
     _dirty = false;
 }
 
+Transform::Transform() : scale{1.0f,1.0f}
+{
+    
+}
+

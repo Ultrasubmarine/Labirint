@@ -24,47 +24,39 @@ int Game::Init()
                      500, 500,
                      SDL_WINDOW_RESIZABLE);
     
-    render = SDL_CreateRenderer(window, -1,
-            SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
-    
+    if(!window)
+    {
+        printf("error: fail creating window \n");
+        return -1;
+    }
     
     scene = new Scene();
-    scene->TestLoadObject(render);
+    renderSystem = new RenderSystem(window);
+    textureLoader = new TextureLoader(renderSystem->GetRenderer());
     
     return 0;
 }
 
 Game::~Game()
 {
+    delete renderSystem;
     delete scene;
+    delete textureLoader;
+    
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 }
 
 void Game::Render()
 {
-    SDL_SetRenderDrawColor(render, 0xff, 0xFf, 0xFf, 0xFF);
-    SDL_RenderClear(render);
-    
-    scene->Render(render);
-   //        SDL_RenderCopy(render, Background_Tx, NULL, NULL);
-   //
-   //      //  Loading_Surf = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
-   //
-   //        /* Filling the surface with red color. */
-   //
-    SDL_RenderPresent(render);
+    renderSystem->Render();
 }
-
-
 
 //void Game::Tick(<#float delta#>)
 //{
 //
 //}
 
-//void Game::Tick(<#float delta#>)
-//{
-//    
-//}
 void Game::Input()
 {
     if(SDL_PollEvent(&event) )

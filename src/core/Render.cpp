@@ -8,25 +8,75 @@
 #include "Render.hpp"
 #include "Transform.hpp"
 
-void RenderSystem::Render(std::set<RenderObj*> renderObjects)
-{  
-    for(auto obj : renderObjects)
+RenderSystem::RenderSystem(SDL_Window *window)
+{
+    _render = SDL_CreateRenderer(window, -1,
+            SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);    
+}
+
+void RenderSystem::Render()
+{
+    SDL_SetRenderDrawColor(_render, 0xFF, 0xFF, 0xFF, 0xFF);
+    SDL_RenderClear(_render);
+    
+    for(auto obj : _objects)
     {
-        auto image = obj->sceneObj->GetImage();
-        
-        if(obj->sceneObj->GetTransform().IsDirty())
+        auto image = obj.first->GetImage();
+        if(!image)
+            continue;
+            
+        if(obj.first->GetTransform().IsDirty() || image->IsDirty())
         {
-            auto t = obj->sceneObj->GetTransform();
+            auto t = obj.first->GetTransform();
             auto p = t.GetPosition();
 
-            obj->dstrect.x = p.x;
-            obj->dstrect.y = p.y;
-            obj->dstrect.w = image->GetRect().w * t.GetScale().x;
-            obj->dstrect.h = image->GetRect().h * t.GetScale().y;
+            obj.second.x = p.x;
+            obj.second.y = p.y;
+            obj.second.w = image->GetRect().w * t.GetScale().x;
+            obj.second.h = image->GetRect().h * t.GetScale().y;
             
             t.ClearDirty();
+            image->ClearDirty();
         }
-      
-        SDL_RenderCopy(render, image->GetTexture(), &image->GetRect(), &obj->dstrect);
+        
+
+        SDL_RenderCopy(_render, image->GetTexture(), &image->GetRect(), &obj.second);
     }
+    
+    SDL_RenderPresent(_render);
+}
+
+void RenderSystem::AddRenderObj(SceneObject *obj)
+{
+    Transform &t = obj->GetTransform();
+    
+    SDL_Rect dst;
+    
+    dst.x = t.GetPosition().x;
+    dst.y = t.GetPosition().y;
+
+    auto image = obj->GetImage();
+    if(image)
+    {
+        dst.w = image->GetRect().w * t.GetScale().x;
+        dst.y = image->GetRect().h * t.GetScale().y;
+    }
+
+    _objects[obj] = dst;    
+}
+
+void RenderSystem::DeleteRenderObj(SceneObject *obj)
+{
+    _objects.erase(obj);
+}
+
+
+SDL_Renderer* RenderSystem::GetRenderer()
+{
+    return _render;
+}
+
+RenderSystem::~RenderSystem()
+{
+    SDL_DestroyRenderer(_render);
 }

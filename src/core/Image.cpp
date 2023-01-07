@@ -7,24 +7,18 @@
 
 #include "Image.hpp"
 
-Image::Image(SDL_Texture *texture, SDL_Rect *srcrect)
+Image::Image(SDL_Texture *texture, SDL_Rect *srcrect): _texture{NULL}
 {
     SetTexture(texture, srcrect);
 }
 
 Image::~Image()
 {
-    if(this->_texture)
-        SDL_DestroyTexture(_texture);
 }
 
 void Image::SetTexture(SDL_Texture *texture, SDL_Rect* srcrect)
 {
-    //TODO Create special texture loader (load, delete texture)
-    if(this->_texture)
-        SDL_DestroyTexture(texture);
-    
-    this->_texture = texture;
+    _texture = texture;
     if(srcrect)
     {
         this->_srcrect.x = srcrect->x;
@@ -39,6 +33,8 @@ void Image::SetTexture(SDL_Texture *texture, SDL_Rect* srcrect)
     
     this->_srcrect.x = 0;
     this->_srcrect.y = 0;
+    
+    _dirty = true;
 }
 
 SDL_Texture* Image::GetTexture()
@@ -49,4 +45,14 @@ SDL_Texture* Image::GetTexture()
 const SDL_Rect& Image::GetRect()
 {
     return _srcrect;
+}
+
+bool Image::IsDirty()
+{
+    return _dirty;
+}
+
+void Image::ClearDirty()
+{
+    _dirty = false;
 }

@@ -15,10 +15,12 @@
 class Image
 {
 private:
-    SDL_Texture *_texture;
+    SDL_Texture* _texture;
     SDL_Rect _srcrect;
     
     uint _layer;
+    
+    bool _dirty;
 public:
     
     Image(SDL_Texture *texture, SDL_Rect* srcrect = NULL);
@@ -28,6 +30,9 @@ public:
     
     SDL_Texture* GetTexture();
     const SDL_Rect& GetRect();
+    
+    bool IsDirty();
+    void ClearDirty();
 };
 
 #endif /* Image_hpp */

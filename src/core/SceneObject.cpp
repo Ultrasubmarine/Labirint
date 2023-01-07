@@ -33,3 +33,10 @@ Image* SceneObject::GetImage()
     return _image;
 }
 
+void SceneObject::SetImageTexture(SDL_Texture* texture, SDL_Rect* src)
+{
+    if(!_image)
+        _image = new Image(texture,src);
+    else
+        _image->SetTexture(texture,src);
+}

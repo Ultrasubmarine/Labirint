@@ -21,35 +21,18 @@
 
 class Scene
 {
- 
-    //World
-    //UI
     std::set<SceneObject*> _allObjects; // structure?? vector, set?
     
-    std::set<SceneObject*> _render; // set? with render stuff
     std::set<SceneObject*> _tick;
-    
-    //Render
-    //Tick
-    
 public:
     
     void OnDeleteObject(SceneObject* obj);
     void OnCreateObject(SceneObject* obj);
     
-    void Render(SDL_Renderer *render);
     void Tick();
-    
-    
+        
     //test
-    void TestLoadObject(SDL_Renderer *render);
-    
-    // tmp
-    RenderSystem* _RenderSystem;
+    void TestLoadObject();
 };
-
-
-SceneObject* CreateSceneObject(Scene* scene, uint SCENE_OBJ_SETTINGS);
-void DeleteSceneObject(Scene* scene, SceneObject* obj);
 
 #endif /* Scene_hpp */

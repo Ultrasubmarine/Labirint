@@ -37,5 +37,7 @@ public:
     uint GetSettings();
     Transform& GetTransform();
     Image* GetImage();
+    
+    void SetImageTexture(SDL_Texture* texture, SDL_Rect* src = NULL);
 };
 #endif /* SceneObject_hpp */
