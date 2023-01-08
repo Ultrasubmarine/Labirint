@@ -20,7 +20,7 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <cstdio>
 #include "CoreFunctions.hpp"
-
+#include "Frog.hpp"
 //char * GetPath(CFStringRef name, CFStringRef type);
 Uint32 getpixel(SDL_Surface *surface, int x, int y);
 
@@ -58,15 +58,27 @@ int main(int argc, char *argv[])
  //   CreateSceneObject(SCENE_OBJ_RENDER);
     
  
+    
     auto frog = CreateSceneObject(SCENE_OBJ_RENDER);
     frog->SetImageTexture(g->textureLoader->GetTexture("frog"));
-    frog->GetTransform().SetPosition(50,50);
+    
+    int x = 5;
+    frog->GetTransform().SetPosition(x,50);
+    
+    auto reallyFrog = CreateSceneFrog(SCENE_OBJ_RENDER_TICK);
+    reallyFrog->SetImageTexture(g->textureLoader->GetTexture("frog"));
+
+    reallyFrog->GetTransform().SetPosition(100,50);
+    
     while(g->play)
     {
         g->Input();
-      //  g->Tick(0.44);//TODO GET TIME
+    
+        g->Tick(0.5f);//TODO GET TIME
+      //  x++;
+      //  frog->GetTransform().SetPosition(x,50);
         g->Render();
-        sleep(0.05f);
+        sleep(0.5f);
     }
 //
 //    delete g;

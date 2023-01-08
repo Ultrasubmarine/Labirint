@@ -28,7 +28,7 @@ public:
     int Init();
     
     void Input();
-    void Tick(float delta);
+    void Tick(float delta_tick);
     void Render();
 
     SDL_Event event;

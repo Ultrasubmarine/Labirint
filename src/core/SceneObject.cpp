@@ -8,7 +8,7 @@
 #include "SceneObject.hpp"
 
 
-SceneObject::SceneObject(uint SCENE_OBJ_SETTINGS) : _settings{SCENE_OBJ_SETTINGS}
+SceneObject::SceneObject(uint SCENE_OBJ_SETTINGS) : _settings{SCENE_OBJ_SETTINGS}, _image{NULL}
 {
 };
 
@@ -39,4 +39,10 @@ void SceneObject::SetImageTexture(SDL_Texture* texture, SDL_Rect* src)
         _image = new Image(texture,src);
     else
         _image->SetTexture(texture,src);
+}
+
+
+void SceneObject::Tick(float delta_tick)
+{
+    
 }

@@ -52,17 +52,22 @@ void Game::Render()
     renderSystem->Render();
 }
 
-//void Game::Tick(<#float delta#>)
-//{
-//
-//}
+void Game::Tick(float delta_tick)
+{
+    scene->Tick(delta_tick);
+}
 
 void Game::Input()
 {
     if(SDL_PollEvent(&event) )
     {
-      if(event.type == SDL_QUIT)
-          play = false;
+        if(event.type == SDL_QUIT)
+            play = false;
+        
+        if(event.type == SDL_MOUSEMOTION)
+        {
+            scene->GetFirstObj()->GetTransform().SetPosition(event.motion.x, event.motion.y);
+        }
     }
 }
 

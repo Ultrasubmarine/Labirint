@@ -11,7 +11,7 @@
 RenderSystem::RenderSystem(SDL_Window *window)
 {
     _render = SDL_CreateRenderer(window, -1,
-            SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);    
+                                 SDL_RENDERER_ACCELERATED); //| SDL_RENDERER_TARGETTEXTURE);    
 }
 
 void RenderSystem::Render()
@@ -38,7 +38,6 @@ void RenderSystem::Render()
             t.ClearDirty();
             image->ClearDirty();
         }
-        
 
         SDL_RenderCopy(_render, image->GetTexture(), &image->GetRect(), &obj.second);
     }

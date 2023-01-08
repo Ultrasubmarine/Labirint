@@ -11,27 +11,35 @@
 void Scene::OnDeleteObject(SceneObject* obj)
 {
     //delete children
-    _allObjects.erase(obj);
+    _allObjects.remove(obj);
     
     auto settings = obj->GetSettings();
     
     if(settings & SCENE_OBJ_TICK)
     {
-        _tick.erase(obj);
+        _tick.remove(obj);
     }
 };
 
 void Scene::OnCreateObject(SceneObject *obj)
 {
-    _allObjects.insert(obj);
+    _allObjects.push_back(obj);
     
     auto settings = obj->GetSettings();
     
     if(settings & SCENE_OBJ_TICK)
     {
-        _tick.insert(obj);
+        _tick.push_back(obj);
     }
 };
+
+void Scene::Tick(float delta_tick)
+{
+    for(auto t: _tick)
+    {
+        t->Tick(delta_tick);
+    }
+}
 
 void Scene::TestLoadObject()
 {
@@ -51,4 +59,10 @@ void Scene::TestLoadObject()
 // //   frog->SetTexture(bmpTex);
     
 };
+
+SceneObject* Scene::GetFirstObj()
+{
+    return _allObjects.front();
+}
+
 

@@ -26,6 +26,7 @@ class SceneObject
 {
     uint _settings;
     
+protected:
     Transform _transform;
     Image* _image;
     
@@ -38,6 +39,7 @@ public:
     Transform& GetTransform();
     Image* GetImage();
     
+    void virtual Tick(float delta_tick);
     void SetImageTexture(SDL_Texture* texture, SDL_Rect* src = NULL);
 };
 #endif /* SceneObject_hpp */

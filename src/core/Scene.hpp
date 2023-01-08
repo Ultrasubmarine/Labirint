@@ -11,28 +11,29 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 
-#include <set>
 #include <functional>   // std::bind
 
 #include "SceneObject.hpp"
 #include "Render.hpp"
 
 #include <vector>
-
+#include <list>
 class Scene
 {
-    std::set<SceneObject*> _allObjects; // structure?? vector, set?
+    std::list<SceneObject*> _allObjects; // structure?? vector, set?
     
-    std::set<SceneObject*> _tick;
+    std::list<SceneObject*> _tick;
 public:
     
     void OnDeleteObject(SceneObject* obj);
     void OnCreateObject(SceneObject* obj);
     
-    void Tick();
+    void Tick(float delta_tick);
         
     //test
     void TestLoadObject();
+    
+    SceneObject* GetFirstObj();
 };
 
 #endif /* Scene_hpp */
