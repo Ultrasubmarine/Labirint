@@ -11,13 +11,14 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 
+#include "Singleton.hpp"
 #include "Scene.hpp"
 #include "Render.hpp"
 #include "TextureLoader.hpp"
 
-class Game
+class Game : public Singleton<Game>
 {
-    //    Game() = default;
+   // Game():Singleton(){};
     //
     //    Game& operator= (const Game& ) = delete;
     //    Game(const Game& ) = delete;
@@ -46,6 +47,7 @@ public:
     //test
     void TestSceneObj();
     
+ //   Scene* GetScene() {return scene;};
 };
 
 #endif /* Game_hpp */

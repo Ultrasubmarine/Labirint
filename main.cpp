@@ -33,51 +33,26 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-    Game *g = new Game();
-   // InitGame(g);
-    
-    if(g->Init())
+    if(Game::Instance().Init())
         return -1;
 
-    InitGame(g);
- //   Game::CreateSceneObject(SCENE_OBJ_RENDER_TICK);
-    
-//    auto frog = CreateSceneObject(SCENE_OBJ_RENDER);
-//    frog->
-//   char *image_path = GetPath(CFSTR("resources/images/frog"), CFSTR("bmp"));
-//   //Put your own bmp image here
-//   SDL_Surface *bmpSurf = SDL_LoadBMP(image_path);
-//
-//   free(image_path);
-//   SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(render, bmpSurf);
-//   SDL_FreeSurface(bmpSurf);
-   //
-   //
-   //   // SDL_Rect r =
-   // //   frog->SetTexture(bmpTex);
- //   CreateSceneObject(SCENE_OBJ_RENDER);
-    
- 
-    
-    auto frog = CreateSceneObject(SCENE_OBJ_RENDER);
-    frog->SetImageTexture(g->textureLoader->GetTexture("frog"));
-    
-    int x = 5;
-    frog->GetTransform().SetPosition(x,50);
-    
-    auto reallyFrog = CreateSceneFrog(SCENE_OBJ_RENDER_TICK);
-    reallyFrog->SetImageTexture(g->textureLoader->GetTexture("frog"));
+   auto frog = CreateSceneObject<SceneObject>(SCENE_OBJ_RENDER);
+   frog->SetImageTexture(Game::Instance().textureLoader->GetTexture("frog"));
+   frog->GetTransform().SetPosition(5,50);
 
-    reallyFrog->GetTransform().SetPosition(100,50);
+   Frog* reallyFrog =  CreateSceneObject<Frog>(SCENE_OBJ_RENDER_TICK);
+   reallyFrog->SetImageTexture(Game::Instance().textureLoader->GetTexture("frog"));
+   reallyFrog->GetTransform().SetPosition(100,50);
     
-    while(g->play)
+    //auto game = Game::Instance();
+    while(Game::Instance().play)
     {
-        g->Input();
+        Game::Instance().Input();
     
-        g->Tick(0.5f);//TODO GET TIME
+        Game::Instance().Tick(0.5f);//TODO GET TIME
       //  x++;
       //  frog->GetTransform().SetPosition(x,50);
-        g->Render();
+        Game::Instance().Render();
         sleep(0.5f);
     }
 //
@@ -210,21 +185,4 @@ switch (bpp)
         default:
             return 0;       /* shouldn't happen, but avoids warnings */
       }
-}
-
-
-
-void Logic()
-{
-    
-}
-
-void Render()
-{
-    
-}
-
-void LoadResources()
-{
-    
 }

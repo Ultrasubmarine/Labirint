@@ -12,25 +12,20 @@
 
 #include "Game.hpp"
 
-static Game* game;
 
-//tmp
-void InitGame(Game* g);
+template<class T>
+T* CreateSceneObject(uint SCENE_OBJ_SETTINGS)
+{
+    T* tmp = new T(SCENE_OBJ_SETTINGS);
 
+    SceneObject* scnO = dynamic_cast<SceneObject*>(tmp);
+    Game::Instance().scene->OnCreateObject(scnO); // doesnt work
 
-SceneObject* CreateSceneObject(uint SCENE_OBJ_SETTINGS);
+    if(SCENE_OBJ_SETTINGS & SCENE_OBJ_RENDER)
+        Game::Instance().renderSystem->AddRenderObj(scnO);
+    return tmp;
+};
+
 void DeleteSceneObject(SceneObject* obj);
-
-SceneObject* CreateSceneFrog(uint SCENE_OBJ_SETTINGS);
-
-//template<class T>
-//T* CreateSceneObjectT(uint SCENE_OBJ_SETTINGS)
-//{
-//    T* tmp = new T(SCENE_OBJ_SETTINGS);
-//
-//    SceneObject* scnO = dynamic_cast<SceneObject*>(tmp);
-//    AddToGameCore(scnO);
-//    return tmp;
-//};
 
 #endif /* CoreFunctions_hpp */

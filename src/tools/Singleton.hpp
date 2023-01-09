@@ -13,10 +13,16 @@
 template<typename T>
 class Singleton
 {
-    static T *_instance;
-    Singleton();
+protected:
+    Singleton(){};
 public:
-    T* GetInstance();
+    Singleton(Singleton const &) = delete;
+    void operator=(Singleton const &) = delete;
     
+    static T& Instance()
+    {
+        static T instance;
+        return instance;
+    }
 };
 #endif /* Singleton_hpp */
