@@ -18,19 +18,13 @@
 
 class Game : public Singleton<Game>
 {
-   // Game():Singleton(){};
-    //
-    //    Game& operator= (const Game& ) = delete;
-    //    Game(const Game& ) = delete;
-    //
-    //
-public:
-
-    int Init();
+    bool play = true;
     
     void Input();
     void Tick(float delta_tick);
     void Render();
+    
+public:
 
     SDL_Event event;
     SDL_Window *window;
@@ -39,15 +33,13 @@ public:
     Scene* scene;
     TextureLoader *textureLoader;
     
-    
-    bool play = true;
-
     ~Game();
     
+    int Init();
+    void Loop();
+
     //test
     void TestSceneObj();
-    
- //   Scene* GetScene() {return scene;};
 };
 
 #endif /* Game_hpp */

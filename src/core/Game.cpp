@@ -71,3 +71,12 @@ void Game::Input()
     }
 }
 
+void Game::Loop()
+{
+    while(play)
+    {
+        Input();
+        Tick(0.5f);//TODO GET TIME
+        Render();
+    }
+}
