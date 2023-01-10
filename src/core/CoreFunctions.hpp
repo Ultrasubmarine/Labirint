@@ -12,10 +12,14 @@
 
 #include "Game.hpp"
 
+template <typename T>
+concept InheritorSceneObject = std::is_base_of_v<SceneObject, T>;
 
-template<class T>
+template<InheritorSceneObject T>
 T* CreateSceneObject(uint SCENE_OBJ_SETTINGS)
 {
+    // for C++ < C++20
+    //static_assert(std::is_base_of_v<SceneObject, T>, "Template class isn't inherited from SceneObject");
     T* tmp = new T(SCENE_OBJ_SETTINGS);
 
     SceneObject* scnO = dynamic_cast<SceneObject*>(tmp);

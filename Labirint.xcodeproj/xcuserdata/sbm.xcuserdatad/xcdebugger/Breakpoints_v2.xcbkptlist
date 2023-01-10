@@ -494,8 +494,8 @@
             filePath = "src/core/CoreFunctions.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "CreateSceneObject(SCENE_OBJ_SETTINGS)"
             landmarkType = "9">
          </BreakpointContent>

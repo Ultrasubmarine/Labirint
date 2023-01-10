@@ -6,9 +6,6 @@
 //
 
 #include "CoreFunctions.hpp"
-#include "Scene.hpp"
-#include "Render.hpp"
-
 
 void DeleteSceneObject(SceneObject* obj)
 {
