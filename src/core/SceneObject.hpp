@@ -33,7 +33,7 @@ protected:
 public:
     
     SceneObject(uint SCENE_OBJ_SETTINGS);
-    ~SceneObject();
+    virtual ~SceneObject();
     
     uint GetSettings();
     Transform& GetTransform();

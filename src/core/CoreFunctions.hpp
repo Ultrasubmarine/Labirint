@@ -22,11 +22,10 @@ T* CreateSceneObject(uint SCENE_OBJ_SETTINGS)
     //static_assert(std::is_base_of_v<SceneObject, T>, "Template class isn't inherited from SceneObject");
     T* tmp = new T(SCENE_OBJ_SETTINGS);
 
-    SceneObject* scnO = dynamic_cast<SceneObject*>(tmp);
-    Game::Instance().scene->OnCreateObject(scnO); // doesnt work
+    Game::Instance().scene->OnCreateObject(tmp);
 
     if(SCENE_OBJ_SETTINGS & SCENE_OBJ_RENDER)
-        Game::Instance().renderSystem->AddRenderObj(scnO);
+        Game::Instance().renderSystem->AddRenderObj(tmp);
     return tmp;
 };
 
