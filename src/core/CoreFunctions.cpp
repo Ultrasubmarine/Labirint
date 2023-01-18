@@ -7,7 +7,7 @@
 
 #include "CoreFunctions.hpp"
 
-void DeleteSceneObject(SceneObject* obj)
+void DeleteSceneObject(GameObject* obj)
 {
     Game::Instance().scene->OnDeleteObject(obj);
     if(obj->GetSettings() & SCENE_OBJ_RENDER)

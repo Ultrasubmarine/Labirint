@@ -21,19 +21,21 @@
 #define SCENE_OBJ_RENDER_TICK   (SCENE_OBJ_RENDER | SCENE_OBJ_TICK)
 
 #include <SDL2/SDL.h>
+#include "StringID.hpp"
 
-class SceneObject
+class GameObject
 {
     uint _settings;
     
+    sid _sid;
 protected:
     Transform _transform;
     Image* _image;
     
 public:
     
-    SceneObject(uint SCENE_OBJ_SETTINGS);
-    virtual ~SceneObject();
+    GameObject(sid sid, uint SCENE_OBJ_SETTINGS);
+    virtual ~GameObject();
     
     uint GetSettings();
     Transform& GetTransform();

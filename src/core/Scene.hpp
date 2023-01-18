@@ -13,27 +13,35 @@
 
 #include <functional>   // std::bind
 
-#include "SceneObject.hpp"
+#include "GameObject.hpp"
 #include "Render.hpp"
 
 #include <vector>
 #include <list>
+
+struct SceneSettings
+{
+    //smth
+};
 class Scene
 {
-    std::list<SceneObject*> _allObjects; // structure?? vector, set?
+    std::list<GameObject*> _allObjects; // structure?? vector, set?
     
-    std::list<SceneObject*> _tick;
+    std::list<GameObject*> _tick;
 public:
     
-    void OnDeleteObject(SceneObject* obj);
-    void OnCreateObject(SceneObject* obj);
+    void Load(std::list<GameObject*> &obj, SceneSettings settings);
+    
+    
+    void OnDeleteObject(GameObject* obj);
+    void OnCreateObject(GameObject* obj);
     
     void Tick(float delta_tick);
         
     //test
     void TestLoadObject();
     
-    SceneObject* GetFirstObj();
+    GameObject* GetFirstObj();
 };
 
 #endif /* Scene_hpp */

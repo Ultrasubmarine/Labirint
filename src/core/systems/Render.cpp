@@ -45,7 +45,7 @@ void RenderSystem::Render()
     SDL_RenderPresent(_render);
 }
 
-void RenderSystem::AddRenderObj(SceneObject *obj)
+void RenderSystem::AddRenderObj(GameObject *obj)
 {
     Transform &t = obj->GetTransform();
     
@@ -64,7 +64,7 @@ void RenderSystem::AddRenderObj(SceneObject *obj)
     _objects[obj] = dst;    
 }
 
-void RenderSystem::DeleteRenderObj(SceneObject *obj)
+void RenderSystem::DeleteRenderObj(GameObject *obj)
 {
     _objects.erase(obj);
 }

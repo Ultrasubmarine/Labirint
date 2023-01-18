@@ -8,7 +8,7 @@
 #include "Frog.hpp"
 
 
-Frog::Frog(uint SCENE_OBJ_SETTINGS): SceneObject(SCENE_OBJ_SETTINGS)
+Frog::Frog(sid s, uint SCENE_OBJ_SETTINGS): GameObject(s,SCENE_OBJ_SETTINGS)
 {
     
 }

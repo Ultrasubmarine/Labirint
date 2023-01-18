@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <set>
 
-#include "SceneObject.hpp"
+#include "GameObject.hpp"
 #include <map>
 #include <set>
 
@@ -22,15 +22,15 @@ class RenderSystem
 {
     SDL_Renderer *_render;
     
-    std::map<SceneObject*, SDL_Rect> _objects;
+    std::map<GameObject*, SDL_Rect> _objects;
     
 public:
     
     RenderSystem(SDL_Window *window);
     ~RenderSystem();
     
-    void AddRenderObj(SceneObject *obj);
-    void DeleteRenderObj(SceneObject *obj);
+    void AddRenderObj(GameObject *obj);
+    void DeleteRenderObj(GameObject *obj);
     
     void Render();
     SDL_Renderer* GetRenderer();

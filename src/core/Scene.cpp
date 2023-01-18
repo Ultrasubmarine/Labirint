@@ -8,7 +8,7 @@
 #include "Scene.hpp"
 //#include "GetPath.h"
 
-void Scene::OnDeleteObject(SceneObject* obj)
+void Scene::OnDeleteObject(GameObject* obj)
 {
     //delete children
     _allObjects.remove(obj);
@@ -21,7 +21,7 @@ void Scene::OnDeleteObject(SceneObject* obj)
     }
 };
 
-void Scene::OnCreateObject(SceneObject *obj)
+void Scene::OnCreateObject(GameObject *obj)
 {
     _allObjects.push_back(obj);
     
@@ -60,7 +60,7 @@ void Scene::TestLoadObject()
     
 };
 
-SceneObject* Scene::GetFirstObj()
+GameObject* Scene::GetFirstObj()
 {
     return _allObjects.front();
 }
