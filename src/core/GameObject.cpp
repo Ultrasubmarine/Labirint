@@ -8,7 +8,7 @@
 #include "GameObject.hpp"
 
 
-GameObject::GameObject(sid sid,uint SCENE_OBJ_SETTINGS) : _settings{SCENE_OBJ_SETTINGS}, _image{NULL}
+GameObject::GameObject(sid sid,uint SCENE_OBJ_SETTINGS) : _transform{sid}, _settings{SCENE_OBJ_SETTINGS}//, _image{NULL}
 {
     _sid = sid;
 };

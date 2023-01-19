@@ -11,8 +11,9 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 
+#include "Component.hpp"
 
-class Image
+class Image : public Component
 {
 private:
     SDL_Texture* _texture;
@@ -23,6 +24,7 @@ private:
     bool _dirty;
 public:
     
+    Image(sid id);
     Image(SDL_Texture *texture, SDL_Rect* srcrect = NULL);
     ~Image();
     

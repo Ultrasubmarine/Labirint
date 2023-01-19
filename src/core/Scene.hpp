@@ -14,7 +14,7 @@
 #include <functional>   // std::bind
 
 #include "GameObject.hpp"
-#include "Render.hpp"
+#include "RenderSystem.hpp"
 
 #include <vector>
 #include <list>
@@ -25,6 +25,7 @@ struct SceneSettings
 };
 class Scene
 {
+    
     std::list<GameObject*> _allObjects; // structure?? vector, set?
     
     std::list<GameObject*> _tick;

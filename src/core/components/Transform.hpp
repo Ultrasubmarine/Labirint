@@ -10,14 +10,14 @@
 
 #include <stdio.h>
 #include "PositionPrimitives.hpp"
-
+#include "Component.hpp"
 //template<typename T>
 //struct Point2D
 //{
 //    T x;
 //    T y;
 //};
-class Transform
+class Transform : public Component
 {
     Point2D<int> position; // world
     Point2D<float> scale;
@@ -25,7 +25,7 @@ class Transform
     bool _dirty;
 public:
     
-    Transform();
+    Transform(sid id);
     const Point2D<int>& GetPosition();
     const Point2D<float>& GetScale();
     

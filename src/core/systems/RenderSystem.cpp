@@ -5,7 +5,8 @@
 //  Created by marina porkhunova on 06.01.2023.
 //
 
-#include "Render.hpp"
+#include "Game.hpp"
+#include "RenderSystem.hpp"
 #include "Transform.hpp"
 
 RenderSystem::RenderSystem(SDL_Window *window)
@@ -64,11 +65,24 @@ void RenderSystem::AddRenderObj(GameObject *obj)
     _objects[obj] = dst;    
 }
 
+void RenderSystem::AddRenderObj(sid id, Image* image)
+{
+    RenderObject obj;
+    obj.transform = Game::Instance().transformSystem->GetTransformBySID(id);
+    obj.image = image;
+    
+    _renderObjects[id] = obj;
+}
+
 void RenderSystem::DeleteRenderObj(GameObject *obj)
 {
     _objects.erase(obj);
 }
 
+void RenderSystem::DeleteRenderObj(sid id)
+{
+    _renderObjects.erase(id);
+}
 
 SDL_Renderer* RenderSystem::GetRenderer()
 {

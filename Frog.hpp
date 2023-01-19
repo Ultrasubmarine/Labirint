@@ -20,4 +20,6 @@ public:
     Frog(sid s, uint SCENE_OBJ_SETTINGS);
     void Tick(float delta_tick) override;
 };
+
+
 #endif /* Frog_hpp */

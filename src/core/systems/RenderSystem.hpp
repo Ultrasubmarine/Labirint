@@ -18,9 +18,17 @@
 #include <SDL2/SDL.h>
 
 
+struct RenderObject
+{
+    Transform* transform;
+    Image* image;
+};
+
 class RenderSystem
 {
     SDL_Renderer *_render;
+    
+    std::map<sid, RenderObject> _renderObjects;
     
     std::map<GameObject*, SDL_Rect> _objects;
     
@@ -29,11 +37,16 @@ public:
     RenderSystem(SDL_Window *window);
     ~RenderSystem();
     
+    void AddRenderObj(sid id, Image* image);
+    void DeleteRenderObj(sid id);
+    
     void AddRenderObj(GameObject *obj);
     void DeleteRenderObj(GameObject *obj);
     
     void Render();
     SDL_Renderer* GetRenderer();
 };
+
+
 
 #endif /* Render_hpp */

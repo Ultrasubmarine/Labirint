@@ -23,6 +23,7 @@
 #include <SDL2/SDL.h>
 #include "StringID.hpp"
 
+
 class GameObject
 {
     uint _settings;
