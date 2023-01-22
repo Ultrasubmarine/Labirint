@@ -10,15 +10,15 @@
 
 #include <stdio.h>
 
-#include "AllComponents.h"
 #include "Component.hpp"
 
 #include <map>
-
+#include <typeindex>
 
 struct GameObjectHUB
 {
-    std::map<ComponentType, Component*> components;
+public:
+    std::map<std::type_index, Component*> components;
 };
 
 #endif /* GameObjectHUB_hpp */

@@ -68,7 +68,7 @@ void RenderSystem::AddRenderObj(GameObject *obj)
 void RenderSystem::AddRenderObj(sid id, Image* image)
 {
     RenderObject obj;
-    obj.transform = Game::Instance().transformSystem->GetTransformBySID(id);
+    obj.transform = GetComponent<Transform>(id);
     obj.image = image;
     
     _renderObjects[id] = obj;

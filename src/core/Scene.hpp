@@ -14,10 +14,11 @@
 #include <functional>   // std::bind
 
 #include "GameObject.hpp"
+#include "GameObjectHUB.hpp"
 #include "RenderSystem.hpp"
 
-#include <vector>
-#include <list>
+#include <map>
+
 
 struct SceneSettings
 {
@@ -25,6 +26,8 @@ struct SceneSettings
 };
 class Scene
 {
+    
+
     
     std::list<GameObject*> _allObjects; // structure?? vector, set?
     
@@ -43,6 +46,8 @@ public:
     void TestLoadObject();
     
     GameObject* GetFirstObj();
+    
+    std::map<sid, GameObjectHUB*> _allObjHubs;
 };
 
 #endif /* Scene_hpp */

@@ -14,8 +14,7 @@
 #include "Singleton.hpp"
 #include "Scene.hpp"
 #include "RenderSystem.hpp"
-#include "TransformSystem.hpp"
-#include "ImageSystem.hpp"
+#include "ComponentSystem.hpp"
 
 #include "TextureLoader.hpp"
 
@@ -32,12 +31,11 @@ public:
     SDL_Event event;
     SDL_Window *window;
     
-    
-    TransformSystem *transformSystem;
+
     RenderSystem *renderSystem;
-    ImageSystem *imageSystem;
     Scene* scene;
     TextureLoader *textureLoader;
+    ComponentSystem *componentSystem;
     
     ~Game();
     

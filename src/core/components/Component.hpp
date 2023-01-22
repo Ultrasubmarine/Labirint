@@ -13,6 +13,7 @@
 
 class Component
 {
+protected:
     sid _sid;
     
 public:
@@ -20,4 +21,5 @@ public:
     const sid GetSid();
 
 };
+
 #endif /* Component_hpp */

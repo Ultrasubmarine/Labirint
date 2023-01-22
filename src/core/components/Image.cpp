@@ -12,7 +12,7 @@ Image::Image(sid id) : Component(id)
 {    
 }
 
-Image::Image(SDL_Texture *texture, SDL_Rect *srcrect): Component(666), _texture{NULL}
+Image::Image(SDL_Texture *texture, SDL_Rect *srcrect):  Component(666), _texture{NULL} 
 {
     SetTexture(texture, srcrect);
 }
