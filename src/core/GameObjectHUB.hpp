@@ -18,6 +18,9 @@
 struct GameObjectHUB
 {
 public:
+    
+    GameObjectHUB(sid id);
+    const sid _id;
     std::map<std::type_index, Component*> components;
 };
 

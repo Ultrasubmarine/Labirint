@@ -34,10 +34,10 @@ T* CreateSceneObject(const char* uniqueName, uint SCENE_OBJ_SETTINGS)
     return tmp;
 };
 
-void DeleteSceneObject(GameObject* obj);
+//void DeleteSceneObject(GameObject* obj);
 
 
-GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_info> &components);
+GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index> &components);
 
 void DeleteSceneObjectHUB(sid objID);
 

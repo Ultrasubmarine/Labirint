@@ -22,6 +22,7 @@ struct RenderObject
 {
     Transform* transform;
     Image* image;
+    SDL_Rect* dst;
 };
 
 class RenderSystem
@@ -29,8 +30,6 @@ class RenderSystem
     SDL_Renderer *_render;
     
     std::map<sid, RenderObject> _renderObjects;
-    
-    std::map<GameObject*, SDL_Rect> _objects;
     
 public:
     
@@ -40,8 +39,8 @@ public:
     void AddRenderObj(sid id, Image* image);
     void DeleteRenderObj(sid id);
     
-    void AddRenderObj(GameObject *obj);
-    void DeleteRenderObj(GameObject *obj);
+//    void AddRenderObj(GameObject *obj);
+//    void DeleteRenderObj(GameObject *obj);
     
     void Render();
     SDL_Renderer* GetRenderer();

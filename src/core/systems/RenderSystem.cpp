@@ -20,49 +20,25 @@ void RenderSystem::Render()
     SDL_SetRenderDrawColor(_render, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(_render);
     
-    for(auto obj : _objects)
+    for(auto obj : _renderObjects)
     {
-        auto image = obj.first->GetImage();
-        if(!image)
-            continue;
-            
-        if(obj.first->GetTransform().IsDirty() || image->IsDirty())
+        if(obj.second.transform->IsDirty() || obj.second.image->IsDirty())
         {
-            auto t = obj.first->GetTransform();
-            auto p = t.GetPosition();
+            auto p = obj.second.transform->GetPosition();
 
-            obj.second.x = p.x;
-            obj.second.y = p.y;
-            obj.second.w = image->GetRect().w * t.GetScale().x;
-            obj.second.h = image->GetRect().h * t.GetScale().y;
+            obj.second.dst->x = p.x;
+            obj.second.dst->y = p.y;
+            obj.second.dst->w = obj.second.image->GetRect().w * obj.second.transform->GetScale().x;
+            obj.second.dst->h = obj.second.image->GetRect().h * obj.second.transform->GetScale().y;
             
-            t.ClearDirty();
-            image->ClearDirty();
+            obj.second.transform->ClearDirty();
+            obj.second.image->ClearDirty();
         }
-
-        SDL_RenderCopy(_render, image->GetTexture(), &image->GetRect(), &obj.second);
+        
+        SDL_RenderCopy(_render, obj.second.image->GetTexture(), &obj.second.image->GetRect(), obj.second.dst);
     }
     
     SDL_RenderPresent(_render);
-}
-
-void RenderSystem::AddRenderObj(GameObject *obj)
-{
-    Transform &t = obj->GetTransform();
-    
-    SDL_Rect dst;
-    
-    dst.x = t.GetPosition().x;
-    dst.y = t.GetPosition().y;
-
-    auto image = obj->GetImage();
-    if(image)
-    {
-        dst.w = image->GetRect().w * t.GetScale().x;
-        dst.y = image->GetRect().h * t.GetScale().y;
-    }
-
-    _objects[obj] = dst;    
 }
 
 void RenderSystem::AddRenderObj(sid id, Image* image)
@@ -70,18 +46,26 @@ void RenderSystem::AddRenderObj(sid id, Image* image)
     RenderObject obj;
     obj.transform = GetComponent<Transform>(id);
     obj.image = image;
+    obj.dst = new SDL_Rect();
+    
+    obj.dst->x = obj.transform->GetPosition().x;
+    obj.dst->y = obj.transform->GetPosition().y;
+    
+    obj.dst->w = image->GetRect().w * obj.transform->GetScale().x;
+    obj.dst->y = image->GetRect().h * obj.transform->GetScale().y;
     
     _renderObjects[id] = obj;
 }
 
-void RenderSystem::DeleteRenderObj(GameObject *obj)
-{
-    _objects.erase(obj);
-}
-
 void RenderSystem::DeleteRenderObj(sid id)
 {
+    auto o = _renderObjects.find(id);
+    
+    if(o == _renderObjects.end())
+        return;
+    
     _renderObjects.erase(id);
+    delete o->second.dst;
 }
 
 SDL_Renderer* RenderSystem::GetRenderer()

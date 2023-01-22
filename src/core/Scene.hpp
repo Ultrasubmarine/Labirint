@@ -26,12 +26,8 @@ struct SceneSettings
 };
 class Scene
 {
-    
-
-    
     std::list<GameObject*> _allObjects; // structure?? vector, set?
-    
-    std::list<GameObject*> _tick;
+
 public:
     
     void Load(std::list<GameObject*> &obj, SceneSettings settings);
@@ -39,8 +35,6 @@ public:
     
     void OnDeleteObject(GameObject* obj);
     void OnCreateObject(GameObject* obj);
-    
-    void Tick(float delta_tick);
         
     //test
     void TestLoadObject();

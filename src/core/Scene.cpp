@@ -15,10 +15,10 @@ void Scene::OnDeleteObject(GameObject* obj)
     
     auto settings = obj->GetSettings();
     
-    if(settings & SCENE_OBJ_TICK)
-    {
-        _tick.remove(obj);
-    }
+//    if(settings & SCENE_OBJ_TICK)
+//    {
+//      //  _tick.remove(obj);
+//    }
 };
 
 void Scene::OnCreateObject(GameObject *obj)
@@ -27,19 +27,19 @@ void Scene::OnCreateObject(GameObject *obj)
     
     auto settings = obj->GetSettings();
     
-    if(settings & SCENE_OBJ_TICK)
-    {
-        _tick.push_back(obj);
-    }
+//    if(settings & SCENE_OBJ_TICK)
+//    {
+//        _tick.push_back(obj);
+//    }
 };
 
-void Scene::Tick(float delta_tick)
-{
-    for(auto t: _tick)
-    {
-        t->Tick(delta_tick);
-    }
-}
+//void Scene::Tick(float delta_tick)
+//{
+//    for(auto t: _tick)
+//    {
+//        t->Tick(delta_tick);
+//    }
+//}
 
 void Scene::TestLoadObject()
 {

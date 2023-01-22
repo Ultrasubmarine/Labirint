@@ -6,3 +6,8 @@
 //
 
 #include "GameObjectHUB.hpp"
+
+GameObjectHUB::GameObjectHUB(sid id): _id(id)
+{
+    
+};

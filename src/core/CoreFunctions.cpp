@@ -9,21 +9,21 @@
 #include "Game.hpp"
 #include <map>
 
-void DeleteSceneObject(GameObject* obj)
-{
-    Game::Instance().scene->OnDeleteObject(obj);
-    if(obj->GetSettings() & SCENE_OBJ_RENDER)
-        Game::Instance().renderSystem->DeleteRenderObj(obj);
-    
-    delete obj;
-};
+//void DeleteSceneObject(GameObject* obj)
+//{
+//    Game::Instance().scene->OnDeleteObject(obj);
+//    if(obj->GetSettings() & SCENE_OBJ_RENDER)
+//        Game::Instance().renderSystem->DeleteRenderObj(obj);
+//    
+//    delete obj;
+//};
 
 
 GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index> &components)
 {
 
     auto id = SID(uniqueName);
-    GameObjectHUB* hub = new GameObjectHUB();
+    GameObjectHUB* hub = new GameObjectHUB(id);
     
     Component* c;
     
@@ -36,7 +36,9 @@ GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index>
        }
        else if(comp_type == type_index(typeid(Image)) )
        {
-           c = CreateComponent<Image>(id);
+           auto im = CreateComponent<Image>(id);
+           Game::Instance().renderSystem->AddRenderObj(id, im);
+           c = im;
            //Game::Instance().
        }
        else

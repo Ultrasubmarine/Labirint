@@ -54,7 +54,7 @@ void Game::Render()
 
 void Game::Tick(float delta_tick)
 {
-    scene->Tick(delta_tick);
+   // scene->Tick(delta_tick);
 }
 
 void Game::Input()
