@@ -10,6 +10,7 @@
 #include "CoreFunctions.hpp"
 #include "Game.hpp"
 #include "Frog.hpp"
+#include "MovingScript.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
     if(Game::Instance().Init())
         return -1;
 
-    std::list<type_index> components = {type_index(typeid(Transform)),type_index(typeid(Image)) };
+    std::list<type_index> components = {type_index(typeid(Transform)),type_index(typeid(Image)), type_index(typeid(MovingScript)) };
     auto hub = CreateGameObjectHUB("fri", components);
     
     auto image = GetComponent<Image>(hub->_id);

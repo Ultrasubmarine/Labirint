@@ -35,7 +35,6 @@ public:
     RenderSystem *renderSystem;
     Scene* scene;
     TextureLoader *textureLoader;
-    ComponentSystem *componentSystem;
     
     ~Game();
     

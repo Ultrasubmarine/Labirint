@@ -7,7 +7,7 @@
 
 #include "Game.hpp"
 #include <SDL2/SDL.h>
-
+#include "MovingScript.hpp"
 
 
 int Game::Init()
@@ -54,6 +54,11 @@ void Game::Render()
 
 void Game::Tick(float delta_tick)
 {
+    for( auto c : ComponentSystem::_allComponents[type_index(typeid(MovingScript))])
+    {
+        (static_cast<Script*>(c.second))->Update();
+      //  (static_cast<Script>(c))->Update();
+    }
    // scene->Tick(delta_tick);
 }
 

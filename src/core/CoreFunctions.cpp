@@ -9,6 +9,7 @@
 #include "Game.hpp"
 #include <map>
 
+#include "MovingScript.hpp"
 //void DeleteSceneObject(GameObject* obj)
 //{
 //    Game::Instance().scene->OnDeleteObject(obj);
@@ -26,7 +27,7 @@ GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index>
     GameObjectHUB* hub = new GameObjectHUB(id);
     
     Component* c;
-    
+    Script* s;
     for(auto comp_type: components)
     {
        
@@ -39,7 +40,12 @@ GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index>
            auto im = CreateComponent<Image>(id);
            Game::Instance().renderSystem->AddRenderObj(id, im);
            c = im;
-           //Game::Instance().
+       }
+       else if(comp_type == type_index(typeid(MovingScript)) )
+       {
+           s = CreateComponent<MovingScript>(id);
+       
+           c = s;
        }
        else
        {
@@ -47,7 +53,16 @@ GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index>
            continue;
        }
         
+  
+        //add in upd list
+//        if(s)
+//        {
+//            if(&s->Script::Update == &Script::Update)
+//                ComponentSystem::_updateableComponents.push_front(comp_type);
+//            s = nullptr;
+//        }
         hub->components[comp_type] = c;
+      
     }
     
     Game::Instance().scene->_allObjHubs[id] = hub;
