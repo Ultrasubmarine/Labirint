@@ -12,6 +12,11 @@
 #include <SDL2/SDL.h>
 
 #include "Component.hpp"
+#include "ComponentFactory.hpp"
+
+#include <typeinfo>
+#include <typeindex>
+
 
 class Image : public Component
 {
@@ -35,6 +40,13 @@ public:
     
     bool IsDirty();
     void ClearDirty();
+    
+    
+    static Component* CreateComponent() { return new Image(666);};
+private:
+    static bool c_register;
+    
 };
+
 
 #endif /* Image_hpp */

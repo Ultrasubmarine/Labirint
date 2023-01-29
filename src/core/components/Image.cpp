@@ -61,3 +61,5 @@ void Image::ClearDirty()
 {
     _dirty = false;
 }
+
+bool Image::c_register = ComponentFactory::Register(type_index(typeid(Image)), &Image::CreateComponent);
