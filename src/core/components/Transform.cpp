@@ -6,7 +6,9 @@
 //
 
 #include "Transform.hpp"
+#include "ComponentFactory.hpp"
 
+REGISTER_COMPONENT_CPP(Transform)
 
 const Point2D<int>& Transform::GetPosition()
 {

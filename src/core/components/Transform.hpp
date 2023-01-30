@@ -11,14 +11,12 @@
 #include <stdio.h>
 #include "PositionPrimitives.hpp"
 #include "Component.hpp"
-//template<typename T>
-//struct Point2D
-//{
-//    T x;
-//    T y;
-//};
+
+
 class Transform : public Component
 {
+    REGISTER_COMPONENT_H(Transform)
+    
     Point2D<int> position; // world
     Point2D<float> scale;
 

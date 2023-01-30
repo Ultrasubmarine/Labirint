@@ -8,14 +8,12 @@
 #ifndef Render_hpp
 #define Render_hpp
 
-#include <stdio.h>
-#include <set>
-
-#include "GameObject.hpp"
-#include <map>
-#include <set>
-
 #include <SDL2/SDL.h>
+#include <stdio.h>
+#include <map>
+
+#include "Transform.hpp"
+#include "Image.hpp"
 
 
 struct RenderObject
@@ -38,9 +36,6 @@ public:
     
     void AddRenderObj(sid id, Image* image);
     void DeleteRenderObj(sid id);
-    
-//    void AddRenderObj(GameObject *obj);
-//    void DeleteRenderObj(GameObject *obj);
     
     void Render();
     SDL_Renderer* GetRenderer();

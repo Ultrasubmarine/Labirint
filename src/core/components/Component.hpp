@@ -29,7 +29,7 @@ protected:
     sid _sid;
     
 public:
-    // TODO delete default constructor Component();
+    Component() = delete;
     Component(sid id);
     const sid GetSid();
 };

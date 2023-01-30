@@ -8,30 +8,30 @@
 #include "Scene.hpp"
 //#include "GetPath.h"
 
-void Scene::OnDeleteObject(GameObject* obj)
-{
-    //delete children
-    _allObjects.remove(obj);
-    
-    auto settings = obj->GetSettings();
-    
-//    if(settings & SCENE_OBJ_TICK)
-//    {
-//      //  _tick.remove(obj);
-//    }
-};
-
-void Scene::OnCreateObject(GameObject *obj)
-{
-    _allObjects.push_back(obj);
-    
-    auto settings = obj->GetSettings();
-    
-//    if(settings & SCENE_OBJ_TICK)
-//    {
-//        _tick.push_back(obj);
-//    }
-};
+//void Scene::OnDeleteObject(GameObject* obj)
+//{
+//    //delete children
+//    _allObjects.remove(obj);
+//    
+//    auto settings = obj->GetSettings();
+//    
+////    if(settings & SCENE_OBJ_TICK)
+////    {
+////      //  _tick.remove(obj);
+////    }
+//};
+//
+//void Scene::OnCreateObject(GameObject *obj)
+//{
+//    _allObjects.push_back(obj);
+//    
+//    auto settings = obj->GetSettings();
+//    
+////    if(settings & SCENE_OBJ_TICK)
+////    {
+////        _tick.push_back(obj);
+////    }
+//};
 
 //void Scene::Tick(float delta_tick)
 //{
@@ -60,9 +60,9 @@ void Scene::TestLoadObject()
     
 };
 
-GameObject* Scene::GetFirstObj()
-{
-    return _allObjects.front();
-}
+//GameObject* Scene::GetFirstObj()
+//{
+//    return _allObjects.front();
+//}
 
 

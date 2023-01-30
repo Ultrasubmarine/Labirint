@@ -9,7 +9,6 @@
 
 #include "CoreFunctions.hpp"
 #include "Game.hpp"
-#include "Frog.hpp"
 #include "MovingScript.hpp"
 #include "ComponentFactory.hpp"
 

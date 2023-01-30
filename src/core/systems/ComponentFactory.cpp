@@ -18,10 +18,13 @@ std::map<type_index, ComponentFactory::TCreateComponent>& ComponentFactory::TheM
 bool ComponentFactory::Register(type_index typeID, TCreateComponent createFunc)
 {
     if(TheMap().find(typeID) != TheMap().end())
+    {
+        std::cout<< "register fail: "<<typeID.name()<<endl;
         return false;
-
+    }
+    
+    std::cout<< "register sucsess: "<<typeID.name()<<endl;
     TheMap()[typeID] = createFunc;
-    std::cout<< "register sucsess"<<endl;
     return true;
 }
 

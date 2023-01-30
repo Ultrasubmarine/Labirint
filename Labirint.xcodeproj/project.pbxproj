@@ -14,7 +14,6 @@
 		022337AB2969A7020080A8BA /* CoreFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337A92969A2640080A8BA /* CoreFunctions.cpp */; };
 		022337AE2969C80B0080A8BA /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337AC2969C7B60080A8BA /* TextureLoader.cpp */; };
 		022337B62969D4720080A8BA /* GetPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337B42969D4720080A8BA /* GetPath.cpp */; };
-		022337BC296AFA210080A8BA /* Frog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337BA296AFA210080A8BA /* Frog.cpp */; };
 		022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5C297D73F50056C438 /* ComponentSystem.cpp */; };
 		022A7C61297DB1FA0056C438 /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5F297DB1FA0056C438 /* Script.cpp */; };
 		0238C44A298692BA00147FF6 /* ComponentFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0238C448298692BA00147FF6 /* ComponentFactory.cpp */; };
@@ -30,7 +29,6 @@
 		02C6F788295215DA0032572C /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02C6F782295215DA0032572C /* Game.cpp */; };
 		02C6F789295215DA0032572C /* game_labirint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02C6F785295215DA0032572C /* game_labirint.cpp */; };
 		02C6F78C295224C90032572C /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02C6F78A295224C90032572C /* Scene.cpp */; };
-		02C6F78F29524B030032572C /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02C6F78D29524B030032572C /* GameObject.cpp */; };
 		02F9FB8B29854CA900EE52D9 /* MovingScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F9FB8929854CA900EE52D9 /* MovingScript.cpp */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +47,6 @@
 		022337AD2969C7B60080A8BA /* TextureLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureLoader.hpp; sourceTree = "<group>"; };
 		022337B42969D4720080A8BA /* GetPath.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GetPath.cpp; sourceTree = SOURCE_ROOT; };
 		022337B52969D4720080A8BA /* GetPath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GetPath.hpp; sourceTree = SOURCE_ROOT; };
-		022337BA296AFA210080A8BA /* Frog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Frog.cpp; sourceTree = SOURCE_ROOT; };
-		022337BB296AFA210080A8BA /* Frog.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Frog.hpp; sourceTree = SOURCE_ROOT; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		022A7C5F297DB1FA0056C438 /* Script.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Script.cpp; sourceTree = "<group>"; };
@@ -77,8 +73,6 @@
 		02C6F785295215DA0032572C /* game_labirint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game_labirint.cpp; sourceTree = "<group>"; };
 		02C6F78A295224C90032572C /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		02C6F78B295224C90032572C /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
-		02C6F78D29524B030032572C /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
-		02C6F78E29524B030032572C /* GameObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
 		02C6F79129524E260032572C /* PositionPrimitives.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PositionPrimitives.hpp; sourceTree = "<group>"; };
 		02C6F7A92954B5710032572C /* CallBack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CallBack.hpp; sourceTree = "<group>"; };
 		02F9FB8929854CA900EE52D9 /* MovingScript.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MovingScript.cpp; sourceTree = "<group>"; };
@@ -183,8 +177,6 @@
 				029A61B2297876BD00206D64 /* components */,
 				029A61AD2978540300206D64 /* StringID.cpp */,
 				029A61AE2978540300206D64 /* StringID.hpp */,
-				02C6F78D29524B030032572C /* GameObject.cpp */,
-				02C6F78E29524B030032572C /* GameObject.hpp */,
 				02C6F78B295224C90032572C /* Scene.hpp */,
 				02C6F78A295224C90032572C /* Scene.cpp */,
 				02C6F77E295215DA0032572C /* Game.hpp */,
@@ -203,8 +195,6 @@
 		02C6F783295215DA0032572C /* labirint */ = {
 			isa = PBXGroup;
 			children = (
-				022337BA296AFA210080A8BA /* Frog.cpp */,
-				022337BB296AFA210080A8BA /* Frog.hpp */,
 				02C6F784295215DA0032572C /* game_labirint.h */,
 				02C6F785295215DA0032572C /* game_labirint.cpp */,
 				02F9FB8929854CA900EE52D9 /* MovingScript.cpp */,
@@ -299,7 +289,6 @@
 				022337AB2969A7020080A8BA /* CoreFunctions.cpp in Sources */,
 				022337A829699D130080A8BA /* Singleton.cpp in Sources */,
 				029A61AF2978540300206D64 /* StringID.cpp in Sources */,
-				022337BC296AFA210080A8BA /* Frog.cpp in Sources */,
 				022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */,
 				022337A529689BAE0080A8BA /* Transform.cpp in Sources */,
 				029A61C62979D6BF00206D64 /* GameObjectHUB.cpp in Sources */,
@@ -309,7 +298,6 @@
 				02C6F789295215DA0032572C /* game_labirint.cpp in Sources */,
 				026DF92B29520C0C00D8E415 /* main.cpp in Sources */,
 				022337B62969D4720080A8BA /* GetPath.cpp in Sources */,
-				02C6F78F29524B030032572C /* GameObject.cpp in Sources */,
 				0238C44A298692BA00147FF6 /* ComponentFactory.cpp in Sources */,
 				02F9FB8B29854CA900EE52D9 /* MovingScript.cpp in Sources */,
 				022A7C61297DB1FA0056C438 /* Script.cpp in Sources */,

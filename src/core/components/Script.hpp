@@ -13,6 +13,7 @@
 
 class Script : public Component
 {
+    REGISTER_COMPONENT_H(Script)
 public:
     Script(sid id): Component(id){};
     virtual void Init() {};

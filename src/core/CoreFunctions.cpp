@@ -7,53 +7,30 @@
 
 #include "CoreFunctions.hpp"
 #include "Game.hpp"
+#include <iostream>
 #include <map>
 
-#include "MovingScript.hpp"
-//void DeleteSceneObject(GameObject* obj)
-//{
-//    Game::Instance().scene->OnDeleteObject(obj);
-//    if(obj->GetSettings() & SCENE_OBJ_RENDER)
-//        Game::Instance().renderSystem->DeleteRenderObj(obj);
-//    
-//    delete obj;
-//};
+#include "ComponentFactory.hpp"
 
 
 GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index> &components)
 {
-
     auto id = SID(uniqueName);
     GameObjectHUB* hub = new GameObjectHUB(id);
     
     Component* c;
-    Script* s;
-    for(auto comp_type: components)
+    for(auto type_id: components)
     {
        
-       if(comp_type == type_index(typeid(Transform)) )
+        c = ComponentFactory::Create(type_id, id);
+        ComponentSystem::AddComponent(type_id ,id, c);
+        
+       if(type_id == type_index(typeid(Image)) )
        {
-           c = CreateComponent<Transform>(id);
-       }
-       else if(comp_type == type_index(typeid(Image)) )
-       {
-           auto im = CreateComponent<Image>(id);
+           auto im = static_cast<Image*>(c);
            Game::Instance().renderSystem->AddRenderObj(id, im);
-           c = im;
-       }
-       else if(comp_type == type_index(typeid(MovingScript)) )
-       {
-           s = CreateComponent<MovingScript>(id);
-       
-           c = s;
-       }
-       else
-       {
-           cout<<"error: component type didn't found";
-           continue;
        }
         
-  
         //add in upd list
 //        if(s)
 //        {
@@ -61,7 +38,7 @@ GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index>
 //                ComponentSystem::_updateableComponents.push_front(comp_type);
 //            s = nullptr;
 //        }
-        hub->components[comp_type] = c;
+        hub->components[type_id] = c;
       
     }
     

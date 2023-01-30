@@ -13,7 +13,6 @@
 
 #include <functional>   // std::bind
 
-#include "GameObject.hpp"
 #include "GameObjectHUB.hpp"
 #include "RenderSystem.hpp"
 
@@ -26,20 +25,20 @@ struct SceneSettings
 };
 class Scene
 {
-    std::list<GameObject*> _allObjects; // structure?? vector, set?
+  //  std::list<GameObject*> _allObjects; // structure?? vector, set?
 
 public:
     
-    void Load(std::list<GameObject*> &obj, SceneSettings settings);
-    
-    
-    void OnDeleteObject(GameObject* obj);
-    void OnCreateObject(GameObject* obj);
+//    void Load(std::list<GameObject*> &obj, SceneSettings settings);
+//    
+//    
+//    void OnDeleteObject(GameObject* obj);
+//    void OnCreateObject(GameObject* obj);
         
     //test
     void TestLoadObject();
     
-    GameObject* GetFirstObj();
+   // GameObject* GetFirstObj();
     
     std::map<sid, GameObjectHUB*> _allObjHubs;
 };

@@ -7,16 +7,12 @@
 
 #include "Image.hpp"
 
+#include "ComponentFactory.hpp"
 
 REGISTER_COMPONENT_CPP(Image)
 
 Image::Image(sid id) : Component(id)
 {    
-}
-
-Image::Image(SDL_Texture *texture, SDL_Rect *srcrect):  Component(666), _texture{NULL} 
-{
-    SetTexture(texture, srcrect);
 }
 
 Image::~Image()
@@ -63,5 +59,3 @@ void Image::ClearDirty()
 {
     _dirty = false;
 }
-
-//bool Image::c_register = ComponentFactory::Register(type_index(typeid(Image)), &Image::CreateComponent);

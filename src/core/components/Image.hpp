@@ -12,7 +12,6 @@
 #include <SDL2/SDL.h>
 
 #include "Component.hpp"
-#include "ComponentFactory.hpp"
 
 #include <typeinfo>
 #include <typeindex>
@@ -32,7 +31,6 @@ private:
 public:
     
     Image(sid id);
-    Image(SDL_Texture *texture, SDL_Rect* srcrect = NULL);
     ~Image();
     
     void SetTexture(SDL_Texture *texture, SDL_Rect* srcrect = NULL);

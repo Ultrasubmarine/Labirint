@@ -14,6 +14,7 @@
 
 class MovingScript : public Script
 {
+    REGISTER_COMPONENT_H(MovingScript)
     
     int x_max = 300, x_min = 5;
     int direct = 1;
