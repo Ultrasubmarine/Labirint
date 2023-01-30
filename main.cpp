@@ -16,7 +16,8 @@
 int main(int argc, char *argv[])
 {
  
-    Component* t = ComponentFactory::Create(type_index(typeid(Image)));
+    const char* uniqueName ="fff";
+    Component* t = ComponentFactory::Create(type_index(typeid(Image)), SID(uniqueName));
     if(Game::Instance().Init())
         return -1;
 

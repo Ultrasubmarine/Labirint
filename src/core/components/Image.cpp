@@ -8,6 +8,8 @@
 #include "Image.hpp"
 
 
+REGISTER_COMPONENT_CPP(Image)
+
 Image::Image(sid id) : Component(id)
 {    
 }
@@ -62,4 +64,4 @@ void Image::ClearDirty()
     _dirty = false;
 }
 
-bool Image::c_register = ComponentFactory::Register(type_index(typeid(Image)), &Image::CreateComponent);
+//bool Image::c_register = ComponentFactory::Register(type_index(typeid(Image)), &Image::CreateComponent);

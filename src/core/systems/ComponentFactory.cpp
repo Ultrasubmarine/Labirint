@@ -25,11 +25,11 @@ bool ComponentFactory::Register(type_index typeID, TCreateComponent createFunc)
     return true;
 }
 
-Component* ComponentFactory::Create(type_index typeID)
+Component* ComponentFactory::Create(type_index typeID, sid id)
 {
     if(auto it = TheMap().find(typeID); it != TheMap().end())
     {
-        return it->second();
+        return it->second(id);
     }
     return nullptr;
 }

@@ -20,6 +20,8 @@
 
 class Image : public Component
 {
+    REGISTER_COMPONENT_H(Image)
+    
 private:
     SDL_Texture* _texture;
     SDL_Rect _srcrect;
@@ -40,12 +42,6 @@ public:
     
     bool IsDirty();
     void ClearDirty();
-    
-    
-    static Component* CreateComponent() { return new Image(666);};
-private:
-    static bool c_register;
-    
 };
 
 
