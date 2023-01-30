@@ -9,23 +9,25 @@
 #include <iostream>
 
 
-map<type_index, ComponentFactory::TCreateComponent> ComponentFactory::_factoryMethods;
+std::map<type_index, ComponentFactory::TCreateComponent>& ComponentFactory::TheMap()
+{
+    static map<type_index, ComponentFactory::TCreateComponent> factoryMethods{};
+    return factoryMethods;
+}
 
 bool ComponentFactory::Register(type_index typeID, TCreateComponent createFunc)
 {
-    static std::map<type_index, TCreateComponent> _factoryMethods;
-    
-    if(_factoryMethods.find(typeID) != _factoryMethods.end())
+    if(TheMap().find(typeID) != TheMap().end())
         return false;
-   
-    _factoryMethods[typeID] = createFunc;
+
+    TheMap()[typeID] = createFunc;
     std::cout<< "register sucsess"<<endl;
     return true;
 }
 
 Component* ComponentFactory::Create(type_index typeID)
 {
-    if(auto it = _factoryMethods.find(typeID); it != _factoryMethods.end())
+    if(auto it = TheMap().find(typeID); it != TheMap().end())
     {
         return it->second();
     }

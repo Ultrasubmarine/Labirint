@@ -18,11 +18,12 @@ class ComponentFactory
 public:
     using TCreateComponent = Component*(*)();
 
+    ComponentFactory() = delete;
     static bool Register(type_index typeID, TCreateComponent createFunc);
     static Component* Create(type_index typeID);
     
 private:
-    static std::map<type_index, TCreateComponent> _factoryMethods;
+    static std::map<type_index, TCreateComponent>& TheMap();
 };
 
 #endif /* ComponentFactory_hpp */

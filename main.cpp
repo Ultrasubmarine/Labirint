@@ -11,10 +11,12 @@
 #include "Game.hpp"
 #include "Frog.hpp"
 #include "MovingScript.hpp"
+#include "ComponentFactory.hpp"
 
 int main(int argc, char *argv[])
 {
  
+    Component* t = ComponentFactory::Create(type_index(typeid(Image)));
     if(Game::Instance().Init())
         return -1;
 
