@@ -54,8 +54,8 @@ void Transform::ClearDirty()
     _dirty = false;
 }
 
-Transform::Transform(sid id) : Component(id), scale{1.0f,1.0f}
-{
-    
-}
+//Transform::Transform(sid id) : Component(id), scale{1.0f,1.0f}
+//{
+//
+//}
 

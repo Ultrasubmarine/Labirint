@@ -30,7 +30,7 @@ private:
     bool _dirty;
 public:
     
-    Image(sid id);
+    Image(sid id) :Component(id){};
     ~Image();
     
     void SetTexture(SDL_Texture *texture, SDL_Rect* srcrect = NULL);

@@ -11,15 +11,16 @@
 
 #include "ComponentFactory.hpp"
 REGISTER_COMPONENT_CPP(MovingScript)
-
-MovingScript::MovingScript(sid id): Script(id)
-{
-    Init();
-}
+//
+//MovingScript::MovingScript(sid id): Script(id)
+//{
+//    Init();
+//}
 
 void MovingScript::Init()
 {
     t = GetComponent<Transform>(this->GetSid());
+    t->SetScale(1, 1);
 }
 
 void MovingScript::Update()

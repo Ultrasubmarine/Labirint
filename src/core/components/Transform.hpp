@@ -23,7 +23,7 @@ class Transform : public Component
     bool _dirty;
 public:
     
-    Transform(sid id);
+    Transform(sid id): Component(id){};
     const Point2D<int>& GetPosition();
     const Point2D<float>& GetScale();
     

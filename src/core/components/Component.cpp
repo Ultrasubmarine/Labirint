@@ -12,7 +12,6 @@ Component::Component(sid id)
     _sid = id;
 }
 
-
 const sid Component::GetSid()
 {
     return _sid;

@@ -11,9 +11,6 @@
 
 REGISTER_COMPONENT_CPP(Image)
 
-Image::Image(sid id) : Component(id)
-{    
-}
 
 Image::~Image()
 {
