@@ -14,11 +14,8 @@
 
 class MovingScript : public Script
 {
- //   COMPONENT_BODY(MovingScript, Script)
-    
-    REGISTER_COMPONENT_H(MovingScript)
-    SET_COMPONENT_CONSTRUCTORS(MovingScript, Script)
- //   COMPONENT_BODY2(MovingScript, Script)
+    COMPONENT_BODY(MovingScript, Script)
+ 
     
     int x_max = 300, x_min = 5;
     int direct = 1;

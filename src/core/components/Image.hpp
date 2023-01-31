@@ -19,7 +19,7 @@
 
 class Image : public Component
 {
-    REGISTER_COMPONENT_H(Image)
+    COMPONENT_BODY(Image)
     
 private:
     SDL_Texture* _texture;
@@ -30,7 +30,6 @@ private:
     bool _dirty;
 public:
     
-    Image(sid id) :Component(id){};
     ~Image();
     
     void SetTexture(SDL_Texture *texture, SDL_Rect* srcrect = NULL);

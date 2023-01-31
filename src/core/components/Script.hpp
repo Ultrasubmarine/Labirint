@@ -12,12 +12,8 @@
 #include "Component.hpp"
 
 class Script : public Component
-{
-    
-   // COMPONENT_BODY(Script)
-    REGISTER_COMPONENT_H(Script)
-   // COMPONENT_BODY(Script)
-    SET_COMPONENT_CONSTRUCTORS(Script, Component)
+{    
+    COMPONENT_BODY(Script)
 public:
   //  Script(sid id): Component(id){};
     void Init() override{} ;

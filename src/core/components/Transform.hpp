@@ -15,7 +15,7 @@
 
 class Transform : public Component
 {
-    REGISTER_COMPONENT_H(Transform)
+    COMPONENT_BODY(Transform)
     
     Point2D<int> position; // world
     Point2D<float> scale;
@@ -23,7 +23,6 @@ class Transform : public Component
     bool _dirty;
 public:
     
-    Transform(sid id): Component(id){};
     const Point2D<int>& GetPosition();
     const Point2D<float>& GetScale();
     
