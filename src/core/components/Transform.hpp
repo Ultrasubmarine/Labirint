@@ -21,6 +21,8 @@ class Transform : public Component
     Point2D<float> scale;
 
     bool _dirty;
+protected:
+    void Init() override;
 public:
     
     const Point2D<int>& GetPosition();

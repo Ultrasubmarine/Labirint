@@ -11,11 +11,6 @@
 
 REGISTER_COMPONENT_CPP(Image)
 
-
-Image::~Image()
-{
-}
-
 void Image::SetTexture(SDL_Texture *texture, SDL_Rect* srcrect)
 {
     _texture = texture;

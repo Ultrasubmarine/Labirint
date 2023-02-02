@@ -15,7 +15,6 @@ class Script : public Component
 {    
     COMPONENT_BODY(Script)
 public:
-  //  Script(sid id): Component(id){};
     void Init() override{} ;
     virtual void Update() {};
 };

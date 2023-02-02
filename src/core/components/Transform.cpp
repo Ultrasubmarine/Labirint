@@ -54,8 +54,10 @@ void Transform::ClearDirty()
     _dirty = false;
 }
 
-//Transform::Transform(sid id) : Component(id), scale{1.0f,1.0f}
-//{
-//
-//}
+void Transform::Init()
+{
+    scale.x = 1;
+    scale.y = 1;
+}
+
 

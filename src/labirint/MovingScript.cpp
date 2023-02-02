@@ -20,7 +20,6 @@ REGISTER_COMPONENT_CPP(MovingScript)
 void MovingScript::Init()
 {
     t = GetComponent<Transform>(this->GetSid());
-    t->SetScale(1, 1);
 }
 
 void MovingScript::Update()

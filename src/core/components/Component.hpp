@@ -11,9 +11,9 @@
 #include <stdio.h>
 #include "StringID.hpp"
 
+#define DEFAULT_COMPONENT_VALUE Component
 
 // combine all macro for component body
-#define DEFAULT_COMPONENT_VALUE Component
 #define COMPONENT_BODY(CLASS_NAME, ...) \
 REGISTER_COMPONENT_H(CLASS_NAME)\
 SET_COMPONENT_CONSTRUCTORS(CLASS_NAME __VA_OPT__(, __VA_ARGS__), DEFAULT_COMPONENT_VALUE)
@@ -47,13 +47,14 @@ class Component
 protected:
     sid _sid;
     
+    // Use instead of constructor for initialization
+    virtual void Init(){};
 public:
     Component() = delete;
     Component(sid id);
     const sid GetSid();
     
-    // Use instead of constructor for initialization
-    virtual void Init(){};
+
 };
 
 #endif /* Component_hpp */

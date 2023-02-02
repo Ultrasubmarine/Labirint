@@ -16,13 +16,11 @@ class MovingScript : public Script
 {
     COMPONENT_BODY(MovingScript, Script)
  
-    
     int x_max = 300, x_min = 5;
     int direct = 1;
     
     Transform *t;
 public:
- //   MovingScript(sid id);
     void Init() override;
     void Update() override;
 };

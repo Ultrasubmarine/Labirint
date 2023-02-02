@@ -31,15 +31,7 @@ GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index>
            Game::Instance().renderSystem->AddRenderObj(id, im);
        }
         
-        //add in upd list
-//        if(s)
-//        {
-//            if(&s->Script::Update == &Script::Update)
-//                ComponentSystem::_updateableComponents.push_front(comp_type);
-//            s = nullptr;
-//        }
-        hub->components[type_id] = c;
-      
+        hub->components[type_id] = c;      
     }
     
     Game::Instance().scene->_allObjHubs[id] = hub;

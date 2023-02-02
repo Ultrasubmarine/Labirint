@@ -30,8 +30,6 @@ private:
     bool _dirty;
 public:
     
-    ~Image();
-    
     void SetTexture(SDL_Texture *texture, SDL_Rect* srcrect = NULL);
     
     SDL_Texture* GetTexture();
