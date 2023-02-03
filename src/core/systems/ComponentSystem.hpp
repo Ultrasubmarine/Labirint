@@ -31,32 +31,15 @@ public:
     
     static list<type_index> _updateableComponents;
     
-   static void AddComponent(type_index typeID, sid ObjectID, Component*);
-   static void DeleteComponent(type_index typeID, sid objectID);
+//    static Component* CreateComponent(type_index typeID, sid ObjectID);
     
-   static Component* GetComponentBySid(type_index typeID, sid objectID);
+   static void AddComponent(type_index typeID, sid ObjectID, Component* c);
     
-};
-
-template <typename T>
-concept ScriptObject = std::is_base_of_v<Script, T>;
-
-template<ScriptObject T>
-void CreateScript()
-{
-    if( (&T::Update) != &Script::Update)
-    {
-        ComponentSystem::_updateableComponents.push_front( type_index(typeid(T)) );
-    }
-}
-
-
-template<typename T>
-T* CreateComponent(sid objectID)
-{   
-    T* c = new T(objectID);
-    ComponentSystem::AddComponent(type_index(typeid(T)),objectID, c);
-    return c;
+    static void DeleteComponent(type_index typeID, sid objectID);
+    static void DeleteComponent(Component* c, sid objectID);
+    
+    static Component* GetComponentBySid(type_index typeID, sid objectID);
+    
 };
 
 
@@ -64,11 +47,6 @@ T* CreateComponent(sid objectID)
 ////template<typename T>
 void DeleteComponent(type_index typeID, sid objectID);
 
-template<typename T>
-T* GetComponent(sid objectID)
-{
-    auto c = ComponentSystem::GetComponentBySid(type_index(typeid(T)),objectID);
-    return static_cast<T*>(c);
-};
+
 
 #endif /* ComponentSystem_hpp */

@@ -6,9 +6,17 @@
 //
 
 #include "ComponentSystem.hpp"
+#include "ComponentFactory.hpp"
 
 
 map<type_index, map<sid,Component*>> ComponentSystem::_allComponents = {};
+
+//Component* ComponentSystem::CreateComponent(type_index typeID, sid ObjectID)
+//{
+//    Component *c = ComponentFactory::Create(component_id, object_id);
+//    ComponentSystem::AddComponent(component_id ,object_id, c);
+//    return nullptr;
+//}
 
 void ComponentSystem::AddComponent(type_index typeID, sid objectID, Component *component)
 {    
@@ -34,7 +42,4 @@ Component* ComponentSystem::GetComponentBySid(type_index typeID, sid objectID)
     return nullptr;
 }
 
-void DeleteComponent(type_index typeID, sid objectID)
-{
-    ComponentSystem::DeleteComponent(typeID, objectID);
-}
+

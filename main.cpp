@@ -23,10 +23,10 @@ int main(int argc, char *argv[])
     std::list<type_index> components = {type_index(typeid(Transform)),type_index(typeid(Image)), type_index(typeid(MovingScript)) };
     auto hub = CreateGameObjectHUB("fri", components);
     
-    auto image = GetComponent<Image>(hub->_id);
+    auto image = GetComponent<Image>(hub->GetSid());
     image->SetTexture(Game::Instance().textureLoader->GetTexture("frog"));
     
-    auto transform = GetComponent<Transform>(hub->_id);
+    auto transform = GetComponent<Transform>(hub->GetSid());
     transform->SetPosition(5,50);
    // hub->components
     

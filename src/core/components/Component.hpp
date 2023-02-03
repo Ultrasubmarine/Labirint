@@ -53,8 +53,6 @@ public:
     Component() = delete;
     Component(sid id);
     const sid GetSid();
-    
-
 };
 
 #endif /* Component_hpp */

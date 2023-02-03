@@ -16,7 +16,7 @@ REGISTER_COMPONENT_CPP(MovingScript)
 //{
 //    Init();
 //}
-
+#include "CoreFunctions.hpp"
 void MovingScript::Init()
 {
     t = GetComponent<Transform>(this->GetSid());

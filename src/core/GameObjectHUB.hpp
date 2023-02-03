@@ -17,11 +17,21 @@
 
 struct GameObjectHUB
 {
-public:
-    
-    GameObjectHUB(sid id);
+protected:
+    std::map<std::type_index, Component*> _components;
     const sid _id;
-    std::map<std::type_index, Component*> components;
+    
+public:
+    GameObjectHUB(sid id);
+
+    sid GetSid();
+    
+    bool HasComponent(std::type_index component_id);
+    Component* GetComponent(std::type_index component_id);
+    const std::map<std::type_index, Component*>& GetAllComponents();
+    
+    void AddComponent(std::type_index component_id, Component* component);
+    void RemoveComponent(std::type_index component_id, Component* component);
 };
 
 #endif /* GameObjectHUB_hpp */

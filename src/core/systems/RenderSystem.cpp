@@ -9,6 +9,7 @@
 #include "RenderSystem.hpp"
 #include "Transform.hpp"
 
+#include "CoreFunctions.hpp"
 RenderSystem::RenderSystem(SDL_Window *window)
 {
     _render = SDL_CreateRenderer(window, -1,
