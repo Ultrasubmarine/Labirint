@@ -9,9 +9,9 @@
 #include <iostream>
 
 
-std::map<type_index, ComponentFactory::TCreateComponent>& ComponentFactory::TheMap()
+std::map<type_index, TCreateComponent>& ComponentFactory::TheMap()
 {
-    static map<type_index, ComponentFactory::TCreateComponent> factoryMethods{};
+    static map<type_index, TCreateComponent> factoryMethods{};
     return factoryMethods;
 }
 

@@ -10,7 +10,6 @@
 #include <iostream>
 #include <map>
 
-#include "ComponentFactory.hpp"
 
 
 GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index> &components)
@@ -33,8 +32,8 @@ Component* CreateComponent(type_index component_id, GameObjectHUB* hub)
         return nullptr;
     
     sid object_id = hub->GetSid();
-    Component *c = ComponentFactory::Create(component_id, object_id);
-    ComponentSystem::AddComponent(component_id ,object_id, c);
+    
+    Component *c = ComponentSystem::CreateComponent(component_id, object_id);
     
     if(component_id == type_index(typeid(Image)) )
     {
@@ -48,7 +47,6 @@ Component* CreateComponent(type_index component_id, GameObjectHUB* hub)
 void DeleteSceneObjectHUB(sid objID)
 {
     auto obj = Game::Instance().scene->_allObjHubs.find(objID);
-    
     if(obj == Game::Instance().scene->_allObjHubs.end())
         return;
     

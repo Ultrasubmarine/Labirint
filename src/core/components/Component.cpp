@@ -6,6 +6,7 @@
 //
 
 #include "Component.hpp"
+#include "ComponentFactory.hpp"
 
 Component::Component(sid id)
 {
@@ -18,4 +19,7 @@ const sid Component::GetSid()
 };
 
 
-
+bool RegisterComponent(type_index componentID, TCreateComponent createFunc)
+{
+    return ComponentFactory::Register(componentID, createFunc);
+}

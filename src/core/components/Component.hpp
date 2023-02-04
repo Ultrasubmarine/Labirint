@@ -9,7 +9,10 @@
 #define Component_hpp
 
 #include <stdio.h>
+#include <typeinfo>
+#include <typeindex>
 #include "StringID.hpp"
+using namespace std;
 
 #define DEFAULT_COMPONENT_VALUE Component
 
@@ -38,8 +41,10 @@ private: \
 
 
 #define REGISTER_COMPONENT_CPP(CLASS_NAME) \
-bool CLASS_NAME::c_register = ComponentFactory::Register(type_index(typeid(CLASS_NAME)), &CLASS_NAME::CreateComponent);
+bool CLASS_NAME::c_register = RegisterComponent(type_index(typeid(CLASS_NAME)), &CLASS_NAME::CreateComponent);
+//ComponentFactory::Register(type_index(typeid(CLASS_NAME)), &CLASS_NAME::CreateComponent);
 //------------------------------------------
+
 
 
 class Component
@@ -54,5 +59,8 @@ public:
     Component(sid id);
     const sid GetSid();
 };
+
+using TCreateComponent = Component*(*)(sid);
+bool RegisterComponent(type_index componentID, TCreateComponent createFunc);
 
 #endif /* Component_hpp */

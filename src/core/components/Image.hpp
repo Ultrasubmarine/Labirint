@@ -13,10 +13,6 @@
 
 #include "Component.hpp"
 
-#include <typeinfo>
-#include <typeindex>
-
-
 class Image : public Component
 {
     COMPONENT_BODY(Image)

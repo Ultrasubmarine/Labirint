@@ -11,34 +11,50 @@
 
 map<type_index, map<sid,Component*>> ComponentSystem::_allComponents = {};
 
-//Component* ComponentSystem::CreateComponent(type_index typeID, sid ObjectID)
-//{
-//    Component *c = ComponentFactory::Create(component_id, object_id);
-//    ComponentSystem::AddComponent(component_id ,object_id, c);
-//    return nullptr;
+bool ComponentSystem::IsComponentExist(type_index componentID, sid objectID)
+{
+    if(auto it = _allComponents.find(componentID); it != _allComponents.end())
+    {
+        if(it->second.find(objectID) != it->second.end())
+             return true;
+    }
+    return false;
+}
+
+Component* ComponentSystem::CreateComponent(type_index componentID, sid objectID)
+{
+    if(IsComponentExist(componentID, objectID))
+        return nullptr;
+  
+    Component *c = ComponentFactory::Create(componentID, objectID);
+    _allComponents[componentID][objectID] = c;
+    return c;
+}
+
+//void ComponentSystem::AddComponent(type_index typeID, sid objectID, Component *component)
+//{    
+//    _allComponents[typeID][objectID] = component;
 //}
 
-void ComponentSystem::AddComponent(type_index typeID, sid objectID, Component *component)
-{    
-    _allComponents[typeID][objectID] = component;
-}
-
-void ComponentSystem::DeleteComponent(type_index typeID, sid objectID)
+void ComponentSystem::DeleteComponent(type_index componentID, sid objectID)
 {
-    
-    auto c = _allComponents[typeID].find(objectID);
-    if(c == _allComponents[typeID].end())
+    if(auto it = _allComponents.find(componentID); it != _allComponents.end())
     {
-        _allComponents[typeID].erase(objectID);
-        delete c->second;
-    } 
+        if(auto obj = it->second.find(objectID); obj != it->second.end())
+        {
+            it->second.erase(obj);
+            delete obj->second;
+        }
+    }
 }
 
-Component* ComponentSystem::GetComponentBySid(type_index typeID, sid objectID)
+Component* ComponentSystem::GetComponentBySid(type_index componentID, sid objectID)
 {
-    auto c = _allComponents[typeID].find(objectID);
-    if( c != _allComponents[typeID].end())
-        return c->second;
+    if(auto it = _allComponents.find(componentID); it != _allComponents.end())
+    {
+        if(auto it_c = it->second.find(objectID); it_c != it->second.end())
+            return it_c->second;
+    }
     return nullptr;
 }
 

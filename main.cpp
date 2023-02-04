@@ -10,13 +10,11 @@
 #include "CoreFunctions.hpp"
 #include "Game.hpp"
 #include "MovingScript.hpp"
-#include "ComponentFactory.hpp"
 
 int main(int argc, char *argv[])
 {
  
     const char* uniqueName ="fff";
-    Component* t = ComponentFactory::Create(type_index(typeid(Image)), SID(uniqueName));
     if(Game::Instance().Init())
         return -1;
 

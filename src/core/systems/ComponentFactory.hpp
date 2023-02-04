@@ -10,14 +10,14 @@
 
 #include <stdio.h>
 #include <map>
+
 #include "Component.hpp"
-#include "ComponentSystem.hpp"
+
+using namespace std;
 
 class ComponentFactory
 {
 public:
-    using TCreateComponent = Component*(*)(sid);
-
     ComponentFactory() = delete;
     
     static bool Register(type_index typeID, TCreateComponent createFunc);

@@ -9,39 +9,31 @@
 #define ComponentSystem_hpp
 
 #include <stdio.h>
-#include <map>
 #include <list>
-#include <string>
-#include <typeinfo>
-#include <typeindex>
+#include <map>
 
 
-#include "StringID.hpp"
 #include "Component.hpp"
-#include "Script.hpp"
-//#include "Game.hpp"
 
 using namespace std;
 
 
 class ComponentSystem
 {
+
 public:
+
     static map<type_index, map<sid,Component*>> _allComponents;
-    
     static list<type_index> _updateableComponents;
     
-//    static Component* CreateComponent(type_index typeID, sid ObjectID);
+    static Component* CreateComponent(type_index componentID, sid objectID);
     
-   static void AddComponent(type_index typeID, sid ObjectID, Component* c);
-    
-    static void DeleteComponent(type_index typeID, sid objectID);
+    static void DeleteComponent(type_index componentID, sid objectID);
     static void DeleteComponent(Component* c, sid objectID);
     
-    static Component* GetComponentBySid(type_index typeID, sid objectID);
-    
+    static Component* GetComponentBySid(type_index componentID, sid objectID);
+    static bool IsComponentExist(type_index componentID, sid objectID);
 };
-
 
 
 ////template<typename T>
