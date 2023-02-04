@@ -23,3 +23,8 @@ bool RegisterComponent(type_index componentID, TCreateComponent createFunc)
 {
     return ComponentFactory::Register(componentID, createFunc);
 }
+
+const TypeInfo* Component::GetTypeInfo()
+{
+    return _typeInfo;
+}

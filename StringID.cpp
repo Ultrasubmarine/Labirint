@@ -6,7 +6,6 @@
 //
 
 #include "StringID.hpp"
-
 #include <zlib.h>
 
 

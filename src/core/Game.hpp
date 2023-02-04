@@ -14,7 +14,6 @@
 #include "Singleton.hpp"
 #include "Scene.hpp"
 #include "RenderSystem.hpp"
-#include "ComponentSystem.hpp"
 
 #include "TextureLoader.hpp"
 

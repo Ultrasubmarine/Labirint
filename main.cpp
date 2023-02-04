@@ -10,11 +10,15 @@
 #include "CoreFunctions.hpp"
 #include "Game.hpp"
 #include "MovingScript.hpp"
+//#include "TypeInfo.hpp"
 
 int main(int argc, char *argv[])
 {
  
+  //  REGISTER_TYPE(Image)
+    
     const char* uniqueName ="fff";
+    
     if(Game::Instance().Init())
         return -1;
 
@@ -26,15 +30,6 @@ int main(int argc, char *argv[])
     
     auto transform = GetComponent<Transform>(hub->GetSid());
     transform->SetPosition(5,50);
-   // hub->components
-    
-//    auto frog = CreateSceneObject<GameObject>("frog",SCENE_OBJ_RENDER);
-//    frog->SetImageTexture(Game::Instance().textureLoader->GetTexture("frog"));
-//    frog->GetTransform().SetPosition(5,50);
-//
-//    Frog* reallyFrog =  CreateSceneObject<Frog>("realFrog",SCENE_OBJ_RENDER_TICK);
-//    reallyFrog->SetImageTexture(Game::Instance().textureLoader->GetTexture("frog"));
-//    reallyFrog->GetTransform().SetPosition(100,50);
 
     Game::Instance().Loop();
     return 0;

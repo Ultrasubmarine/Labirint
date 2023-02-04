@@ -31,11 +31,6 @@ Component* ComponentSystem::CreateComponent(type_index componentID, sid objectID
     return c;
 }
 
-//void ComponentSystem::AddComponent(type_index typeID, sid objectID, Component *component)
-//{    
-//    _allComponents[typeID][objectID] = component;
-//}
-
 void ComponentSystem::DeleteComponent(type_index componentID, sid objectID)
 {
     if(auto it = _allComponents.find(componentID); it != _allComponents.end())
@@ -59,3 +54,12 @@ Component* ComponentSystem::GetComponentBySid(type_index componentID, sid object
 }
 
 
+#include "MovingScript.hpp"
+void ComponentSystem::UpdateComponents()
+{
+    for( auto c : _allComponents[type_index(typeid(MovingScript))])
+    {
+        (static_cast<Script*>(c.second))->Update();
+      //  (static_cast<Script>(c))->Update();
+    }
+}

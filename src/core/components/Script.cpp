@@ -7,4 +7,4 @@
 
 #include "Script.hpp"
 
-REGISTER_COMPONENT_CPP(Script)
+COMPONENT_CPP(Script)

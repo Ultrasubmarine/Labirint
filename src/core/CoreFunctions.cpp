@@ -25,6 +25,20 @@ GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index>
     return hub;
 };
 
+void DeleteSceneObjectHUB(sid objID)
+{
+    auto obj = Game::Instance().scene->_allObjHubs.find(objID);
+    if(obj == Game::Instance().scene->_allObjHubs.end())
+        return;
+    
+    for(auto comp : obj->second->GetAllComponents())
+    {
+        DeleteComponent(comp.first, objID);
+    }
+    
+    Game::Instance().scene->_allObjHubs.erase(obj);
+    delete obj->second;
+};
 
 Component* CreateComponent(type_index component_id, GameObjectHUB* hub)
 {
@@ -43,21 +57,6 @@ Component* CreateComponent(type_index component_id, GameObjectHUB* hub)
     hub->AddComponent(component_id, c);
     return c;
 }
-
-void DeleteSceneObjectHUB(sid objID)
-{
-    auto obj = Game::Instance().scene->_allObjHubs.find(objID);
-    if(obj == Game::Instance().scene->_allObjHubs.end())
-        return;
-    
-    for(auto comp : obj->second->GetAllComponents())
-    {
-        DeleteComponent(comp.first, objID);
-    }
-    
-    Game::Instance().scene->_allObjHubs.erase(obj);
-    delete obj->second;
-};
 
 void DeleteComponent(type_index typeID, sid objectID)
 {

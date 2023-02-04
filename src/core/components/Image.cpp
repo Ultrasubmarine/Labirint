@@ -7,7 +7,7 @@
 
 #include "Image.hpp"
 
-REGISTER_COMPONENT_CPP(Image)
+COMPONENT_CPP(Image)
 
 void Image::SetTexture(SDL_Texture *texture, SDL_Rect* srcrect)
 {

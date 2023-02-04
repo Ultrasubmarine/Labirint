@@ -6,11 +6,8 @@
 //
 
 #include "MovingScript.hpp"
-#include "ComponentSystem.hpp"
 
-
-#include "ComponentFactory.hpp"
-REGISTER_COMPONENT_CPP(MovingScript)
+COMPONENT_CPP(MovingScript)
 //
 //MovingScript::MovingScript(sid id): Script(id)
 //{

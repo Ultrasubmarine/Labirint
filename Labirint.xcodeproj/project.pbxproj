@@ -14,6 +14,7 @@
 		022337AB2969A7020080A8BA /* CoreFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337A92969A2640080A8BA /* CoreFunctions.cpp */; };
 		022337AE2969C80B0080A8BA /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337AC2969C7B60080A8BA /* TextureLoader.cpp */; };
 		022337B62969D4720080A8BA /* GetPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337B42969D4720080A8BA /* GetPath.cpp */; };
+		0225D2A4298EBE130015919D /* TypeInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2A2298EB4650015919D /* TypeInfo.cpp */; };
 		022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5C297D73F50056C438 /* ComponentSystem.cpp */; };
 		022A7C61297DB1FA0056C438 /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5F297DB1FA0056C438 /* Script.cpp */; };
 		0238C44A298692BA00147FF6 /* ComponentFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0238C448298692BA00147FF6 /* ComponentFactory.cpp */; };
@@ -47,6 +48,8 @@
 		022337AD2969C7B60080A8BA /* TextureLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureLoader.hpp; sourceTree = "<group>"; };
 		022337B42969D4720080A8BA /* GetPath.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GetPath.cpp; sourceTree = SOURCE_ROOT; };
 		022337B52969D4720080A8BA /* GetPath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GetPath.hpp; sourceTree = SOURCE_ROOT; };
+		0225D2A2298EB4650015919D /* TypeInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TypeInfo.cpp; sourceTree = "<group>"; };
+		0225D2A3298EB4650015919D /* TypeInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeInfo.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		022A7C5F297DB1FA0056C438 /* Script.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Script.cpp; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				022337AD2969C7B60080A8BA /* TextureLoader.hpp */,
 				029A61C42979D6BF00206D64 /* GameObjectHUB.cpp */,
 				029A61C52979D6BF00206D64 /* GameObjectHUB.hpp */,
+				0225D2A2298EB4650015919D /* TypeInfo.cpp */,
+				0225D2A3298EB4650015919D /* TypeInfo.hpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0225D2A4298EBE130015919D /* TypeInfo.cpp in Sources */,
 				029A61BD2979A6D600206D64 /* Component.cpp in Sources */,
 				022337AE2969C80B0080A8BA /* TextureLoader.cpp in Sources */,
 				022337AB2969A7020080A8BA /* CoreFunctions.cpp in Sources */,

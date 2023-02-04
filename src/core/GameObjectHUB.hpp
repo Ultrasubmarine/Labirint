@@ -9,11 +9,10 @@
 #define GameObjectHUB_hpp
 
 #include <stdio.h>
+#include <map>
 
 #include "Component.hpp"
 
-#include <map>
-#include <typeindex>
 
 struct GameObjectHUB
 {
