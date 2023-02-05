@@ -28,8 +28,8 @@ SET_COMPONENT_CONSTRUCTORS(CLASS_NAME __VA_OPT__(, __VA_ARGS__), DEFAULT_COMPONE
 
 //combine all macro to component cpp
 #define COMPONENT_CPP(CLASS_NAME) \
-bool CLASS_NAME::c_register_type = REGISTER_TYPE(CLASS_NAME); \
-bool CLASS_NAME::c_register_in_factory = REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME) ;
+bool CLASS_NAME::c_register = REGISTER_TYPE(CLASS_NAME) && \
+                              REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME);
 //------------------------------------------
 
 
@@ -37,7 +37,9 @@ bool CLASS_NAME::c_register_in_factory = REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS
 #define SET_COMPONENT_CONSTRUCTORS(CLASS_NAME, BASE_CLASS_COMPONENT, ...) \
 public: \
     CLASS_NAME() = delete;\
-    CLASS_NAME(sid id): BASE_CLASS_COMPONENT(id){ Init();}; \
+    CLASS_NAME(sid id): BASE_CLASS_COMPONENT(id){ Init(); \
+_typeInfo = TYPE_INFO(CLASS_NAME); \
+}; \
 private:
 //------------------------------------------
 
@@ -47,8 +49,7 @@ private:
 public: \
     static Component* CreateComponent(sid id) { return  new CLASS_NAME(id);} \
 private: \
-    static bool c_register_type; \
-    static bool c_register_in_factory;
+    static bool c_register;
 
 #define REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME) RegisterComponent( #CLASS_NAME, &CLASS_NAME::CreateComponent)
 //------------------------------------------
@@ -58,7 +59,7 @@ class Component
 {
 protected:
     sid _sid;
-    TypeInfo* _typeInfo;
+    const TypeInfo* _typeInfo;
     
     // Use instead of constructor for initialization
     virtual void Init(){};
@@ -70,7 +71,8 @@ public:
     const TypeInfo* GetTypeInfo();
 };
 
+
 using TCreateComponent = Component*(*)(sid);
-bool RegisterComponent(const char *componentInfo, TCreateComponent createFunc);
+bool RegisterComponent(const char *componentName, TCreateComponent createFunc);
 
 #endif /* Component_hpp */

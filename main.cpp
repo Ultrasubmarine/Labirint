@@ -13,21 +13,18 @@
 
 int main(int argc, char *argv[])
 {
- 
- 
-    
     const char* uniqueName ="fff";
     
     if(Game::Instance().Init())
         return -1;
 
-    std::list<TypeId> components = {TYPE_ID(Transform),TYPE_ID(Image)};//, TYPE_ID(MovingScript)};
+    std::list<TypeId> components = {TYPE_ID(Transform),TYPE_ID(Image) , TYPE_ID(MovingScript)};
     auto hub = CreateGameObjectHUB("fri", components);
     
-    auto image = GetComponent2<Image>(hub->GetSid(),TYPE_ID(Image));
+    auto image = GET_COMPONENT(Image, hub->GetSid());
     image->SetTexture(Game::Instance().textureLoader->GetTexture("frog"));
-//    
-    auto transform = GetComponent2<Transform>(hub->GetSid(), TYPE_ID(Transform));
+   
+    auto transform = GetComponent<Transform>(hub->GetSid(), TYPE_ID(Transform));
     transform->SetPosition(5,50);
 
     Game::Instance().Loop();

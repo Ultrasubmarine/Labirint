@@ -14,6 +14,8 @@
 #include "ComponentSystem.hpp"
 #include "GameObjectHUB.hpp"
 
+#define GET_COMPONENT(CLASS_NAME, sid) GetComponent<CLASS_NAME>(sid, TYPE_ID(CLASS_NAME))
+
 
 GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<TypeId> &components);
 void DeleteSceneObjectHUB(sid objID);
@@ -21,18 +23,13 @@ void DeleteSceneObjectHUB(sid objID);
 Component* CreateComponent(TypeId component_id, GameObjectHUB* hub);
 void DeleteComponent(TypeId component_id, sid objectID);
 
-template<typename T>
-T* GetComponent(sid objectID)
-{
-    auto id = TYPE_ID(T);
-    auto c = ComponentSystem::GetComponentBySid(id,objectID);
-    return static_cast<T*>(c);
-};
 
-template<typename T>
-T* GetComponent2(sid objectID, TypeId componentID)
+template <typename T>
+concept InheritorComponent = std::is_base_of_v<Component, T>;
+
+template<InheritorComponent T>
+T* GetComponent(sid objectID, TypeId componentID)
 {
-   
     auto c = ComponentSystem::GetComponentBySid(componentID,objectID);
     return static_cast<T*>(c);
 };

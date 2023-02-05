@@ -60,6 +60,5 @@ void ComponentSystem::UpdateComponents()
     for( auto c : _allComponents[TYPE_ID(MovingScript)])
     {
         (static_cast<Script*>(c.second))->Update();
-      //  (static_cast<Script>(c))->Update();
     }
 }

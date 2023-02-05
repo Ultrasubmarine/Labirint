@@ -11,7 +11,6 @@
 #include <map>
 
 
-
 GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<TypeId> &components)
 {
     auto id = SID(uniqueName);
@@ -49,6 +48,8 @@ Component* CreateComponent(TypeId component_id, GameObjectHUB* hub)
     
     Component *c = ComponentSystem::CreateComponent(component_id, object_id);
     
+    
+    //TODO hide it somewhere 
     if(component_id == TYPE_ID(Image) )
     {
        auto im = static_cast<Image*>(c);

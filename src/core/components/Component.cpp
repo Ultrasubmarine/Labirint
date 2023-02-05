@@ -19,12 +19,12 @@ const sid Component::GetSid()
 };
 
 
-bool RegisterComponent(const char *componentInfo, TCreateComponent createFunc)
+bool RegisterComponent(const char *componentName, TCreateComponent createFunc)
 {
-    if(componentInfo == nullptr)
+    if(componentName == nullptr)
         return false;
     
-    auto ti = TypeInfoStorage::GetTypeInfo(componentInfo);
+    auto ti = TypeInfoStorage::GetTypeInfo(componentName);
     return ComponentFactory::Register( *ti, createFunc);
 }
 
