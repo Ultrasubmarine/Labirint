@@ -16,7 +16,7 @@ COMPONENT_CPP(MovingScript)
 #include "CoreFunctions.hpp"
 void MovingScript::Init()
 {
-    t = GetComponent<Transform>(this->GetSid());
+    t = GetComponent2<Transform>(this->GetSid(), TYPE_ID(Transform));
 }
 
 void MovingScript::Update()

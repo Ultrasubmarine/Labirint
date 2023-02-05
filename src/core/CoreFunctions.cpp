@@ -12,7 +12,7 @@
 
 
 
-GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<type_index> &components)
+GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<TypeId> &components)
 {
     auto id = SID(uniqueName);
     GameObjectHUB* hub = new GameObjectHUB(id);
@@ -40,7 +40,7 @@ void DeleteSceneObjectHUB(sid objID)
     delete obj->second;
 };
 
-Component* CreateComponent(type_index component_id, GameObjectHUB* hub)
+Component* CreateComponent(TypeId component_id, GameObjectHUB* hub)
 {
     if(hub->HasComponent(component_id))
         return nullptr;
@@ -49,7 +49,7 @@ Component* CreateComponent(type_index component_id, GameObjectHUB* hub)
     
     Component *c = ComponentSystem::CreateComponent(component_id, object_id);
     
-    if(component_id == type_index(typeid(Image)) )
+    if(component_id == TYPE_ID(Image) )
     {
        auto im = static_cast<Image*>(c);
        Game::Instance().renderSystem->AddRenderObj(object_id, im);
@@ -58,7 +58,7 @@ Component* CreateComponent(type_index component_id, GameObjectHUB* hub)
     return c;
 }
 
-void DeleteComponent(type_index typeID, sid objectID)
+void DeleteComponent(TypeId typeID, sid objectID)
 {
     ComponentSystem::DeleteComponent(typeID, objectID);
 }

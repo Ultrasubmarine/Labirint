@@ -17,14 +17,14 @@ sid GameObjectHUB::GetSid()
     return _id;
 }
 
-bool GameObjectHUB::HasComponent(std::type_index component_id)
+bool GameObjectHUB::HasComponent(TypeId component_id)
 {
     if(_components.find(component_id) != _components.end() )
         return true;
     return false;
 }
 
-Component* GameObjectHUB::GetComponent(std::type_index component_id)
+Component* GameObjectHUB::GetComponent(TypeId component_id)
 {
     if(auto it =_components.find(component_id); it!= _components.end() )
     {
@@ -33,17 +33,17 @@ Component* GameObjectHUB::GetComponent(std::type_index component_id)
     return nullptr;
 }
 
-const std::map<std::type_index, Component*>& GameObjectHUB::GetAllComponents()
+const std::map<TypeId, Component*>& GameObjectHUB::GetAllComponents()
 {
     return _components;
 }
 
-void GameObjectHUB::AddComponent(std::type_index component_id, Component* component)
+void GameObjectHUB::AddComponent(TypeId component_id, Component* component)
 {
     _components[component_id] = component;
 }
 
-void GameObjectHUB::RemoveComponent(std::type_index component_id, Component* component)
+void GameObjectHUB::RemoveComponent(TypeId component_id, Component* component)
 {
     _components.erase(component_id);
 }

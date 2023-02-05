@@ -9,9 +9,9 @@
 #include "ComponentFactory.hpp"
 
 
-map<type_index, map<sid,Component*>> ComponentSystem::_allComponents = {};
+map<TypeId, map<sid,Component*>> ComponentSystem::_allComponents = {};
 
-bool ComponentSystem::IsComponentExist(type_index componentID, sid objectID)
+bool ComponentSystem::IsComponentExist(TypeId componentID, sid objectID)
 {
     if(auto it = _allComponents.find(componentID); it != _allComponents.end())
     {
@@ -21,7 +21,7 @@ bool ComponentSystem::IsComponentExist(type_index componentID, sid objectID)
     return false;
 }
 
-Component* ComponentSystem::CreateComponent(type_index componentID, sid objectID)
+Component* ComponentSystem::CreateComponent(TypeId componentID, sid objectID)
 {
     if(IsComponentExist(componentID, objectID))
         return nullptr;
@@ -31,7 +31,7 @@ Component* ComponentSystem::CreateComponent(type_index componentID, sid objectID
     return c;
 }
 
-void ComponentSystem::DeleteComponent(type_index componentID, sid objectID)
+void ComponentSystem::DeleteComponent(TypeId componentID, sid objectID)
 {
     if(auto it = _allComponents.find(componentID); it != _allComponents.end())
     {
@@ -43,7 +43,7 @@ void ComponentSystem::DeleteComponent(type_index componentID, sid objectID)
     }
 }
 
-Component* ComponentSystem::GetComponentBySid(type_index componentID, sid objectID)
+Component* ComponentSystem::GetComponentBySid(TypeId componentID, sid objectID)
 {
     if(auto it = _allComponents.find(componentID); it != _allComponents.end())
     {
@@ -57,7 +57,7 @@ Component* ComponentSystem::GetComponentBySid(type_index componentID, sid object
 #include "MovingScript.hpp"
 void ComponentSystem::UpdateComponents()
 {
-    for( auto c : _allComponents[type_index(typeid(MovingScript))])
+    for( auto c : _allComponents[TYPE_ID(MovingScript)])
     {
         (static_cast<Script*>(c.second))->Update();
       //  (static_cast<Script>(c))->Update();

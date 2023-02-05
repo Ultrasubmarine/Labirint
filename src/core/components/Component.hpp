@@ -28,7 +28,8 @@ SET_COMPONENT_CONSTRUCTORS(CLASS_NAME __VA_OPT__(, __VA_ARGS__), DEFAULT_COMPONE
 
 //combine all macro to component cpp
 #define COMPONENT_CPP(CLASS_NAME) \
-bool CLASS_NAME::c_register = REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME) && REGISTER_TYPE(CLASS_NAME);
+bool CLASS_NAME::c_register_type = REGISTER_TYPE(CLASS_NAME); \
+bool CLASS_NAME::c_register_in_factory = REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME) ;
 //------------------------------------------
 
 
@@ -46,12 +47,13 @@ private:
 public: \
     static Component* CreateComponent(sid id) { return  new CLASS_NAME(id);} \
 private: \
-    static bool c_register;
+    static bool c_register_type; \
+    static bool c_register_in_factory;
 
-#define REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME) RegisterComponent(type_index(typeid(CLASS_NAME)), &CLASS_NAME::CreateComponent)
+#define REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME) RegisterComponent( #CLASS_NAME, &CLASS_NAME::CreateComponent)
 //------------------------------------------
 
- 
+
 class Component
 {
 protected:
@@ -69,6 +71,6 @@ public:
 };
 
 using TCreateComponent = Component*(*)(sid);
-bool RegisterComponent(type_index componentID, TCreateComponent createFunc);
+bool RegisterComponent(const char *componentInfo, TCreateComponent createFunc);
 
 #endif /* Component_hpp */

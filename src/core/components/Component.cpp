@@ -19,9 +19,13 @@ const sid Component::GetSid()
 };
 
 
-bool RegisterComponent(type_index componentID, TCreateComponent createFunc)
+bool RegisterComponent(const char *componentInfo, TCreateComponent createFunc)
 {
-    return ComponentFactory::Register(componentID, createFunc);
+    if(componentInfo == nullptr)
+        return false;
+    
+    auto ti = TypeInfoStorage::GetTypeInfo(componentInfo);
+    return ComponentFactory::Register( *ti, createFunc);
 }
 
 const TypeInfo* Component::GetTypeInfo()

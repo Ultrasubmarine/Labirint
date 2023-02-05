@@ -18,15 +18,15 @@ using namespace std;
 
 class ComponentSystem
 {
-    static map<type_index, map<sid,Component*>> _allComponents;
-    static list<type_index> _updateableComponents;
+    static map<TypeId, map<sid,Component*>> _allComponents;
+    static list<TypeId> _updateableComponents;
     
 public:
-    static Component* CreateComponent(type_index componentID, sid objectID);
-    static void DeleteComponent(type_index componentID, sid objectID);
+    static Component* CreateComponent(TypeId componentID, sid objectID);
+    static void DeleteComponent(TypeId componentID, sid objectID);
     
-    static Component* GetComponentBySid(type_index componentID, sid objectID);
-    static bool IsComponentExist(type_index componentID, sid objectID);
+    static Component* GetComponentBySid(TypeId componentID, sid objectID);
+    static bool IsComponentExist(TypeId componentID, sid objectID);
     
     static void UpdateComponents();
 };

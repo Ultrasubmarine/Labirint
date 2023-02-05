@@ -17,7 +17,7 @@
 struct GameObjectHUB
 {
 protected:
-    std::map<std::type_index, Component*> _components;
+    std::map<TypeId, Component*> _components;
     const sid _id;
     
 public:
@@ -25,12 +25,12 @@ public:
 
     sid GetSid();
     
-    bool HasComponent(std::type_index component_id);
-    Component* GetComponent(std::type_index component_id);
-    const std::map<std::type_index, Component*>& GetAllComponents();
+    bool HasComponent(TypeId component_id);
+    Component* GetComponent(TypeId component_id);
+    const std::map<TypeId, Component*>& GetAllComponents();
     
-    void AddComponent(std::type_index component_id, Component* component);
-    void RemoveComponent(std::type_index component_id, Component* component);
+    void AddComponent(TypeId component_id, Component* component);
+    void RemoveComponent(TypeId component_id, Component* component);
 };
 
 #endif /* GameObjectHUB_hpp */

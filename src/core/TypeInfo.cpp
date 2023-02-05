@@ -21,7 +21,6 @@ bool TypeInfoStorage::Register(const char* className)
     return true;
 }
 
-
 const TypeInfo* TypeInfoStorage::GetTypeInfo(const char* className)
 {
     if(auto it = _types.find(className); it != _types.end())
@@ -31,7 +30,7 @@ const TypeInfo* TypeInfoStorage::GetTypeInfo(const char* className)
     return nullptr;
 }
 
-typeId TypeInfoStorage::GetTypeID(const char* className)
+TypeId TypeInfoStorage::GetTypeID(const char* className)
 {
     if(auto it = _types.find(className); it != _types.end())
     {

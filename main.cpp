@@ -10,25 +10,24 @@
 #include "CoreFunctions.hpp"
 #include "Game.hpp"
 #include "MovingScript.hpp"
-//#include "TypeInfo.hpp"
 
 int main(int argc, char *argv[])
 {
  
-  //  REGISTER_TYPE(Image)
+ 
     
     const char* uniqueName ="fff";
     
     if(Game::Instance().Init())
         return -1;
 
-    std::list<type_index> components = {type_index(typeid(Transform)),type_index(typeid(Image)), type_index(typeid(MovingScript)) };
+    std::list<TypeId> components = {TYPE_ID(Transform),TYPE_ID(Image)};//, TYPE_ID(MovingScript)};
     auto hub = CreateGameObjectHUB("fri", components);
     
-    auto image = GetComponent<Image>(hub->GetSid());
+    auto image = GetComponent2<Image>(hub->GetSid(),TYPE_ID(Image));
     image->SetTexture(Game::Instance().textureLoader->GetTexture("frog"));
-    
-    auto transform = GetComponent<Transform>(hub->GetSid());
+//    
+    auto transform = GetComponent2<Transform>(hub->GetSid(), TYPE_ID(Transform));
     transform->SetPosition(5,50);
 
     Game::Instance().Loop();

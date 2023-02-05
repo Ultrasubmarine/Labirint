@@ -20,11 +20,11 @@ class ComponentFactory
 public:
     ComponentFactory() = delete;
     
-    static bool Register(type_index typeID, TCreateComponent createFunc);
-    static Component* Create(type_index typeID, sid id);
+    static bool Register(const TypeInfo &typeInfo, TCreateComponent createFunc);
+    static Component* Create(TypeId typeID, sid id);
     
 private:
-    static std::map<type_index, TCreateComponent>& TheMap();
+    static std::map<TypeId, TCreateComponent>& TheMap();
 };
 
 #endif /* ComponentFactory_hpp */

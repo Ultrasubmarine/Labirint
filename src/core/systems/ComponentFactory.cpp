@@ -9,26 +9,26 @@
 #include <iostream>
 
 
-std::map<type_index, TCreateComponent>& ComponentFactory::TheMap()
+std::map<TypeId, TCreateComponent>& ComponentFactory::TheMap()
 {
-    static map<type_index, TCreateComponent> factoryMethods{};
+    static map<TypeId, TCreateComponent> factoryMethods{};
     return factoryMethods;
 }
 
-bool ComponentFactory::Register(type_index typeID, TCreateComponent createFunc)
+bool ComponentFactory::Register(const TypeInfo &typeInfo, TCreateComponent createFunc)
 {
-    if(TheMap().find(typeID) != TheMap().end())
+    if(TheMap().find(typeInfo.id) != TheMap().end())
     {
-        std::cout<< "register fail: "<<typeID.name()<<endl;
+        std::cout<< "register fail: "<<typeInfo.name<<endl;
         return false;
     }
     
-    std::cout<< "register sucsess: "<<typeID.name()<<endl;
-    TheMap()[typeID] = createFunc;
+    std::cout<< "register sucsess: "<<typeInfo.name<<endl;
+    TheMap()[typeInfo.id] = createFunc;
     return true;
 }
 
-Component* ComponentFactory::Create(type_index typeID, sid id)
+Component* ComponentFactory::Create(TypeId typeID, sid id)
 {
     if(auto it = TheMap().find(typeID); it != TheMap().end())
     {
