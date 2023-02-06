@@ -27,15 +27,15 @@ class RenderSystem
 {
     SDL_Renderer *_render;
     
-    std::map<sid, RenderObject> _renderObjects;
+    std::map<SId, RenderObject> _renderObjects;
     
 public:
     
     RenderSystem(SDL_Window *window);
     ~RenderSystem();
     
-    void AddRenderObj(sid id, Image* image);
-    void DeleteRenderObj(sid id);
+    void AddRenderObj(SId id, Image* image);
+    void DeleteRenderObj(SId id);
     
     void Render();
     SDL_Renderer* GetRenderer();

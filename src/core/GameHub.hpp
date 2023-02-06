@@ -14,16 +14,16 @@
 #include "Component.hpp"
 
 
-struct GameObjectHUB
+struct GameHub
 {
 protected:
     std::map<TypeId, Component*> _components;
-    const sid _id;
+    const SId _id;
     
 public:
-    GameObjectHUB(sid id);
+    GameHub(SId id);
 
-    sid GetSid();
+    SId GetSid();
     
     bool HasComponent(TypeId component_id);
     Component* GetComponent(TypeId component_id);

@@ -5,26 +5,26 @@
 //  Created by marina porkhunova on 19.01.2023.
 //
 
-#include "GameObjectHUB.hpp"
+#include "GameHub.hpp"
 
-GameObjectHUB::GameObjectHUB(sid id): _id(id)
+GameHub::GameHub(SId id): _id(id)
 {
     
 };
 
-sid GameObjectHUB::GetSid()
+SId GameHub::GetSid()
 {
     return _id;
 }
 
-bool GameObjectHUB::HasComponent(TypeId component_id)
+bool GameHub::HasComponent(TypeId component_id)
 {
     if(_components.find(component_id) != _components.end() )
         return true;
     return false;
 }
 
-Component* GameObjectHUB::GetComponent(TypeId component_id)
+Component* GameHub::GetComponent(TypeId component_id)
 {
     if(auto it =_components.find(component_id); it!= _components.end() )
     {
@@ -33,17 +33,17 @@ Component* GameObjectHUB::GetComponent(TypeId component_id)
     return nullptr;
 }
 
-const std::map<TypeId, Component*>& GameObjectHUB::GetAllComponents()
+const std::map<TypeId, Component*>& GameHub::GetAllComponents()
 {
     return _components;
 }
 
-void GameObjectHUB::AddComponent(TypeId component_id, Component* component)
+void GameHub::AddComponent(TypeId component_id, Component* component)
 {
     _components[component_id] = component;
 }
 
-void GameObjectHUB::RemoveComponent(TypeId component_id, Component* component)
+void GameHub::RemoveComponent(TypeId component_id, Component* component)
 {
     _components.erase(component_id);
 }

@@ -13,7 +13,7 @@
 
 #include <functional>   // std::bind
 
-#include "GameObjectHUB.hpp"
+#include "GameHub.hpp"
 #include "RenderSystem.hpp"
 
 #include <map>
@@ -40,7 +40,7 @@ public:
     
    // GameObject* GetFirstObj();
     
-    std::map<sid, GameObjectHUB*> _allObjHubs;
+    std::map<SId, GameHub*> _allHubs;
 };
 
 #endif /* Scene_hpp */

@@ -42,7 +42,7 @@ void RenderSystem::Render()
     SDL_RenderPresent(_render);
 }
 
-void RenderSystem::AddRenderObj(sid id, Image* image)
+void RenderSystem::AddRenderObj(SId id, Image* image)
 {
     RenderObject obj;
     obj.transform = GET_COMPONENT(Transform, id);
@@ -58,7 +58,7 @@ void RenderSystem::AddRenderObj(sid id, Image* image)
     _renderObjects[id] = obj;
 }
 
-void RenderSystem::DeleteRenderObj(sid id)
+void RenderSystem::DeleteRenderObj(SId id)
 {
     auto o = _renderObjects.find(id);
     

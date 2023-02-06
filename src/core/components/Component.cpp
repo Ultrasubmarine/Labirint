@@ -8,12 +8,12 @@
 #include "Component.hpp"
 #include "ComponentFactory.hpp"
 
-Component::Component(sid id)
+Component::Component(SId id)
 {
     _sid = id;
 }
 
-const sid Component::GetSid()
+const SId Component::GetSid()
 {
     return _sid;
 };

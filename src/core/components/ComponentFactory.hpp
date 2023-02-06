@@ -21,7 +21,7 @@ public:
     ComponentFactory() = delete;
     
     static bool Register(const TypeInfo &typeInfo, TCreateComponent createFunc);
-    static Component* Create(TypeId typeID, sid id);
+    static Component* Create(TypeId typeID, SId id);
     
 private:
     static std::map<TypeId, TCreateComponent>& TheMap();

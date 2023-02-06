@@ -17,7 +17,6 @@
 
 #define TYPE_ID(CLASS) TypeInfoStorage::GetTypeID(#CLASS)
 #define TYPE_INFO(CLASS) TypeInfoStorage::GetTypeInfo(#CLASS)
-#define TYPE_INFO_PTR(x) TypeInfoStorage::GetTypeInfo(x)
 
 #define ERROR_TYPE_ID 0
 
@@ -29,14 +28,14 @@ struct TypeInfo
     const char* name;
 };
 
-
 class TypeInfoStorage
 {
     static std::map<const char*, TypeInfo> _types;
 public:
 
     static TypeId GetTypeID(const char* className);
-    static const TypeInfo* GetTypeInfo(const char* className);    
+    static const TypeInfo* GetTypeInfo(const char* className);
+    
     static bool Register(const char* className);
 };
 

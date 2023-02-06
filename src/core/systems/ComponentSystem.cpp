@@ -9,9 +9,9 @@
 #include "ComponentFactory.hpp"
 
 
-map<TypeId, map<sid,Component*>> ComponentSystem::_allComponents = {};
+map<TypeId, map<SId,Component*>> ComponentSystem::_allComponents = {};
 
-bool ComponentSystem::IsComponentExist(TypeId componentID, sid objectID)
+bool ComponentSystem::IsComponentExist(TypeId componentID, SId objectID)
 {
     if(auto it = _allComponents.find(componentID); it != _allComponents.end())
     {
@@ -21,7 +21,7 @@ bool ComponentSystem::IsComponentExist(TypeId componentID, sid objectID)
     return false;
 }
 
-Component* ComponentSystem::CreateComponent(TypeId componentID, sid objectID)
+Component* ComponentSystem::CreateComponent(TypeId componentID, SId objectID)
 {
     if(IsComponentExist(componentID, objectID))
         return nullptr;
@@ -31,7 +31,7 @@ Component* ComponentSystem::CreateComponent(TypeId componentID, sid objectID)
     return c;
 }
 
-void ComponentSystem::DeleteComponent(TypeId componentID, sid objectID)
+void ComponentSystem::DeleteComponent(TypeId componentID, SId objectID)
 {
     if(auto it = _allComponents.find(componentID); it != _allComponents.end())
     {
@@ -43,7 +43,7 @@ void ComponentSystem::DeleteComponent(TypeId componentID, sid objectID)
     }
 }
 
-Component* ComponentSystem::GetComponentBySid(TypeId componentID, sid objectID)
+Component* ComponentSystem::GetComponentBySid(TypeId componentID, SId objectID)
 {
     if(auto it = _allComponents.find(componentID); it != _allComponents.end())
     {

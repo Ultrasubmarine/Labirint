@@ -11,11 +11,11 @@
 #include <map>
 
 
-GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<TypeId> &components)
+GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId> &components)
 {
     auto id = SID(uniqueName);
-    GameObjectHUB* hub = new GameObjectHUB(id);
-    Game::Instance().scene->_allObjHubs[id] = hub;
+    GameHub* hub = new GameHub(id);
+    Game::Instance().scene->_allHubs[id] = hub;
     
     for(auto type_id: components)
     {
@@ -24,10 +24,10 @@ GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<TypeId> &co
     return hub;
 };
 
-void DeleteSceneObjectHUB(sid objID)
+void DeleteGameHub(SId objID)
 {
-    auto obj = Game::Instance().scene->_allObjHubs.find(objID);
-    if(obj == Game::Instance().scene->_allObjHubs.end())
+    auto obj = Game::Instance().scene->_allHubs.find(objID);
+    if(obj == Game::Instance().scene->_allHubs.end())
         return;
     
     for(auto comp : obj->second->GetAllComponents())
@@ -35,16 +35,17 @@ void DeleteSceneObjectHUB(sid objID)
         DeleteComponent(comp.first, objID);
     }
     
-    Game::Instance().scene->_allObjHubs.erase(obj);
+    Game::Instance().scene->_allHubs.erase(obj);
+    DESTROY_SID(objID);
     delete obj->second;
 };
 
-Component* CreateComponent(TypeId component_id, GameObjectHUB* hub)
+Component* CreateComponent(TypeId component_id, GameHub* hub)
 {
     if(hub->HasComponent(component_id))
         return nullptr;
     
-    sid object_id = hub->GetSid();
+    SId object_id = hub->GetSid();
     
     Component *c = ComponentSystem::CreateComponent(component_id, object_id);
     
@@ -59,7 +60,7 @@ Component* CreateComponent(TypeId component_id, GameObjectHUB* hub)
     return c;
 }
 
-void DeleteComponent(TypeId typeID, sid objectID)
+void DeleteComponent(TypeId typeID, SId objectID)
 {
     ComponentSystem::DeleteComponent(typeID, objectID);
 }

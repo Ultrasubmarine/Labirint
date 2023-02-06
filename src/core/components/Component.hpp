@@ -9,11 +9,9 @@
 #define Component_hpp
 
 #include <stdio.h>
-#include <typeinfo>
-#include <typeindex>
 
-#include "StringID.hpp"
-#include "TypeInfo.hpp"
+#include "StringId.hpp"
+#include "TypeId.hpp"
 
 using namespace std;
 
@@ -37,7 +35,7 @@ bool CLASS_NAME::c_register = REGISTER_TYPE(CLASS_NAME) && \
 #define SET_COMPONENT_CONSTRUCTORS(CLASS_NAME, BASE_CLASS_COMPONENT, ...) \
 public: \
     CLASS_NAME() = delete;\
-    CLASS_NAME(sid id): BASE_CLASS_COMPONENT(id){ Init(); \
+    CLASS_NAME(SId id): BASE_CLASS_COMPONENT(id){ Init(); \
 _typeInfo = TYPE_INFO(CLASS_NAME); \
 }; \
 private:
@@ -47,7 +45,7 @@ private:
 // register component in ComponentFactory
 #define REGISTER_COMPONENT_IN_FACTORY_H(CLASS_NAME) \
 public: \
-    static Component* CreateComponent(sid id) { return  new CLASS_NAME(id);} \
+    static Component* CreateComponent(SId id) { return  new CLASS_NAME(id);} \
 private: \
     static bool c_register;
 
@@ -58,21 +56,21 @@ private: \
 class Component
 {
 protected:
-    sid _sid;
+    SId _sid;
     const TypeInfo* _typeInfo;
     
     // Use instead of constructor for initialization
     virtual void Init(){};
 public:
     Component() = delete;
-    Component(sid id);
-    const sid GetSid();
+    Component(SId id);
+    const SId GetSid();
     
     const TypeInfo* GetTypeInfo();
 };
 
 
-using TCreateComponent = Component*(*)(sid);
+using TCreateComponent = Component*(*)(SId);
 bool RegisterComponent(const char *componentName, TCreateComponent createFunc);
 
 #endif /* Component_hpp */

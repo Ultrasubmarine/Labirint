@@ -28,7 +28,7 @@ bool ComponentFactory::Register(const TypeInfo &typeInfo, TCreateComponent creat
     return true;
 }
 
-Component* ComponentFactory::Create(TypeId typeID, sid id)
+Component* ComponentFactory::Create(TypeId typeID, SId id)
 {
     if(auto it = TheMap().find(typeID); it != TheMap().end())
     {

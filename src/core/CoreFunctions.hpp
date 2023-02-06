@@ -12,23 +12,23 @@
 #include <list>
 
 #include "ComponentSystem.hpp"
-#include "GameObjectHUB.hpp"
+#include "GameHub.hpp"
 
 #define GET_COMPONENT(CLASS_NAME, sid) GetComponent<CLASS_NAME>(sid, TYPE_ID(CLASS_NAME))
 
 
-GameObjectHUB* CreateGameObjectHUB(const char* uniqueName, std::list<TypeId> &components);
-void DeleteSceneObjectHUB(sid objID);
+GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId> &components);
+void DeleteGameHub(SId objID);
 
-Component* CreateComponent(TypeId component_id, GameObjectHUB* hub);
-void DeleteComponent(TypeId component_id, sid objectID);
+Component* CreateComponent(TypeId component_id, GameHub* hub);
+void DeleteComponent(TypeId component_id, SId objectID);
 
 
 template <typename T>
 concept InheritorComponent = std::is_base_of_v<Component, T>;
 
 template<InheritorComponent T>
-T* GetComponent(sid objectID, TypeId componentID)
+T* GetComponent(SId objectID, TypeId componentID)
 {
     auto c = ComponentSystem::GetComponentBySid(componentID,objectID);
     return static_cast<T*>(c);

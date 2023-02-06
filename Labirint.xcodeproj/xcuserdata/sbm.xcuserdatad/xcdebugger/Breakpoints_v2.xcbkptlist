@@ -526,8 +526,8 @@
             filePath = "src/core/components/Component.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "Component"
             landmarkType = "3">
          </BreakpointContent>
@@ -846,8 +846,8 @@
             filePath = "src/core/CoreFunctions.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "CreateComponent(component_id, hub)"
             landmarkType = "9">
          </BreakpointContent>
