@@ -17,7 +17,6 @@
 		0225D2A929911E7B0015919D /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2A829911E7B0015919D /* Transform.cpp */; };
 		0225D2AD299127830015919D /* StringId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2AB299127830015919D /* StringId.cpp */; };
 		022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5C297D73F50056C438 /* ComponentSystem.cpp */; };
-		022A7C61297DB1FA0056C438 /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5F297DB1FA0056C438 /* Script.cpp */; };
 		0238C44A298692BA00147FF6 /* ComponentFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0238C448298692BA00147FF6 /* ComponentFactory.cpp */; };
 		026DF92B29520C0C00D8E415 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02696DDB29251EFA0099F80F /* main.cpp */; };
 		029A304D29114F8500FD3779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A304C29114F8500FD3779 /* Assets.xcassets */; };
@@ -54,8 +53,6 @@
 		0225D2AC299127830015919D /* StringId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StringId.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
-		022A7C5F297DB1FA0056C438 /* Script.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Script.cpp; sourceTree = "<group>"; };
-		022A7C60297DB1FA0056C438 /* Script.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Script.hpp; sourceTree = "<group>"; };
 		0238C448298692BA00147FF6 /* ComponentFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentFactory.cpp; sourceTree = "<group>"; };
 		0238C449298692BA00147FF6 /* ComponentFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentFactory.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
@@ -103,8 +100,6 @@
 				0225D2A729911E7A0015919D /* Transform.hpp */,
 				0223379F2968645B0080A8BA /* Image.cpp */,
 				022337A02968645B0080A8BA /* Image.hpp */,
-				022A7C5F297DB1FA0056C438 /* Script.cpp */,
-				022A7C60297DB1FA0056C438 /* Script.hpp */,
 			);
 			path = basic;
 			sourceTree = "<group>";
@@ -322,7 +317,6 @@
 				022337B62969D4720080A8BA /* GetPath.cpp in Sources */,
 				0238C44A298692BA00147FF6 /* ComponentFactory.cpp in Sources */,
 				02F9FB8B29854CA900EE52D9 /* MovingScript.cpp in Sources */,
-				022A7C61297DB1FA0056C438 /* Script.cpp in Sources */,
 				02C6F788295215DA0032572C /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

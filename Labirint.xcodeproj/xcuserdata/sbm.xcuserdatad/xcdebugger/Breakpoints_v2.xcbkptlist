@@ -526,8 +526,8 @@
             filePath = "src/core/components/Component.hpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "Component"
             landmarkType = "3">
          </BreakpointContent>
@@ -798,8 +798,8 @@
             filePath = "src/core/components/Component.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "RegisterComponent(componentName, createFunc)"
             landmarkType = "9">
          </BreakpointContent>
@@ -814,8 +814,8 @@
             filePath = "src/core/systems/ComponentSystem.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "ComponentSystem::GetComponentBySid(componentID, objectID)"
             landmarkType = "7">
          </BreakpointContent>
@@ -862,8 +862,8 @@
             filePath = "src/core/systems/ComponentSystem.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "ComponentSystem::CreateComponent(componentID, objectID)"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +878,8 @@
             filePath = "src/core/systems/ComponentSystem.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "ComponentSystem::CreateComponent(componentID, objectID)"
             landmarkType = "7">
          </BreakpointContent>
@@ -894,8 +894,8 @@
             filePath = "src/core/systems/ComponentSystem.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "ComponentSystem::GetComponentBySid(componentID, objectID)"
             landmarkType = "7">
          </BreakpointContent>
@@ -910,8 +910,8 @@
             filePath = "src/core/systems/ComponentSystem.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "ComponentSystem::CreateComponent(componentID, objectID)"
             landmarkType = "7">
          </BreakpointContent>
@@ -932,33 +932,33 @@
             landmarkType = "9">
             <Locations>
                <Location
-                  uuid = "29E52D4A-A2CC-4F3A-B476-40A2FDF653C1 - 6410158071f40458"
+                  uuid = "29E52D4A-A2CC-4F3A-B476-40A2FDF653C1 - 1ac2540b10e7137b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Transform* GetComponent2&lt;Transform&gt;(unsigned int, unsigned int)"
+                  symbolName = "Transform* GetComponent&lt;Transform&gt;(unsigned int, unsigned int)"
                   moduleName = "Labirint"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sbm/Projects/Labirint/src/core/CoreFunctions.hpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
-                  uuid = "29E52D4A-A2CC-4F3A-B476-40A2FDF653C1 - a5953e3e7f02f506"
+                  uuid = "29E52D4A-A2CC-4F3A-B476-40A2FDF653C1 - a272ce97693931c1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Image* GetComponent2&lt;Image&gt;(unsigned int, unsigned int)"
+                  symbolName = "Image* GetComponent&lt;Image&gt;(unsigned int, unsigned int)"
                   moduleName = "Labirint"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sbm/Projects/Labirint/src/core/CoreFunctions.hpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
@@ -980,36 +980,68 @@
             landmarkType = "9">
             <Locations>
                <Location
-                  uuid = "D0BC5F26-A6BB-4A7B-9B37-50E9CBA1DD3E - 6410158071f40458"
+                  uuid = "D0BC5F26-A6BB-4A7B-9B37-50E9CBA1DD3E - 1ac2540b10e7137b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Transform* GetComponent2&lt;Transform&gt;(unsigned int, unsigned int)"
+                  symbolName = "Transform* GetComponent&lt;Transform&gt;(unsigned int, unsigned int)"
                   moduleName = "Labirint"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sbm/Projects/Labirint/src/core/CoreFunctions.hpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
-                  uuid = "D0BC5F26-A6BB-4A7B-9B37-50E9CBA1DD3E - a5953e3e7f02f506"
+                  uuid = "D0BC5F26-A6BB-4A7B-9B37-50E9CBA1DD3E - a272ce97693931c1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Image* GetComponent2&lt;Image&gt;(unsigned int, unsigned int)"
+                  symbolName = "Image* GetComponent&lt;Image&gt;(unsigned int, unsigned int)"
                   moduleName = "Labirint"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sbm/Projects/Labirint/src/core/CoreFunctions.hpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "04D36CFC-3C94-45E8-BFAD-E3569DCFA6CB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/core/components/Component.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "RegisterUpdate(compoenntID)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5B42DE8-6ABB-4DE0-B474-8CD6C2189A35"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/core/systems/ComponentSystem.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "ComponentSystem::RegisterUpdateComponent(componentID)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

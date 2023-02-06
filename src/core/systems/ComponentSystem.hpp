@@ -29,6 +29,7 @@ public:
     static bool IsComponentExist(TypeId componentID, SId objectID);
     
     static void UpdateComponents();
+    static void RegisterUpdateComponent(TypeId componentID);
 };
 
 #endif /* ComponentSystem_hpp */

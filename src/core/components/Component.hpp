@@ -27,7 +27,8 @@ SET_COMPONENT_CONSTRUCTORS(CLASS_NAME __VA_OPT__(, __VA_ARGS__), DEFAULT_COMPONE
 //combine all macro to component cpp
 #define COMPONENT_CPP(CLASS_NAME) \
 bool CLASS_NAME::c_register = REGISTER_TYPE(CLASS_NAME) && \
-                              REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME);
+                              REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME) && \
+                              REGISTER_UPDATE_CPP(CLASS_NAME);
 //------------------------------------------
 
 
@@ -52,6 +53,9 @@ private: \
 #define REGISTER_COMPONENT_IN_FACTORY_CPP(CLASS_NAME) RegisterComponent( #CLASS_NAME, &CLASS_NAME::CreateComponent)
 //------------------------------------------
 
+// register update
+#define REGISTER_UPDATE_CPP(CLASS_NAME) \
+(( &CLASS_NAME::Update != &DEFAULT_COMPONENT_VALUE::Update) ? RegisterUpdate(TYPE_ID(CLASS_NAME)) : true)
 
 class Component
 {
@@ -67,10 +71,13 @@ public:
     const SId GetSid();
     
     const TypeInfo* GetTypeInfo();
+    
+    virtual void Update() {};
 };
 
 
 using TCreateComponent = Component*(*)(SId);
 bool RegisterComponent(const char *componentName, TCreateComponent createFunc);
+bool RegisterUpdate(TypeId componentID);
 
 #endif /* Component_hpp */

@@ -10,6 +10,7 @@
 
 
 map<TypeId, map<SId,Component*>> ComponentSystem::_allComponents = {};
+list<TypeId> ComponentSystem::_updateableComponents = {};
 
 bool ComponentSystem::IsComponentExist(TypeId componentID, SId objectID)
 {
@@ -53,12 +54,24 @@ Component* ComponentSystem::GetComponentBySid(TypeId componentID, SId objectID)
     return nullptr;
 }
 
+void ComponentSystem::RegisterUpdateComponent(TypeId componentID)
+{
+    _updateableComponents.push_back(componentID);
+}
 
-#include "MovingScript.hpp"
 void ComponentSystem::UpdateComponents()
 {
-    for( auto c : _allComponents[TYPE_ID(MovingScript)])
+    for(auto u_id : _updateableComponents)
     {
-        (static_cast<Script*>(c.second))->Update();
+        if(auto c_it = _allComponents.find(u_id); c_it != _allComponents.end())
+        {
+            for( auto c : c_it->second)
+            {
+                c.second->Update();
+            }
+        }
     }
 }
+
+
+

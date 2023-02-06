@@ -9,12 +9,11 @@
 #define MovingScript_hpp
 
 #include <stdio.h>
-#include "Script.hpp"
 #include "Transform.hpp"
 
-class MovingScript : public Script
+class MovingScript : public Component
 {
-    COMPONENT_BODY(MovingScript, Script)
+    COMPONENT_BODY(MovingScript)
  
     int x_max = 300, x_min = 5;
     int direct = 1;

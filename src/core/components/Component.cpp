@@ -7,6 +7,7 @@
 
 #include "Component.hpp"
 #include "ComponentFactory.hpp"
+#include "ComponentSystem.hpp"
 
 Component::Component(SId id)
 {
@@ -26,6 +27,12 @@ bool RegisterComponent(const char *componentName, TCreateComponent createFunc)
     
     auto ti = TypeInfoStorage::GetTypeInfo(componentName);
     return ComponentFactory::Register( *ti, createFunc);
+}
+
+bool RegisterUpdate(TypeId compoenntID)
+{
+    ComponentSystem::RegisterUpdateComponent(compoenntID);
+    return true;
 }
 
 const TypeInfo* Component::GetTypeInfo()
