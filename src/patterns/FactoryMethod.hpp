@@ -10,41 +10,40 @@
 
 #include <stdio.h>
 #include <map>
-
-template<typename Key, typename TBase, typename...TCreateMethodArgs>
+/// Facroty
+/// @arg TKey - me
+template<typename TKey, typename TBase, typename...TCreateMethodArgs>
 class FactoryMethod
 {
      using TCreateMethod = TBase*(*)(TCreateMethodArgs...);
-    
 public:
     
-    bool Register(Key typeId, TCreateMethod createFunc);
-    TBase* Create(Key typeId,TCreateMethodArgs... args);
+    bool Register(TKey k, TCreateMethod createFunc);
+    TBase* Create(TKey k,TCreateMethodArgs... args);
     
 private:
-    std::map<Key, TCreateMethod> _creatorFuncs;
+    std::map<TKey, TCreateMethod> _creators;
     
 };
 
 template<typename Key, typename TBase, typename...TCreateMethodArgs>
 bool FactoryMethod<Key, TBase, TCreateMethodArgs...>::Register(Key k, TCreateMethod createFunc)
 {
-    if(_creatorFuncs.find(k) != _creatorFuncs.end())
+    if(_creators.find(k) != _creators.end())
         return false;
     
-    _creatorFuncs[k] = createFunc;
+    _creators[k] = createFunc;
     return true;
 }
 
 template<typename Key, typename TBase, typename...TCreateMethodArgs>
 TBase* FactoryMethod<Key, TBase, TCreateMethodArgs...>::Create(Key k, TCreateMethodArgs... args)
 {
-    if(auto it = _creatorFuncs.find(k); it != _creatorFuncs.end())
+    if(auto it = _creators.find(k); it != _creators.end())
     {
         return it->second(args...);
     }
     return nullptr;
 }
 
-// using TCreateComponent = Component*(*)(SId);
 #endif /* FactoryMethod_hpp */

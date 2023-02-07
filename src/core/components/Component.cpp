@@ -13,6 +13,7 @@ Component::Component(SId id)
     _sid = id;
 }
 
+
 const SId Component::GetSid()
 {
     return _sid;
@@ -28,6 +29,7 @@ bool RegisterComponent(const char *componentName, TCreateComponent createFunc)
     return ComponentSystem::RegisterComponent(*ti, createFunc);
     
 }
+
 
 bool RegisterUpdate(TypeId compoenntID)
 {

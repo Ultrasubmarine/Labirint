@@ -13,6 +13,8 @@
 
 int Game::Init()
 {
+
+
     if( SDL_Init(SDL_INIT_EVERYTHING ^ SDL_INIT_AUDIO))
     {
       printf("error Game::Init() -> SDL_Init()\n");
