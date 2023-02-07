@@ -6,11 +6,11 @@
 //
 
 #include "ComponentSystem.hpp"
-#include "ComponentFactory.hpp"
 
 
 map<TypeId, map<SId,Component*>> ComponentSystem::_allComponents = {};
 list<TypeId> ComponentSystem::_updateableComponents = {};
+FactoryMethod<TypeId, Component, SId> ComponentSystem::_factory{};
 
 bool ComponentSystem::IsComponentExist(TypeId componentID, SId objectID)
 {
@@ -27,7 +27,8 @@ Component* ComponentSystem::CreateComponent(TypeId componentID, SId objectID)
     if(IsComponentExist(componentID, objectID))
         return nullptr;
   
-    Component *c = ComponentFactory::Create(componentID, objectID);
+    
+    Component *c = _factory.Create(componentID, objectID);//ComponentFactory::Create(componentID, objectID);
     _allComponents[componentID][objectID] = c;
     return c;
 }
@@ -73,5 +74,15 @@ void ComponentSystem::UpdateComponents()
     }
 }
 
+bool ComponentSystem::RegisterComponent(const TypeInfo &typeInfo, TCreateComponent createFunc)
+{
+    bool b = _factory.Register(typeInfo.id, createFunc);
+    
+    std::cout<<"ComponentSystem::RegisterComponent: "<<typeInfo.name;
+    if(b)
+        std::cout<<" (Success)"<<endl;
+    else
+        std::cout<<" (Fail)"<<endl;
 
-
+    return b;
+}

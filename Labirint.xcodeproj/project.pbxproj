@@ -16,8 +16,8 @@
 		0225D2A4298EBE130015919D /* TypeId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2A2298EB4650015919D /* TypeId.cpp */; };
 		0225D2A929911E7B0015919D /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2A829911E7B0015919D /* Transform.cpp */; };
 		0225D2AD299127830015919D /* StringId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2AB299127830015919D /* StringId.cpp */; };
+		0225D2B1299279910015919D /* FactoryMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2AF299279910015919D /* FactoryMethod.cpp */; };
 		022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5C297D73F50056C438 /* ComponentSystem.cpp */; };
-		0238C44A298692BA00147FF6 /* ComponentFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0238C448298692BA00147FF6 /* ComponentFactory.cpp */; };
 		026DF92B29520C0C00D8E415 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02696DDB29251EFA0099F80F /* main.cpp */; };
 		029A304D29114F8500FD3779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A304C29114F8500FD3779 /* Assets.xcassets */; };
 		029A305D2911647E00FD3779 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029A305C2911647E00FD3779 /* SDL2.framework */; };
@@ -51,10 +51,10 @@
 		0225D2A829911E7B0015919D /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
 		0225D2AB299127830015919D /* StringId.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringId.cpp; sourceTree = "<group>"; };
 		0225D2AC299127830015919D /* StringId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StringId.hpp; sourceTree = "<group>"; };
+		0225D2AF299279910015919D /* FactoryMethod.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FactoryMethod.cpp; sourceTree = "<group>"; };
+		0225D2B0299279910015919D /* FactoryMethod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FactoryMethod.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
-		0238C448298692BA00147FF6 /* ComponentFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentFactory.cpp; sourceTree = "<group>"; };
-		0238C449298692BA00147FF6 /* ComponentFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentFactory.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
 		029A304629114F8500FD3779 /* Labirint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Labirint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A304C29114F8500FD3779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +115,17 @@
 			path = ids;
 			sourceTree = "<group>";
 		};
+		0225D2AE299278F30015919D /* patterns */ = {
+			isa = PBXGroup;
+			children = (
+				022337A629699D0A0080A8BA /* Singleton.cpp */,
+				022337A729699D0A0080A8BA /* Singleton.hpp */,
+				0225D2AF299279910015919D /* FactoryMethod.cpp */,
+				0225D2B0299279910015919D /* FactoryMethod.hpp */,
+			);
+			path = patterns;
+			sourceTree = "<group>";
+		};
 		029A303D29114F8500FD3779 = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +168,6 @@
 		029A61B2297876BD00206D64 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				0238C448298692BA00147FF6 /* ComponentFactory.cpp */,
-				0238C449298692BA00147FF6 /* ComponentFactory.hpp */,
 				029A61BA2979A30600206D64 /* Component.cpp */,
 				029A61BB2979A30600206D64 /* Component.hpp */,
 				0225D2A529911D5B0015919D /* basic */,
@@ -182,6 +191,7 @@
 		02C6F77B295215DA0032572C /* src */ = {
 			isa = PBXGroup;
 			children = (
+				0225D2AE299278F30015919D /* patterns */,
 				02C6F7A72954B5710032572C /* tools */,
 				02C6F77C295215DA0032572C /* core */,
 				02C6F783295215DA0032572C /* labirint */,
@@ -225,8 +235,6 @@
 				022337B42969D4720080A8BA /* GetPath.cpp */,
 				022337B52969D4720080A8BA /* GetPath.hpp */,
 				02C6F7A92954B5710032572C /* CallBack.hpp */,
-				022337A629699D0A0080A8BA /* Singleton.cpp */,
-				022337A729699D0A0080A8BA /* Singleton.hpp */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -312,10 +320,10 @@
 				022337A12968747E0080A8BA /* Image.cpp in Sources */,
 				02C6F78C295224C90032572C /* Scene.cpp in Sources */,
 				02C6F789295215DA0032572C /* game_labirint.cpp in Sources */,
+				0225D2B1299279910015919D /* FactoryMethod.cpp in Sources */,
 				0225D2AD299127830015919D /* StringId.cpp in Sources */,
 				026DF92B29520C0C00D8E415 /* main.cpp in Sources */,
 				022337B62969D4720080A8BA /* GetPath.cpp in Sources */,
-				0238C44A298692BA00147FF6 /* ComponentFactory.cpp in Sources */,
 				02F9FB8B29854CA900EE52D9 /* MovingScript.cpp in Sources */,
 				02C6F788295215DA0032572C /* Game.cpp in Sources */,
 			);
