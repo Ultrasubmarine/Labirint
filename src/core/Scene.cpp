@@ -8,61 +8,37 @@
 #include "Scene.hpp"
 //#include "GetPath.h"
 
-//void Scene::OnDeleteObject(GameObject* obj)
-//{
-//    //delete children
-//    _allObjects.remove(obj);
-//    
-//    auto settings = obj->GetSettings();
-//    
-////    if(settings & SCENE_OBJ_TICK)
-////    {
-////      //  _tick.remove(obj);
-////    }
-//};
-//
-//void Scene::OnCreateObject(GameObject *obj)
-//{
-//    _allObjects.push_back(obj);
-//    
-//    auto settings = obj->GetSettings();
-//    
-////    if(settings & SCENE_OBJ_TICK)
-////    {
-////        _tick.push_back(obj);
-////    }
-//};
 
-//void Scene::Tick(float delta_tick)
-//{
-//    for(auto t: _tick)
-//    {
-//        t->Tick(delta_tick);
-//    }
-//}
-
-void Scene::TestLoadObject()
+GameHub* Scene::CreateGameHub(const char* uniqueName)
 {
-//   auto frog = CreateSceneObject(this, SCENE_OBJ_RENDER);
-//    
-//
-//    char *image_path = GetPath(CFSTR("resources/images/frog"), CFSTR("bmp"));
-//    //Put your own bmp image here
-//    SDL_Surface *bmpSurf = SDL_LoadBMP(image_path);
-//    
-//    free(image_path);
-//    SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(render, bmpSurf);
-//    SDL_FreeSurface(bmpSurf);
-//    
-//    
-//   // SDL_Rect r =
-// //   frog->SetTexture(bmpTex);
+    auto id = SID(uniqueName);
     
-};
+    if(_allHubs.find(id) != _allHubs.end())
+    {
+        std::cout<<"Error Scene::CreateGameHub(): object \""<<uniqueName<<"\" already created";
+        return nullptr;
+    }
+      
+    GameHub* hub = new GameHub(id);
+    _allHubs[id] = hub;
+    
+    return hub;
+}
 
-//GameObject* Scene::GetFirstObj()
-//{
-//    return _allObjects.front();
-//}
+void Scene::DestroyGameHub(GameHub* hub)
+{
+    auto sid = hub->GetSid();
+    _allHubs.erase(sid);
+    DESTROY_SID(sid);
+    delete hub;
+}
+
+GameHub* Scene::GetGameHub(SId id)
+{
+    if(auto it = _allHubs.find(id); it != _allHubs.end())
+        return it->second;
+    return nullptr;
+}
+
 
 

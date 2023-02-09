@@ -9,38 +9,22 @@
 #define Scene_hpp
 
 #include <stdio.h>
-#include <SDL2/SDL.h>
-
-#include <functional>   // std::bind
-
-#include "GameHub.hpp"
-#include "RenderSystem.hpp"
-
 #include <map>
 
+#include "GameHub.hpp"
 
-struct SceneSettings
-{
-    //smth
-};
+
 class Scene
 {
-  //  std::list<GameObject*> _allObjects; // structure?? vector, set?
-
-public:
-    
-//    void Load(std::list<GameObject*> &obj, SceneSettings settings);
-//    
-//    
-//    void OnDeleteObject(GameObject* obj);
-//    void OnCreateObject(GameObject* obj);
-        
-    //test
-    void TestLoadObject();
-    
-   // GameObject* GetFirstObj();
-    
+    //TODO <ScenePart, list<GameHub*>>?
     std::map<SId, GameHub*> _allHubs;
+    
+public:
+
+    GameHub* CreateGameHub(const char* uniqueName);
+    void DestroyGameHub(GameHub* hub);
+    
+    GameHub* GetGameHub(SId id);
 };
 
 #endif /* Scene_hpp */

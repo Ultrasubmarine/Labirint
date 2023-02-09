@@ -13,31 +13,32 @@
 
 GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId> &components)
 {
-    auto id = SID(uniqueName);
-    GameHub* hub = new GameHub(id);
-    Game::Instance().scene->_allHubs[id] = hub;
+    GameHub* hub = Game::Instance().scene->CreateGameHub(uniqueName);
     
-    for(auto type_id: components)
+    if(hub)
     {
-        CreateComponent(type_id,hub);
+        for(auto type_id: components)
+        {
+            CreateComponent(type_id,hub);
+        }
     }
     return hub;
 };
 
+//TODO looking for gameHub two times; bad;
 void DeleteGameHub(SId objID)
 {
-    auto obj = Game::Instance().scene->_allHubs.find(objID);
-    if(obj == Game::Instance().scene->_allHubs.end())
+    auto hub = Game::Instance().scene->GetGameHub(objID);
+    
+    if(!hub)
         return;
     
-    for(auto comp : obj->second->GetAllComponents())
+    for(auto comp : hub->GetAllComponents())
     {
         DeleteComponent(comp.first, objID);
     }
-    
-    Game::Instance().scene->_allHubs.erase(obj);
-    DESTROY_SID(objID);
-    delete obj->second;
+
+    Game::Instance().scene->DestroyGameHub(hub);
 };
 
 Component* CreateComponent(TypeId component_id, GameHub* hub)
