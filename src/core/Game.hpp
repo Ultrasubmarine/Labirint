@@ -42,6 +42,8 @@ public:
 
     //test
     void TestSceneObj();
+    
+    void Load();
 };
 
 #endif /* Game_hpp */

@@ -37,6 +37,7 @@ int Game::Init()
     renderSystem = new RenderSystem(window);
     textureLoader = new TextureLoader(renderSystem->GetRenderer());
     
+    Load();
     return 0;
 }
 
@@ -83,4 +84,43 @@ void Game::Loop()
         Tick(0.5f);//TODO GET TIME
         Render();
     }
+}
+
+
+#include <fstream>
+#include "json.hpp"
+using json = nlohmann::json;
+
+#include "CoreFunctions.hpp"
+void Game::Load()
+{
+    const char *path = GetPath(CFSTR("resources/game_settings"), CFSTR("json"));
+    
+    std::ifstream buff(path);
+    json gameSettings = json::parse(buff);
+    
+    delete path;
+
+    std::string path_1 ("resources/scenes/");
+    path_1.append(gameSettings["main_scene"]);
+    CFStringRef p = CFStringCreateWithCString(NULL, path_1.c_str(), NULL);
+    
+    
+    const char *path2 =  GetPath(CFSTR("resources/scenes/test_scene"), CFSTR("json"));//GetPath(p, CFSTR("json")); // scene;
+    
+    
+    std::ifstream sceneBuff(path2);
+    json sceneSettings = json::parse(sceneBuff);
+    
+    for(auto hubs: sceneSettings["hubs"].array())
+    {
+       // js.get<std::string>();
+        const char* n = hubs["name"].get<std::string>().c_str();
+        std::list<TypeId> components{};
+      //  CreateGameHub(const char* uniqueName, );
+        auto o =  CreateGameHub(n, components) ;//hubs["name"]
+    }
+    
+    
+    //float my_p = data2["pi"];
 }

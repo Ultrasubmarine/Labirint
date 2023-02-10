@@ -1,0 +1,10 @@
+
+{
+    "hubs":[
+        {"name":"frog", "components": [ {"name": "Transform"}, {"name": "Image"}, {"name": "MovingScript"}]},
+        {"name":"frog_static", "components": [ {"name": "Transform"}, {"name": "Image"}] }
+    ]
+    
+}
+
+

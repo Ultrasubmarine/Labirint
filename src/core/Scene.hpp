@@ -21,6 +21,10 @@ class Scene
     
 public:
 
+//    void Load(sceneSV)
+//    {
+//        
+//    }
     GameHub* CreateGameHub(const char* uniqueName);
     void DestroyGameHub(GameHub* hub);
     

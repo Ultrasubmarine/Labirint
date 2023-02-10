@@ -11,12 +11,15 @@
 #include "Game.hpp"
 #include "MovingScript.hpp"
 
+
 int main(int argc, char *argv[])
 {
+
     const char* uniqueName ="fff";
 
     if(Game::Instance().Init())
         return -1;
+
 
     std::list<TypeId> components = {TYPE_ID(Transform), TYPE_ID(Image), TYPE_ID(MovingScript)};
     auto hub = CreateGameHub("fri", components);

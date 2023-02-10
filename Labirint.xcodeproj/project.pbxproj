@@ -49,6 +49,7 @@
 		0225D2AB299127830015919D /* StringId.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringId.cpp; sourceTree = "<group>"; };
 		0225D2AC299127830015919D /* StringId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StringId.hpp; sourceTree = "<group>"; };
 		0225D2B0299279910015919D /* FactoryMethod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FactoryMethod.hpp; sourceTree = "<group>"; };
+		0225D2B2299684EA0015919D /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
@@ -226,6 +227,7 @@
 		02C6F7A72954B5710032572C /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				0225D2B2299684EA0015919D /* json.hpp */,
 				022337B42969D4720080A8BA /* GetPath.cpp */,
 				022337B52969D4720080A8BA /* GetPath.hpp */,
 				02C6F7A92954B5710032572C /* CallBack.hpp */,

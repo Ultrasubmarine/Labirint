@@ -12,6 +12,10 @@
 #include <map>
 #include <SDL2/SDL.h>
 
+//TEMP PLACE
+#include <cstdint>
+#include <CoreFoundation/CoreFoundation.h>
+
 class TextureLoader
 {
     SDL_Renderer *_render;
@@ -27,5 +31,7 @@ public:
     
     ~TextureLoader();
 };
+
+char * GetPath(CFStringRef name, CFStringRef type);
 
 #endif /* TextureLoader_hpp */
