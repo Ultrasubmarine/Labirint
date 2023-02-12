@@ -20,7 +20,6 @@ class Image : public Component
     
 private:
     Texture *_texture;
-  //  SDL_Texture* _texture;
     SDL_Rect _srcrect;
     
     uint _layer;
@@ -35,6 +34,9 @@ public:
     
     bool IsDirty();
     void ClearDirty();
+    
+    void Serialize(json &j) override;
+    void Deserialize(json &j) override;
 };
 
 

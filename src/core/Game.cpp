@@ -93,6 +93,7 @@ using json = nlohmann::json;
 
 #include "CoreFunctions.hpp"
 #include "GetPath_Apple.hpp"
+#include <zlib.h>
 
 void Game::Load()
 {
@@ -114,15 +115,23 @@ void Game::Load()
     std::ifstream sceneBuff(path2);
     json sceneSettings = json::parse(sceneBuff);
     
-    for(auto hubs: sceneSettings["hubs"].array())
-    {
-       // js.get<std::string>();
-        const char* n = hubs["name"].get<std::string>().c_str();
-        std::list<TypeId> components{};
-      //  CreateGameHub(const char* uniqueName, );
-        auto o =  CreateGameHub(n, components) ;//hubs["name"]
+    auto hubs =sceneSettings["hubs"];
+    for (json::iterator it = hubs.begin(); it != hubs.end(); ++it) {
+  
+         const char* n =  it.value()["name"].get<std::string>().c_str();
+         std::list<TypeId> components{};
+       //  CreateGameHub(const char* uniqueName, );
+         auto objectHub =  CreateGameHub(n) ;//hubs["name"]
+        
+        for (json::iterator it_comp = it.value()["components"].begin(); it_comp != it.value()["components"].end(); ++it_comp) {
+            
+            auto name_comp =it_comp.value()["name"].get<std::string>().c_str();
+            // switch to TypeID in json
+            uint32_t id = crc32(0L, reinterpret_cast<const Bytef*>(name_comp), strlen(name_comp));
+            
+            auto c = CreateComponent(id, objectHub);
+            c->Serialize(it_comp.value());
+        }
     }
-    
-    
-    //float my_p = data2["pi"];
+
 }

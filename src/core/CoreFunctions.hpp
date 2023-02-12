@@ -17,7 +17,7 @@
 #define GET_COMPONENT(CLASS_NAME, sid) GetComponent<CLASS_NAME>(sid, TYPE_ID(CLASS_NAME))
 
 
-GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId> &components);
+GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId>* components = nullptr);
 void DeleteGameHub(SId objID);
 
 Component* CreateComponent(TypeId component_id, GameHub* hub);

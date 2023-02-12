@@ -20,7 +20,7 @@ class TextureLoader
 {
     SDL_Renderer *_render;
 
-    // TODO hash + unordered map ?
+    // TODO hash + unordered map & smart_ptr
     std::map<std::string, Texture*> _textures;
 
     Texture* LoadTexture(std::string& title);

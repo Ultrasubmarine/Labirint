@@ -11,13 +11,13 @@
 #include <map>
 
 
-GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId> &components)
+GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId>* components)
 {
     GameHub* hub = Game::Instance().scene->CreateGameHub(uniqueName);
     
-    if(hub)
+    if(hub && components)
     {
-        for(auto type_id: components)
+        for(auto type_id: *components)
         {
             CreateComponent(type_id,hub);
         }

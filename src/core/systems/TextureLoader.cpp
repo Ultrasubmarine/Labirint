@@ -33,7 +33,6 @@ Texture* TextureLoader::LoadTexture(std::string& title)
     std::string type = "bmp";
 
     char *image_path = GetPath(r_path, type);
-
     SDL_Surface *bmpSurf = SDL_LoadBMP(image_path);
     free(image_path);
     

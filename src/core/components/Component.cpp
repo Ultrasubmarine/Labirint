@@ -13,11 +13,15 @@ Component::Component(SId id)
     _sid = id;
 }
 
-
 const SId Component::GetSid()
 {
     return _sid;
 };
+
+const TypeInfo* Component::GetTypeInfo()
+{
+    return _typeInfo;
+}
 
 
 bool RegisterComponent(const char *componentName, TCreateComponent createFunc)
@@ -30,14 +34,10 @@ bool RegisterComponent(const char *componentName, TCreateComponent createFunc)
     
 }
 
-
 bool RegisterUpdate(TypeId compoenntID)
 {
     ComponentSystem::RegisterUpdateComponent(compoenntID);
     return true;
 }
 
-const TypeInfo* Component::GetTypeInfo()
-{
-    return _typeInfo;
-}
+
