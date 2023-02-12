@@ -92,9 +92,11 @@ void Game::Loop()
 using json = nlohmann::json;
 
 #include "CoreFunctions.hpp"
+#include "GetPath_Apple.hpp"
+
 void Game::Load()
 {
-    const char *path = GetPath(CFSTR("resources/game_settings"), CFSTR("json"));
+    const char *path = GetPath_Apple(CFSTR("resources/game_settings"), CFSTR("json"));
     
     std::ifstream buff(path);
     json gameSettings = json::parse(buff);
@@ -106,7 +108,7 @@ void Game::Load()
     CFStringRef p = CFStringCreateWithCString(NULL, path_1.c_str(), NULL);
     
     
-    const char *path2 =  GetPath(CFSTR("resources/scenes/test_scene"), CFSTR("json"));//GetPath(p, CFSTR("json")); // scene;
+    const char *path2 =  GetPath_Apple(CFSTR("resources/scenes/test_scene"), CFSTR("json"));//GetPath(p, CFSTR("json")); // scene;
     
     
     std::ifstream sceneBuff(path2);

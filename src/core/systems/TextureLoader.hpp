@@ -9,29 +9,26 @@
 #define TextureLoader_hpp
 
 #include <stdio.h>
+#include <string>
 #include <map>
+
 #include <SDL2/SDL.h>
 
-//TEMP PLACE
-#include <cstdint>
-#include <CoreFoundation/CoreFoundation.h>
+#include "Texture.hpp"
 
 class TextureLoader
 {
     SDL_Renderer *_render;
 
-    //const char *title ????? think about key type
-    std::map<const char *, SDL_Texture *> _textures;
+    // TODO hash + unordered map ?
+    std::map<std::string, Texture*> _textures;
 
-    SDL_Texture* LoadTexture(const char *title);
+    Texture* LoadTexture(std::string& title);
 public:
     TextureLoader(SDL_Renderer *render);
-    
-    SDL_Texture* GetTexture(const char *title);
-    
     ~TextureLoader();
+    
+    Texture* GetTexture(std::string& title);
 };
-
-char * GetPath(CFStringRef name, CFStringRef type);
 
 #endif /* TextureLoader_hpp */

@@ -25,7 +25,8 @@ int main(int argc, char *argv[])
     auto hub = CreateGameHub("fri", components);
     
     auto image = GET_COMPONENT(Image, hub->GetSid());
-    image->SetTexture(Game::Instance().textureLoader->GetTexture("frog"));
+    std::string image_name = std::string("frog");
+    image->SetTexture(Game::Instance().textureLoader->GetTexture(image_name));
    
     auto transform = GetComponent<Transform>(hub->GetSid(), TYPE_ID(Transform));
     transform->SetPosition(5,50);

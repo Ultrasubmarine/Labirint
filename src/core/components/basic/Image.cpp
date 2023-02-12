@@ -9,7 +9,7 @@
 
 COMPONENT_CPP(Image)
 
-void Image::SetTexture(SDL_Texture *texture, SDL_Rect* srcrect)
+void Image::SetTexture(Texture *texture, SDL_Rect* srcrect)
 {
     _texture = texture;
     if(srcrect)
@@ -22,7 +22,7 @@ void Image::SetTexture(SDL_Texture *texture, SDL_Rect* srcrect)
         return;
     }
     
-    SDL_QueryTexture(texture, NULL, NULL, &this->_srcrect.w , &this->_srcrect.h);
+    SDL_QueryTexture(texture->texture, NULL, NULL, &this->_srcrect.w , &this->_srcrect.h);
     
     this->_srcrect.x = 0;
     this->_srcrect.y = 0;
@@ -32,7 +32,7 @@ void Image::SetTexture(SDL_Texture *texture, SDL_Rect* srcrect)
 
 SDL_Texture* Image::GetTexture()
 {
-    return _texture;
+    return _texture->texture;
 }
 
 const SDL_Rect& Image::GetRect()

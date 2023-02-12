@@ -34,6 +34,9 @@ public:
     
     bool IsDirty();
     void ClearDirty();
+    
+    void Serialize(json &j) override;
+    void Deserialize(json &j) override;
 };
 
 #endif /* Transform_hpp */

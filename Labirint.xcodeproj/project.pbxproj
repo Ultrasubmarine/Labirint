@@ -11,10 +11,11 @@
 		022337A429687B2F0080A8BA /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337A229687B200080A8BA /* RenderSystem.cpp */; };
 		022337AB2969A7020080A8BA /* CoreFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337A92969A2640080A8BA /* CoreFunctions.cpp */; };
 		022337AE2969C80B0080A8BA /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337AC2969C7B60080A8BA /* TextureLoader.cpp */; };
-		022337B62969D4720080A8BA /* GetPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337B42969D4720080A8BA /* GetPath.cpp */; };
+		022337B62969D4720080A8BA /* GetPath_Apple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022337B42969D4720080A8BA /* GetPath_Apple.cpp */; };
 		0225D2A4298EBE130015919D /* TypeId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2A2298EB4650015919D /* TypeId.cpp */; };
 		0225D2A929911E7B0015919D /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2A829911E7B0015919D /* Transform.cpp */; };
 		0225D2AD299127830015919D /* StringId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2AB299127830015919D /* StringId.cpp */; };
+		0225D2B62998F9BB0015919D /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2B42998F9BB0015919D /* ResourceManager.cpp */; };
 		022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5C297D73F50056C438 /* ComponentSystem.cpp */; };
 		026DF92B29520C0C00D8E415 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02696DDB29251EFA0099F80F /* main.cpp */; };
 		029A304D29114F8500FD3779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A304C29114F8500FD3779 /* Assets.xcassets */; };
@@ -40,8 +41,8 @@
 		022337AA2969A2640080A8BA /* CoreFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CoreFunctions.hpp; sourceTree = "<group>"; };
 		022337AC2969C7B60080A8BA /* TextureLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
 		022337AD2969C7B60080A8BA /* TextureLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureLoader.hpp; sourceTree = "<group>"; };
-		022337B42969D4720080A8BA /* GetPath.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GetPath.cpp; sourceTree = SOURCE_ROOT; };
-		022337B52969D4720080A8BA /* GetPath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GetPath.hpp; sourceTree = SOURCE_ROOT; };
+		022337B42969D4720080A8BA /* GetPath_Apple.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GetPath_Apple.cpp; sourceTree = SOURCE_ROOT; };
+		022337B52969D4720080A8BA /* GetPath_Apple.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GetPath_Apple.hpp; sourceTree = SOURCE_ROOT; };
 		0225D2A2298EB4650015919D /* TypeId.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TypeId.cpp; sourceTree = "<group>"; };
 		0225D2A3298EB4650015919D /* TypeId.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeId.hpp; sourceTree = "<group>"; };
 		0225D2A729911E7A0015919D /* Transform.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = "<group>"; };
@@ -50,6 +51,9 @@
 		0225D2AC299127830015919D /* StringId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StringId.hpp; sourceTree = "<group>"; };
 		0225D2B0299279910015919D /* FactoryMethod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FactoryMethod.hpp; sourceTree = "<group>"; };
 		0225D2B2299684EA0015919D /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		0225D2B42998F9BB0015919D /* ResourceManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
+		0225D2B52998F9BB0015919D /* ResourceManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourceManager.hpp; sourceTree = "<group>"; };
+		0225D2B92998FD590015919D /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
@@ -121,6 +125,14 @@
 			path = patterns;
 			sourceTree = "<group>";
 		};
+		0225D2B72998FD300015919D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				0225D2B92998FD590015919D /* Texture.hpp */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		029A303D29114F8500FD3779 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +191,8 @@
 				022A7C5D297D73F50056C438 /* ComponentSystem.hpp */,
 				022337AC2969C7B60080A8BA /* TextureLoader.cpp */,
 				022337AD2969C7B60080A8BA /* TextureLoader.hpp */,
+				0225D2B42998F9BB0015919D /* ResourceManager.cpp */,
+				0225D2B52998F9BB0015919D /* ResourceManager.hpp */,
 			);
 			path = systems;
 			sourceTree = "<group>";
@@ -197,6 +211,7 @@
 		02C6F77C295215DA0032572C /* core */ = {
 			isa = PBXGroup;
 			children = (
+				0225D2B72998FD300015919D /* resources */,
 				029A61B32978776B00206D64 /* systems */,
 				029A61B2297876BD00206D64 /* components */,
 				0225D2AA2991260B0015919D /* ids */,
@@ -228,8 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				0225D2B2299684EA0015919D /* json.hpp */,
-				022337B42969D4720080A8BA /* GetPath.cpp */,
-				022337B52969D4720080A8BA /* GetPath.hpp */,
+				022337B42969D4720080A8BA /* GetPath_Apple.cpp */,
+				022337B52969D4720080A8BA /* GetPath_Apple.hpp */,
 				02C6F7A92954B5710032572C /* CallBack.hpp */,
 			);
 			path = tools;
@@ -316,8 +331,9 @@
 				02C6F78C295224C90032572C /* Scene.cpp in Sources */,
 				02C6F789295215DA0032572C /* game_labirint.cpp in Sources */,
 				0225D2AD299127830015919D /* StringId.cpp in Sources */,
+				0225D2B62998F9BB0015919D /* ResourceManager.cpp in Sources */,
 				026DF92B29520C0C00D8E415 /* main.cpp in Sources */,
-				022337B62969D4720080A8BA /* GetPath.cpp in Sources */,
+				022337B62969D4720080A8BA /* GetPath_Apple.cpp in Sources */,
 				02F9FB8B29854CA900EE52D9 /* MovingScript.cpp in Sources */,
 				02C6F788295215DA0032572C /* Game.cpp in Sources */,
 			);

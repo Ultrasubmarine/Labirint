@@ -13,6 +13,9 @@
 #include "StringId.hpp"
 #include "TypeId.hpp"
 
+#include "json.hpp"
+
+using json = nlohmann::json;
 using namespace std;
 
 #define DEFAULT_COMPONENT_VALUE Component
@@ -72,6 +75,10 @@ public:
     const TypeInfo* GetTypeInfo();
     
     virtual void Update() {};
+    
+    virtual void Serialize(json &j) {};
+    virtual void Deserialize(json &j) {};
+    
 };
 
 using TCreateComponent = Component*(*)(SId);
