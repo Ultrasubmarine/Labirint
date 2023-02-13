@@ -10,28 +10,14 @@
 
 #include <SDL2/SDL.h>
 
+#include "json.hpp"
+using json = nlohmann::json;
 
 int Game::Init()
 {
 
-
-    if( SDL_Init(SDL_INIT_EVERYTHING ^ SDL_INIT_AUDIO))
-    {
-      printf("error Game::Init() -> SDL_Init()\n");
-      return -1;
-    }
-
-    window = SDL_CreateWindow("SDL_CreateTexture",
-                     SDL_WINDOWPOS_UNDEFINED,
-                     SDL_WINDOWPOS_UNDEFINED,
-                     500, 500,
-                     SDL_WINDOW_RESIZABLE);
-    
-    if(!window)
-    {
-        printf("error: fail creating window \n");
+    if(!CreateWindow())
         return -1;
-    }
     
     scene = new Scene();
     renderSystem = new RenderSystem(window);
@@ -41,6 +27,7 @@ int Game::Init()
     return 0;
 }
 
+
 Game::~Game()
 {
     delete resourceManager;
@@ -49,6 +36,39 @@ Game::~Game()
     
     SDL_DestroyWindow(window);
     SDL_Quit();
+}
+
+bool Game::CreateWindow()
+{
+    if( SDL_Init(SDL_INIT_EVERYTHING ^ SDL_INIT_AUDIO))
+    {
+      printf("error Game::Init() -> SDL_Init()\n");
+      return -1;
+    }
+    
+    const char* title;
+    int width, height;
+    
+    const json* settings = ResourceManager::GetGameSettings();
+    if(settings)
+    {
+        title = (*settings)["name"].get<std::string>().c_str();
+        width =(*settings)["screen"]["width"].get<int>();
+        height =(*settings)["screen"]["height"].get<int>();
+    }
+    
+    window = SDL_CreateWindow(title,
+                     SDL_WINDOWPOS_UNDEFINED,
+                     SDL_WINDOWPOS_UNDEFINED,
+                     width, height,
+                     SDL_WINDOW_RESIZABLE);
+    
+    if(!window)
+    {
+        printf("error: fail creating window \n");
+        return false;
+    }
+    return true;
 }
 
 void Game::Render()
@@ -86,42 +106,36 @@ void Game::Loop()
     }
 }
 
-
-#include <fstream>
-#include "json.hpp"
-using json = nlohmann::json;
-
-#include "CoreFunctions.hpp"
-#include "GetPath_Apple.hpp"
-#include <zlib.h>
-
 void Game::Load()
 {
-    const char *path = GetPath_Apple(CFSTR("resources/game_settings"), CFSTR("json"));
-    
-    std::ifstream buff(path);
-    json gameSettings = json::parse(buff);
-    
-    delete path;
+    const json* gameSettings = ResourceManager::GetGameSettings();
+    if(!gameSettings)
+    {
+        printf("error: Game::Load() fail load gameSetting \n");
+        return;
+    }
+    std::string s_name = (*gameSettings)["main_scene"].get<std::string>();
+    LoadScene(s_name);
+   
+}
 
-    std::string path_1 ("resources/scenes/");
-    path_1.append(gameSettings["main_scene"]);
-    CFStringRef p = CFStringCreateWithCString(NULL, path_1.c_str(), NULL);
+#include <zlib.h>
+#include "CoreFunctions.hpp"
+
+void Game::LoadScene(std::string& s_name)
+{
+    auto sceneSettings =  resourceManager->GetScene(s_name);
+    if(!sceneSettings)
+    {
+        printf("error: Game::LoadScene() fail load scene \n");
+        return;
+    }
     
-    
-    const char *path2 =  GetPath_Apple(CFSTR("resources/scenes/test_scene"), CFSTR("json"));//GetPath(p, CFSTR("json")); // scene;
-    
-    
-    std::ifstream sceneBuff(path2);
-    json sceneSettings = json::parse(sceneBuff);
-    
-    auto hubs =sceneSettings["hubs"];
+    auto hubs =(*sceneSettings)["hubs"];
     for (json::iterator it = hubs.begin(); it != hubs.end(); ++it) {
   
          const char* n =  it.value()["name"].get<std::string>().c_str();
-         std::list<TypeId> components{};
-       //  CreateGameHub(const char* uniqueName, );
-         auto objectHub =  CreateGameHub(n) ;//hubs["name"]
+         auto objectHub =  CreateGameHub(n) ;
         
         for (json::iterator it_comp = it.value()["components"].begin(); it_comp != it.value()["components"].end(); ++it_comp) {
             
@@ -133,5 +147,5 @@ void Game::Load()
             c->Serialize(it_comp.value());
         }
     }
-
+    delete sceneSettings;
 }

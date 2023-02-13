@@ -26,6 +26,8 @@ class Game : public Singleton<Game>
     void Tick(float delta_tick);
     void Render();
     
+    bool CreateWindow();
+    void Load();
 public:
 
     SDL_Event event;
@@ -40,11 +42,8 @@ public:
     
     int Init();
     void Loop();
-
-    //test
-    void TestSceneObj();
     
-    void Load();
+    void LoadScene(std::string& name);
 };
 
 #endif /* Game_hpp */

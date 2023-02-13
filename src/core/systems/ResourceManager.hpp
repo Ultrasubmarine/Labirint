@@ -8,12 +8,15 @@
 #ifndef ResourceManager_hpp
 #define ResourceManager_hpp
 
+#include <fstream>
 #include <stdio.h>
 #include <map>
 
 #include "json.hpp"
 
 #include "TextureLoader.hpp"
+#include "JsonLoader.hpp"
+
 #include "RenderSystem.hpp"
 
 using json = nlohmann::json;
@@ -21,12 +24,17 @@ using json = nlohmann::json;
 class ResourceManager
 {
     TextureLoader* _textureLoader;
+    JsonLoader* _jsonLoader;
     
 public:
     ResourceManager(RenderSystem* render);
     ~ResourceManager();
     
     Texture* GetTexture(std::string& title);
-    json GetScene(std::string& title);
+    
+    static const json* GetGameSettings();
+    const json* GetScene(std::string& title);
+    
+   // char* GeneratePath(
 };
 #endif /* ResourceManager_hpp */

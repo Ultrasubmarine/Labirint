@@ -18,12 +18,12 @@ TextureLoader::TextureLoader(SDL_Renderer *render)
     _render = render;
 }
 
-Texture* TextureLoader::GetTexture(std::string& name, char *fullPath)
+Texture* TextureLoader::GetTexture(std::string& name)
 {
     if(auto it = _textures.find(name); it != _textures.end())
         return it->second;
     
-    return LoadTexture(name, fullPath);
+    return nullptr;
 }
 
 Texture* TextureLoader::LoadTexture(std::string& name, char *fullPath)
