@@ -57,7 +57,7 @@ void Image::Serialize(json &j)
     auto tx_name = j["texture"].get<std::string>();
     if(!tx_name.empty())
     {
-        auto txt = Game::Instance().textureLoader->GetTexture(tx_name);
+        auto txt =   Game::Instance().resourceManager->GetTexture(tx_name);
         SetTexture(txt);
     }
 }

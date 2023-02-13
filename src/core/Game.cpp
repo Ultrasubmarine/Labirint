@@ -35,7 +35,7 @@ int Game::Init()
     
     scene = new Scene();
     renderSystem = new RenderSystem(window);
-    textureLoader = new TextureLoader(renderSystem->GetRenderer());
+    resourceManager = new ResourceManager(renderSystem);
     
     Load();
     return 0;
@@ -43,9 +43,9 @@ int Game::Init()
 
 Game::~Game()
 {
+    delete resourceManager;
     delete renderSystem;
-    delete scene;
-    delete textureLoader;
+    delete scene;   
     
     SDL_DestroyWindow(window);
     SDL_Quit();

@@ -18,31 +18,25 @@ TextureLoader::TextureLoader(SDL_Renderer *render)
     _render = render;
 }
 
-Texture* TextureLoader::GetTexture(std::string& title)
+Texture* TextureLoader::GetTexture(std::string& name, char *fullPath)
 {
-    if(auto it = _textures.find(title); it != _textures.end())
+    if(auto it = _textures.find(name); it != _textures.end())
         return it->second;
     
-    return LoadTexture(title);
+    return LoadTexture(name, fullPath);
 }
 
-Texture* TextureLoader::LoadTexture(std::string& title)
+Texture* TextureLoader::LoadTexture(std::string& name, char *fullPath)
 {
-    std::string r_path ="resources/images/";
-    r_path.append(title);
-    std::string type = "bmp";
-
-    char *image_path = GetPath(r_path, type);
-    SDL_Surface *bmpSurf = SDL_LoadBMP(image_path);
-    free(image_path);
+    SDL_Surface *bmpSurf = SDL_LoadBMP(fullPath);
     
     SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(_render, bmpSurf);
     SDL_FreeSurface(bmpSurf);
     
     if(bmpTex)
-        return _textures[title] = new Texture{ title, bmpTex};
+        return _textures[name] = new Texture{ name, bmpTex};
     
-    std::cout<<"error: TextureLoader::LoadTexture() texture:"<<title;
+    std::cout<<"error: TextureLoader::LoadTexture() texture:"<<name;
     return NULL;
 }
 

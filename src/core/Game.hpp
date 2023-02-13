@@ -16,6 +16,7 @@
 #include "RenderSystem.hpp"
 
 #include "TextureLoader.hpp"
+#include "ResourceManager.hpp"
 
 class Game : public Singleton<Game>
 {
@@ -33,7 +34,7 @@ public:
 
     RenderSystem *renderSystem;
     Scene* scene;
-    TextureLoader *textureLoader;
+    ResourceManager *resourceManager;
     
     ~Game();
     

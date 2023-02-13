@@ -23,12 +23,12 @@ class TextureLoader
     // TODO hash + unordered map & smart_ptr
     std::map<std::string, Texture*> _textures;
 
-    Texture* LoadTexture(std::string& title);
+    Texture* LoadTexture(std::string& name, char *fullPath);
 public:
     TextureLoader(SDL_Renderer *render);
     ~TextureLoader();
     
-    Texture* GetTexture(std::string& title);
+    Texture* GetTexture(std::string& name, char *fullPath);
 };
 
 #endif /* TextureLoader_hpp */

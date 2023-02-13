@@ -8,15 +8,25 @@
 #ifndef ResourceManager_hpp
 #define ResourceManager_hpp
 
-#include <SDL2/SDL.h>
-
 #include <stdio.h>
 #include <map>
 
+#include "json.hpp"
+
+#include "TextureLoader.hpp"
+#include "RenderSystem.hpp"
+
+using json = nlohmann::json;
 
 class ResourceManager
 {
-    std::map<char *, SDL_Texture *> _textures;
+    TextureLoader* _textureLoader;
     
+public:
+    ResourceManager(RenderSystem* render);
+    ~ResourceManager();
+    
+    Texture* GetTexture(std::string& title);
+    json GetScene(std::string& title);
 };
 #endif /* ResourceManager_hpp */
