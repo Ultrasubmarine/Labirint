@@ -39,16 +39,6 @@ const TypeInfo* TypeInfoStorage::GetTypeInfo(TypeId id)
     return nullptr;
 }
 
-TypeId TypeInfoStorage::GetTypeID(const char* className)
-{
-    uint32_t id = GenerateId(className);
-    if(auto it = _types.find(id); it != _types.end())
-    {
-        return it->second.id;
-    }
-    return ERROR_TYPE_ID;
-}
-
 TypeId TypeInfoStorage::GenerateId(const char* className)
 {
     return crc32(0L, reinterpret_cast<const Bytef*>(className), strlen(className));
