@@ -26,7 +26,8 @@ using namespace std;
 /// @param ... - add parent class type if parent != Component
 #define COMPONENT_BODY(CLASS_NAME, ...) \
 COMPONENT_CREATE_METHOD(CLASS_NAME)\
-COMPONENT_CONSTRUCTORS(CLASS_NAME __VA_OPT__(, __VA_ARGS__), DEFAULT_COMPONENT_VALUE)
+COMPONENT_CONSTRUCTORS(CLASS_NAME __VA_OPT__(, __VA_ARGS__), DEFAULT_COMPONENT_VALUE)\
+REGISTER_TYPE_BODY(CLASS_NAME)
 
 /// Generating needed information to Component in cpp.
 /// @param CLASS_NAME - current class type
@@ -40,7 +41,7 @@ bool CLASS_NAME::c_register = REGISTER_TYPE(CLASS_NAME) && \
 public: \
     CLASS_NAME() = delete;\
     CLASS_NAME(SId id): BASE_CLASS_COMPONENT(id){ Init(); \
-_typeInfo = TYPE_INFO(CLASS_NAME); \
+_typeInfo = TYPE_INFO_BY_NAME(CLASS_NAME); \
 }; \
 private:
 

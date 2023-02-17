@@ -52,7 +52,7 @@ Component* CreateComponent(TypeId component_id, GameHub* hub)
     
     
     //TODO hide it somewhere 
-    if(component_id == TYPE_ID(Image) )
+    if(component_id == Image::GetTypeInfo().id )
     {
        auto im = static_cast<Image*>(c);
        Game::Instance().renderSystem->AddRenderObj(object_id, im);

@@ -29,7 +29,7 @@ bool RegisterComponent(const char *componentName, TCreateComponent createFunc)
     if(componentName == nullptr)
         return false;
     
-    auto ti = TypeInfoStorage::GetTypeInfo(componentName);
+    auto ti = TypeInfoStorage::GetTypeInfoByName(componentName);
     return ComponentSystem::RegisterComponent(*ti, createFunc);
     
 }

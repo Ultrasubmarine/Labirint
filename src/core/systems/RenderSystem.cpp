@@ -45,7 +45,7 @@ void RenderSystem::Render()
 void RenderSystem::AddRenderObj(SId id, Image* image)
 {
     RenderObject obj;
-    obj.transform = GET_COMPONENT(Transform, id);
+    obj.transform = GetComponent<Transform>(id);
     obj.image = image;
     obj.dst = new SDL_Rect();
     
