@@ -32,6 +32,7 @@ Game::~Game()
 {
     delete resourceManager;
     delete renderSystem;
+    delete sceneManager;
     
     SDL_DestroyWindow(window);
     SDL_Quit();

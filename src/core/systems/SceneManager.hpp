@@ -18,6 +18,7 @@ class SceneManager
     void DestroyCurrentScene();
 public:
     
+    ~SceneManager();
     Scene* LoadScene(std::string& sceneName);
     Scene* GetCurrentScene();
 };

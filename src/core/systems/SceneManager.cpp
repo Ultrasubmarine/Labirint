@@ -12,6 +12,12 @@
 //#include "json.hpp"
 //using json = nlohmann::json;
 
+
+SceneManager::~SceneManager()
+{
+    DestroyCurrentScene();
+}
+
 void SceneManager::DestroyCurrentScene()
 {
     delete currentScene;
