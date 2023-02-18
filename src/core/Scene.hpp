@@ -25,10 +25,7 @@ public:
     Scene() = delete;
     ~Scene();
     Scene(std::string& name);
-//    void Load(sceneSV)
-//    {
-//        
-//    }
+
     GameHub* CreateGameHub(const char* uniqueName);
     void DestroyGameHub(GameHub* hub);
     

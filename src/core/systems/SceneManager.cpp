@@ -9,10 +9,6 @@
 #include "SceneManager.hpp"
 #include "Game.hpp"
 
-//#include "json.hpp"
-//using json = nlohmann::json;
-
-
 SceneManager::~SceneManager()
 {
     DestroyCurrentScene();

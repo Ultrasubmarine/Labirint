@@ -12,10 +12,9 @@
 #include <SDL2/SDL.h>
 
 #include "Singleton.hpp"
-#include "Scene.hpp"
-#include "RenderSystem.hpp"
 
-#include "TextureLoader.hpp"
+#include "Window.hpp"
+#include "RenderSystem.hpp"
 #include "ResourceManager.hpp"
 #include "SceneManager.hpp"
 
@@ -27,13 +26,11 @@ class Game : public Singleton<Game>
     void Tick(float delta_tick);
     void Render();
     
-    bool CreateWindow();
-    void Load();
 public:
 
     SDL_Event event;
-    SDL_Window *window;
     
+    Window *window;
     RenderSystem *renderSystem;
     ResourceManager *resourceManager;
     SceneManager *sceneManager;
@@ -42,7 +39,6 @@ public:
     
     int Init();
     void Loop();
-
 };
 
 #endif /* Game_hpp */
