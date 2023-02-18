@@ -18,10 +18,10 @@ int Game::Init()
 
     if(!CreateWindow())
         return -1;
-    
-    scene = new Scene();
+
     renderSystem = new RenderSystem(window);
     resourceManager = new ResourceManager(renderSystem);
+    sceneManager = new SceneManager();
     
     Load();
     return 0;
@@ -32,7 +32,6 @@ Game::~Game()
 {
     delete resourceManager;
     delete renderSystem;
-    delete scene;   
     
     SDL_DestroyWindow(window);
     SDL_Quit();
@@ -93,6 +92,14 @@ void Game::Input()
         {
        //     scene->GetFirstObj()->GetTransform().SetPosition(event.motion.x, event.motion.y);
         }
+        else if(event.type == SDL_KEYDOWN)
+        {
+            if(event.key.keysym.sym == SDLK_s)
+            {
+                auto s = std::string("scene2");
+                sceneManager->LoadScene(s);
+            }
+        }
     }
 }
 
@@ -115,37 +122,6 @@ void Game::Load()
         return;
     }
     std::string s_name = (*gameSettings)["main_scene"].get<std::string>();
-    LoadScene(s_name);
-   
-}
-
-#include <zlib.h>
-#include "CoreFunctions.hpp"
-
-void Game::LoadScene(std::string& s_name)
-{
-    auto sceneSettings =  resourceManager->GetScene(s_name);
-    if(!sceneSettings)
-    {
-        printf("error: Game::LoadScene() fail load scene \n");
-        return;
-    }
     
-    auto hubs =(*sceneSettings)["hubs"];
-    for (json::iterator it = hubs.begin(); it != hubs.end(); ++it) {
-  
-         const char* n =  it.value()["name"].get<std::string>().c_str();
-         auto objectHub =  CreateGameHub(n) ;
-        
-        for (json::iterator it_comp = it.value()["components"].begin(); it_comp != it.value()["components"].end(); ++it_comp) {
-            
-            auto name_comp =it_comp.value()["name"].get<std::string>().c_str();
-            // switch to TypeID in json
-            uint32_t id = crc32(0L, reinterpret_cast<const Bytef*>(name_comp), strlen(name_comp));
-            
-            auto c = CreateComponent(id, objectHub);
-            c->Serialize(it_comp.value());
-        }
-    }
-    delete sceneSettings;
+    sceneManager->LoadScene(s_name);
 }

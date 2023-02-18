@@ -638,8 +638,8 @@
             filePath = "src/core/components/Component.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "RegisterComponent(componentName, createFunc)"
             landmarkType = "9">
          </BreakpointContent>
@@ -766,8 +766,8 @@
             filePath = "src/core/components/Component.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "RegisterUpdate(compoenntID)"
             landmarkType = "9">
          </BreakpointContent>
@@ -817,22 +817,6 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "ComponentSystem::GetComponentBySid(componentID, objectID)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F5EA5144-E7D0-49E6-8D0F-8FD31F33BA8B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "src/core/Game.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "Game::Load()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

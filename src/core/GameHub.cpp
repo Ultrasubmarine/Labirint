@@ -9,7 +9,12 @@
 
 GameHub::GameHub(SId id): _id(id)
 {
-    
+    std::cout<< "Create GameObject (sid: "<<_id<<")"<<endl;
+};
+
+GameHub::~GameHub()
+{
+    std::cout<< "Delete GameObject (sid: "<<_id<<")"<<endl;
 };
 
 SId GameHub::GetSid()

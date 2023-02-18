@@ -7,7 +7,27 @@
 
 #include "Scene.hpp"
 //#include "GetPath.h"
+#include "CoreFunctions.hpp"
 
+Scene::Scene(std::string& s_name)
+{
+    name = std::string(s_name);
+}
+
+Scene::~Scene()
+{
+    vector<SId> allkeys;
+    for(auto o : _allHubs)
+    {
+        allkeys.push_back(o.first);
+    }
+    
+    for(auto k : allkeys)
+    {
+        DeleteGameHub(k);
+    }
+    std::cout<< "Delete scene "<<name<<endl;
+}
 
 GameHub* Scene::CreateGameHub(const char* uniqueName)
 {
@@ -40,5 +60,10 @@ GameHub* Scene::GetGameHub(SId id)
     return nullptr;
 }
 
+
+const std::string& Scene::GetName()
+{
+    return name;
+}
 
 

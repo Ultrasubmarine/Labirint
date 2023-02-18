@@ -29,6 +29,7 @@
 		02C6F788295215DA0032572C /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02C6F782295215DA0032572C /* Game.cpp */; };
 		02C6F789295215DA0032572C /* game_labirint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02C6F785295215DA0032572C /* game_labirint.cpp */; };
 		02C6F78C295224C90032572C /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02C6F78A295224C90032572C /* Scene.cpp */; };
+		02DAF79329A1350D0058B04E /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DAF79129A1350D0058B04E /* SceneManager.cpp */; };
 		02F9FB8B29854CA900EE52D9 /* MovingScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F9FB8929854CA900EE52D9 /* MovingScript.cpp */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		02C6F78B295224C90032572C /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		02C6F79129524E260032572C /* PositionPrimitives.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PositionPrimitives.hpp; sourceTree = "<group>"; };
 		02C6F7A92954B5710032572C /* CallBack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CallBack.hpp; sourceTree = "<group>"; };
+		02DAF79129A1350D0058B04E /* SceneManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		02DAF79229A1350D0058B04E /* SceneManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		02F9FB8929854CA900EE52D9 /* MovingScript.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MovingScript.cpp; sourceTree = "<group>"; };
 		02F9FB8A29854CA900EE52D9 /* MovingScript.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MovingScript.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,6 +209,8 @@
 				022A7C5D297D73F50056C438 /* ComponentSystem.hpp */,
 				0225D2B42998F9BB0015919D /* ResourceManager.cpp */,
 				0225D2B52998F9BB0015919D /* ResourceManager.hpp */,
+				02DAF79129A1350D0058B04E /* SceneManager.cpp */,
+				02DAF79229A1350D0058B04E /* SceneManager.hpp */,
 			);
 			path = systems;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				022337B62969D4720080A8BA /* GetPath_Apple.cpp in Sources */,
 				02F9FB8B29854CA900EE52D9 /* MovingScript.cpp in Sources */,
 				02C6F788295215DA0032572C /* Game.cpp in Sources */,
+				02DAF79329A1350D0058B04E /* SceneManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

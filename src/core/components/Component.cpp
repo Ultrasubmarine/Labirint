@@ -13,6 +13,11 @@ Component::Component(SId id)
     _sid = id;
 }
 
+Component::~Component()
+{
+    std::cout<< "Delete Component (type: "<<_typeInfo->name<<" sid: "<<_sid<<")"<<endl;
+};
+
 const SId Component::GetSid()
 {
     return _sid;

@@ -13,7 +13,7 @@
 
 GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId>* components)
 {
-    GameHub* hub = Game::Instance().scene->CreateGameHub(uniqueName);
+    GameHub* hub = Game::Instance().sceneManager->GetCurrentScene()->CreateGameHub(uniqueName);
     
     if(hub && components)
     {
@@ -28,7 +28,7 @@ GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId>* components)
 //TODO looking for gameHub two times; bad;
 void DeleteGameHub(SId objID)
 {
-    auto hub = Game::Instance().scene->GetGameHub(objID);
+    auto hub = Game::Instance().sceneManager->GetCurrentScene()->GetGameHub(objID);
     
     if(!hub)
         return;
@@ -38,7 +38,7 @@ void DeleteGameHub(SId objID)
         DeleteComponent(comp.first, objID);
     }
 
-    Game::Instance().scene->DestroyGameHub(hub);
+    Game::Instance().sceneManager->GetCurrentScene()->DestroyGameHub(hub);
 };
 
 Component* CreateComponent(TypeId component_id, GameHub* hub)

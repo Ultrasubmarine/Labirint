@@ -22,7 +22,8 @@ protected:
     
 public:
     GameHub(SId id);
-
+    ~GameHub();
+    
     SId GetSid();
     
     bool HasComponent(TypeId component_id);

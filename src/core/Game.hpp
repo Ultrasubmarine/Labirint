@@ -17,6 +17,7 @@
 
 #include "TextureLoader.hpp"
 #include "ResourceManager.hpp"
+#include "SceneManager.hpp"
 
 class Game : public Singleton<Game>
 {
@@ -33,17 +34,15 @@ public:
     SDL_Event event;
     SDL_Window *window;
     
-
     RenderSystem *renderSystem;
-    Scene* scene;
     ResourceManager *resourceManager;
+    SceneManager *sceneManager;
     
     ~Game();
     
     int Init();
     void Loop();
-    
-    void LoadScene(std::string& name);
+
 };
 
 #endif /* Game_hpp */

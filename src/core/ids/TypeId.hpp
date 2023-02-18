@@ -19,6 +19,8 @@
 { static TypeInfo info = *TYPE_INFO_BY_NAME(CLASS_NAME);return info;}; private:
 
 #define TYPE_ID(CLASS_NAME) CLASS_NAME::GetTypeInfo().id
+#define TYPE_ID_BY_PTR_STR(str_ClassName) TypeInfoStorage::GetTypeInfoByName(str_ClassName)->id;
+
 #define TYPE_INFO_BY_NAME(CLASS_NAME) TypeInfoStorage::GetTypeInfoByName(#CLASS_NAME)
 #define TYPE_INFO(CLASS_ID) TypeInfoStorage::GetTypeInfo(CLASS_ID)
 

@@ -16,11 +16,15 @@
 
 class Scene
 {
+    std::string name;
     //TODO <ScenePart, list<GameHub*>>?
     std::map<SId, GameHub*> _allHubs;
     
 public:
 
+    Scene() = delete;
+    ~Scene();
+    Scene(std::string& name);
 //    void Load(sceneSV)
 //    {
 //        
@@ -29,6 +33,7 @@ public:
     void DestroyGameHub(GameHub* hub);
     
     GameHub* GetGameHub(SId id);
+    const std::string& GetName();
 };
 
 #endif /* Scene_hpp */

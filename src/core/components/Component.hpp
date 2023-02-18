@@ -71,6 +71,8 @@ protected:
 public:
     Component() = delete;
     Component(SId id);
+    virtual ~Component();
+    
     const SId GetSid();
     
     const TypeInfo* GetTypeInfo();
