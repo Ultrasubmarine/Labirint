@@ -17,6 +17,7 @@
 #include "RenderSystem.hpp"
 #include "ResourceManager.hpp"
 #include "SceneManager.hpp"
+#include "Time.hpp"
 
 class Game : public Singleton<Game>
 {
@@ -34,6 +35,7 @@ public:
     RenderSystem *renderSystem;
     ResourceManager *resourceManager;
     SceneManager *sceneManager;
+    Time time;
     
     ~Game();
     

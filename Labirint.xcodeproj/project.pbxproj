@@ -17,6 +17,7 @@
 		0225D2AD299127830015919D /* StringId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2AB299127830015919D /* StringId.cpp */; };
 		0225D2B62998F9BB0015919D /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2B42998F9BB0015919D /* ResourceManager.cpp */; };
 		0225D2BD299A48E80015919D /* JsonLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2BB299A48E80015919D /* JsonLoader.cpp */; };
+		0228C26A29A91C8A00F8B558 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0228C26829A8F4C600F8B558 /* Time.cpp */; };
 		022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5C297D73F50056C438 /* ComponentSystem.cpp */; };
 		026DF92B29520C0C00D8E415 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02696DDB29251EFA0099F80F /* main.cpp */; };
 		029A304D29114F8500FD3779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A304C29114F8500FD3779 /* Assets.xcassets */; };
@@ -59,6 +60,8 @@
 		0225D2B92998FD590015919D /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
 		0225D2BB299A48E80015919D /* JsonLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JsonLoader.cpp; sourceTree = "<group>"; };
 		0225D2BC299A48E80015919D /* JsonLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JsonLoader.hpp; sourceTree = "<group>"; };
+		0228C26829A8F4C600F8B558 /* Time.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Time.cpp; sourceTree = "<group>"; };
+		0228C26929A8F4C600F8B558 /* Time.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Time.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
@@ -247,6 +250,8 @@
 				029A61C52979D6BF00206D64 /* GameHub.hpp */,
 				02DAF79429A14B670058B04E /* Window.cpp */,
 				02DAF79529A14B670058B04E /* Window.hpp */,
+				0228C26829A8F4C600F8B558 /* Time.cpp */,
+				0228C26929A8F4C600F8B558 /* Time.hpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0228C26A29A91C8A00F8B558 /* Time.cpp in Sources */,
 				0225D2A4298EBE130015919D /* TypeId.cpp in Sources */,
 				029A61BD2979A6D600206D64 /* Component.cpp in Sources */,
 				022337AE2969C80B0080A8BA /* TextureLoader.cpp in Sources */,

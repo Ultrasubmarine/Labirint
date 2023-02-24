@@ -20,13 +20,17 @@ void MovingScript::Init()
    // t = GET_COMPONENT(Transform, this->GetSid());
 }
 
-void MovingScript::Update()
+#include "Game.hpp"
+#include "Time.hpp"
+void MovingScript::Update(double deltaTime)
 {
-    // it's disgusting and i know it. just test
-    if( direct>0 && direct + t->GetPosition().x <= x_max)
-        t->SetPosition(direct + t->GetPosition().x, 50);
-    else if( direct<1 && direct + t->GetPosition().x >= x_min)
-        t->SetPosition(direct + t->GetPosition().x, 50);
-    else
-        direct *= (-1);
+    
+    int newX= pixel_speed * deltaTime * direct + t->GetPosition().x;
+    t->SetPosition(newX, 50);
+
+    if(t->GetPosition().x >= x_max && direct>0)
+        direct = -1;
+    else if(t->GetPosition().x <= x_min && direct<0)
+        direct = 1;
+    
 }

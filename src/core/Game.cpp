@@ -47,7 +47,7 @@ void Game::Render()
 
 void Game::Tick(float delta_tick)
 {
-    ComponentSystem::UpdateComponents();
+    ComponentSystem::UpdateComponents(delta_tick);
    // scene->Tick(delta_tick);
 }
 
@@ -75,10 +75,12 @@ void Game::Input()
 
 void Game::Loop()
 {
+    time.FirstInitialization();
     while(play)
     {
+        time.CalculateTime();
         Input();
-        Tick(0.5f);//TODO GET TIME
+        Tick(time.deltaTime);//TODO GET TIME
         Render();
     }
 }

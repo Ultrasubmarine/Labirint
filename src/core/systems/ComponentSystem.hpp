@@ -31,7 +31,7 @@ public:
     static Component* GetComponentBySid(TypeId componentID, SId objectID);
     static bool IsComponentExist(TypeId componentID, SId objectID);
     
-    static void UpdateComponents();
+    static void UpdateComponents(double deltaTime);
     
     static void RegisterUpdateComponent(TypeId componentID);
     static bool RegisterComponent(const TypeInfo &typeInfo, TCreateComponent createFunc);

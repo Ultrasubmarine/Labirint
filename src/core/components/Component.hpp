@@ -77,7 +77,7 @@ public:
     
     const TypeInfo* GetTypeInfo();
     
-    virtual void Update() {};
+    virtual void Update(double deltaTime) {};
     
     virtual void Serialize(json &j) {};
     virtual void Deserialize(json &j) {};

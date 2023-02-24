@@ -17,10 +17,11 @@ class MovingScript : public Component
  
     int x_max = 300, x_min = 5;
     int direct = 1;
+    int pixel_speed = 150; // pixel/second
     
     Transform *t;
 public:
     void Init() override;
-    void Update() override;
+    void Update(double deltaTime) override;
 };
 #endif /* MovingScript_hpp */

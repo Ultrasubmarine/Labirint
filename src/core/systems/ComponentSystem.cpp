@@ -60,7 +60,7 @@ void ComponentSystem::RegisterUpdateComponent(TypeId componentID)
     _updateableComponents.push_back(componentID);
 }
 
-void ComponentSystem::UpdateComponents()
+void ComponentSystem::UpdateComponents(double deltaTime)
 {
     for(auto u_id : _updateableComponents)
     {
@@ -68,7 +68,7 @@ void ComponentSystem::UpdateComponents()
         {
             for( auto c : c_it->second)
             {
-                c.second->Update();
+                c.second->Update(deltaTime);
             }
         }
     }
