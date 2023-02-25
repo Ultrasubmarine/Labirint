@@ -18,6 +18,9 @@
 		0225D2B62998F9BB0015919D /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2B42998F9BB0015919D /* ResourceManager.cpp */; };
 		0225D2BD299A48E80015919D /* JsonLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0225D2BB299A48E80015919D /* JsonLoader.cpp */; };
 		0228C26A29A91C8A00F8B558 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0228C26829A8F4C600F8B558 /* Time.cpp */; };
+		0228C26D29AA179D00F8B558 /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0228C26B29AA179D00F8B558 /* Text.cpp */; };
+		0228C27229AA327100F8B558 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0228C27129AA327100F8B558 /* SDL2_ttf.framework */; };
+		0228C27529AA375400F8B558 /* FontLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0228C27329AA375400F8B558 /* FontLoader.cpp */; };
 		022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5C297D73F50056C438 /* ComponentSystem.cpp */; };
 		026DF92B29520C0C00D8E415 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02696DDB29251EFA0099F80F /* main.cpp */; };
 		029A304D29114F8500FD3779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A304C29114F8500FD3779 /* Assets.xcassets */; };
@@ -62,6 +65,11 @@
 		0225D2BC299A48E80015919D /* JsonLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JsonLoader.hpp; sourceTree = "<group>"; };
 		0228C26829A8F4C600F8B558 /* Time.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Time.cpp; sourceTree = "<group>"; };
 		0228C26929A8F4C600F8B558 /* Time.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Time.hpp; sourceTree = "<group>"; };
+		0228C26B29AA179D00F8B558 /* Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
+		0228C26C29AA179D00F8B558 /* Text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
+		0228C27129AA327100F8B558 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
+		0228C27329AA375400F8B558 /* FontLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FontLoader.cpp; sourceTree = "<group>"; };
+		0228C27429AA375400F8B558 /* FontLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FontLoader.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
@@ -97,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0228C27229AA327100F8B558 /* SDL2_ttf.framework in Frameworks */,
 				029A61B12978735F00206D64 /* libz.tbd in Frameworks */,
 				029A305F291164C600FD3779 /* CoreFoundation.framework in Frameworks */,
 				029A305D2911647E00FD3779 /* SDL2.framework in Frameworks */,
@@ -113,6 +122,8 @@
 				0225D2A729911E7A0015919D /* Transform.hpp */,
 				0223379F2968645B0080A8BA /* Image.cpp */,
 				022337A02968645B0080A8BA /* Image.hpp */,
+				0228C26B29AA179D00F8B558 /* Text.cpp */,
+				0228C26C29AA179D00F8B558 /* Text.hpp */,
 			);
 			path = basic;
 			sourceTree = "<group>";
@@ -152,6 +163,8 @@
 				022337AD2969C7B60080A8BA /* TextureLoader.hpp */,
 				0225D2BB299A48E80015919D /* JsonLoader.cpp */,
 				0225D2BC299A48E80015919D /* JsonLoader.hpp */,
+				0228C27329AA375400F8B558 /* FontLoader.cpp */,
+				0228C27429AA375400F8B558 /* FontLoader.hpp */,
 			);
 			path = loaders;
 			sourceTree = "<group>";
@@ -188,6 +201,7 @@
 		029A305B2911647E00FD3779 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0228C27129AA327100F8B558 /* SDL2_ttf.framework */,
 				029A61B02978735F00206D64 /* libz.tbd */,
 				029A305E291164C600FD3779 /* CoreFoundation.framework */,
 				029A305C2911647E00FD3779 /* SDL2.framework */,
@@ -351,6 +365,7 @@
 				0225D2A4298EBE130015919D /* TypeId.cpp in Sources */,
 				029A61BD2979A6D600206D64 /* Component.cpp in Sources */,
 				022337AE2969C80B0080A8BA /* TextureLoader.cpp in Sources */,
+				0228C26D29AA179D00F8B558 /* Text.cpp in Sources */,
 				022337AB2969A7020080A8BA /* CoreFunctions.cpp in Sources */,
 				0225D2BD299A48E80015919D /* JsonLoader.cpp in Sources */,
 				022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */,
@@ -367,6 +382,7 @@
 				022337B62969D4720080A8BA /* GetPath_Apple.cpp in Sources */,
 				02F9FB8B29854CA900EE52D9 /* MovingScript.cpp in Sources */,
 				02C6F788295215DA0032572C /* Game.cpp in Sources */,
+				0228C27529AA375400F8B558 /* FontLoader.cpp in Sources */,
 				02DAF79329A1350D0058B04E /* SceneManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

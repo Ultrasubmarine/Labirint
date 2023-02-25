@@ -11,12 +11,14 @@
 ResourceManager::ResourceManager(RenderSystem* renderSystem)
 {
     _textureLoader = new TextureLoader(renderSystem->GetRenderer());
+    _fontLoader = new FontLoader(renderSystem->GetRenderer());
     _jsonLoader = new JsonLoader();
 }
 
 ResourceManager::~ResourceManager()
 {
     delete _textureLoader;
+    delete _fontLoader;
     delete _jsonLoader;
 }
 
@@ -36,6 +38,22 @@ Texture* ResourceManager::GetTexture(std::string& title)
     return t;
 }
 
+Texture* ResourceManager::GetFont(std::string& title)
+{
+    Texture* t = _textureLoader->GetTexture(title);
+    if(t)
+        return t;
+    
+    std::string r_path ="resources/images/" + title;
+    std::string type = "bmp";
+    
+    char *image_path = GetPath(r_path, type);
+    t = _textureLoader->LoadTexture(title, image_path);
+    delete image_path;
+    
+    return t;
+    
+}
 const json* ResourceManager::GetGameSettings()
 {
     auto j = JsonLoader::GetGameSettings();

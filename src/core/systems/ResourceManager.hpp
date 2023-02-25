@@ -15,6 +15,7 @@
 #include "json.hpp"
 
 #include "TextureLoader.hpp"
+#include "FontLoader.hpp"
 #include "JsonLoader.hpp"
 
 #include "RenderSystem.hpp"
@@ -24,6 +25,7 @@ using json = nlohmann::json;
 class ResourceManager
 {
     TextureLoader* _textureLoader;
+    FontLoader* _fontLoader;
     JsonLoader* _jsonLoader;
     
 public:
@@ -31,6 +33,7 @@ public:
     ~ResourceManager();
     
     Texture* GetTexture(std::string& title);
+    Texture* GetFont(std::string& title);
     
     static const json* GetGameSettings();
     const json* GetScene(std::string& title);
