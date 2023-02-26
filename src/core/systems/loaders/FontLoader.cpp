@@ -28,9 +28,8 @@ std::shared_ptr<TTF_Font> FontLoader::GetFont(std::string& name)
 
 std::shared_ptr<TTF_Font> FontLoader::LoadFont(std::string& name, char *fullPath)
 {
-    // TODO use custom deleter
     auto f =TTF_OpenFont(fullPath, 24);
-    std::shared_ptr<TTF_Font> font{f, DeleteTTF_Font};
+    std::shared_ptr<TTF_Font> font{f, [](TTF_Font* f){  TTF_CloseFont(f); } };
     
     if(font)
     {
@@ -49,9 +48,14 @@ std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_
         std::cout<<"FontLoader::GetText error set size. \ntext:"""<<text<<""" \nsize:"<<fsize;
     }
     
-    SDL_Surface* surfaceText = TTF_RenderText_Solid(font.get(), text.c_str(), SDL_Color{66,66,66});
+    SDL_Color textColor = { 255, 0, 0, 255};
+    SDL_Surface* surfaceText = TTF_RenderText_Solid(font.get(), text.c_str(), textColor);
 
     SDL_Texture* textTex = SDL_CreateTextureFromSurface(_render, surfaceText);
+    
+    auto text_width = surfaceText->w;
+    auto text_height = surfaceText->h;
+
     SDL_FreeSurface(surfaceText);
 
     if(textTex)
@@ -64,3 +68,4 @@ std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_
 FontLoader::~FontLoader()
 {
 }
+

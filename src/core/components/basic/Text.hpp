@@ -9,33 +9,34 @@
 #define Text_hpp
 
 #include <stdio.h>
-#include "Component.hpp"
+
 #include "TextTexture.hpp"
+#include "Component.hpp"
 
 #include <string>
+#include <memory>
 
+class Text: public Component
+{
+    COMPONENT_BODY(Text)
+    
+//  std::string text;
+    std::shared_ptr<TextTexture> _texture;
+    SDL_Rect _srcrect;
 
-//class Text: public Component
-//{
-//   // COMPONENT_BODY(Text)
-//    
-////  std::string text;
-//    std::shared_ptr<TextTexture> _texture;
-//    SDL_Rect _srcrect;
-//
-//    void SetTexture(std::shared_ptr<TextTexture> texture, SDL_Rect* srcrect = NULL);
-//    bool _dirty;
-//public:
-//
-//    void Render();    
-//    void Serialize(json &j);
-//  
-//    
-//    SDL_Texture* GetTexture();
-//    const SDL_Rect& GetRect();
-//    
-//    bool IsDirty();
-//    void ClearDirty();
-//};
+    void SetTexture(std::shared_ptr<TextTexture> texture, SDL_Rect* srcrect = NULL);
+    bool _dirty;
+public:
+
+    void Render();    
+    void Serialize(json &j);
+  
+    
+    SDL_Texture* GetTexture();
+    const SDL_Rect& GetRect();
+    
+    bool IsDirty();
+    void ClearDirty();
+};
 
 #endif /* Text_hpp */

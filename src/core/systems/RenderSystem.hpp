@@ -14,14 +14,14 @@
 
 #include "Transform.hpp"
 #include "Image.hpp"
-//#include "Text.hpp"
+#include "Text.hpp"
 
 //TODO refactor this system; remove image/text;
 struct RenderObject
 {
     Transform* transform;
-    Image* image;
- //   Text* text;
+    Image* image = nullptr;
+    Text* text;
     SDL_Rect* dst;
 };
 
@@ -37,7 +37,7 @@ public:
     ~RenderSystem();
     
     void AddRenderObj(SId id, Image* image);
-  //  void AddRenderObj(SId id, Text* image); // temp stuff for checking
+    void AddRenderObj(SId id, Text* image); // temp stuff for checking
     void DeleteRenderObj(SId id);
     
     void Render();

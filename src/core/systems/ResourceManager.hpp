@@ -29,14 +29,14 @@ class ResourceManager
     JsonLoader* _jsonLoader;
     
     
-  //  std::shared_ptr<TTF_Font> GetFont(std::string& name);
+    std::shared_ptr<TTF_Font> GetFont(std::string& name);
     
 public:
     ResourceManager(RenderSystem* render);
     ~ResourceManager();
     
     Texture* GetTexture(std::string& title);
- //   std::shared_ptr<TextTexture> GetTextTexture(std::string& text, std::string& fontName, int fsize);
+    std::shared_ptr<TextTexture> GetTextTexture(std::string& text, std::string& fontName, int fsize);
     
     static const json* GetGameSettings();
     const json* GetScene(std::string& title);

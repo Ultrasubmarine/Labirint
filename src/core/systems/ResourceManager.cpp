@@ -37,31 +37,31 @@ Texture* ResourceManager::GetTexture(std::string& title)
     
     return t;
 }
-//
-//std::shared_ptr<TTF_Font> ResourceManager::GetFont(std::string& name)
-//{
-//    auto ft = _fontLoader->GetFont(name);
-//    if(ft)
-//        return ft;
-//
-//    std::string r_path ="resources/fonts/" + name;
-//    std::string type = "ttf";
-//
-//    char *font_path = GetPath(r_path, type);
-//    ft = _fontLoader->LoadFont(name, font_path);
-//    delete font_path;
-//
-//    return ft;
-//}
-//
-//std::shared_ptr<TextTexture> ResourceManager::GetTextTexture(std::string& text, std::string& fontName, int fsize)
-//{
-//    auto font = GetFont(fontName);
-//    if(font)
-//        return nullptr;
-//
-//    return _fontLoader->GetText(text, font, fsize);
-//}
+
+std::shared_ptr<TTF_Font> ResourceManager::GetFont(std::string& name)
+{
+    auto ft = _fontLoader->GetFont(name);
+    if(ft)
+        return ft;
+
+    std::string r_path ="resources/fonts/" + name;
+    std::string type = "ttf";
+
+    char *font_path = GetPath(r_path, type);
+    ft = _fontLoader->LoadFont(name, font_path);
+    delete font_path;
+
+    return ft;
+}
+
+std::shared_ptr<TextTexture> ResourceManager::GetTextTexture(std::string& text, std::string& fontName, int fsize)
+{
+    auto font = GetFont(fontName);
+    if(!font)
+        return nullptr;
+
+    return _fontLoader->GetText(text, font, fsize);
+}
 
 const json* ResourceManager::GetGameSettings()
 {

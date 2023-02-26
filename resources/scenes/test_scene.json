@@ -8,7 +8,10 @@
         ]},
         {"name":"frog_static", "components": [
             {"name": "Transform", "position":  { "x": 50, "y": 170} },
-            {"name": "Image", "texture" : "frog"}] }
+            {"name": "Image", "texture" : "frog"}] },
+        {"name":"text_", "components": [
+            {"name": "Transform", "position":  { "x": 2, "y": 170} },
+            {"name": "Text", "font" : "chibold","size" : 32 ,"text" : "HELLO MY CUB ENGINE! <3"}] }
     ]    
 }
 

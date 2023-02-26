@@ -8,23 +8,20 @@
 #ifndef FontLoader_hpp
 #define FontLoader_hpp
 
-//#include <SDL2/SDL.h>
-//#include <SDL2_ttf/SDL_ttf.h>
-
-#include <memory>
 #include <stdio.h>
 #include <map>
 
-
+#include <SDL2/SDL.h>
+#include <SDL2_ttf/SDL_ttf.h>
 
 #include "TextTexture.hpp"
+
 
 class FontLoader
 {
     SDL_Renderer *_render;
 
     // TODO hash + unordered map & smart_ptr
- //   std::map<std::string, TextTexture*> _textTextures;
     std::map<std::string, std::weak_ptr<TTF_Font>> _fonts;
 
 public:
@@ -39,8 +36,4 @@ public:
 };
 
 
-void DeleteTTF_Font(TTF_Font* t)
-{
-    TTF_CloseFont(t);
-}
 #endif /* FontLoader_hpp */

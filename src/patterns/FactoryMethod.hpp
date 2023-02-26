@@ -22,28 +22,36 @@ public:
     TBase* Create(TKey k,TCreateMethodArgs... args);
     
 private:
-    std::map<TKey, TCreateMethod> _creators;
+    std::map<TKey,TBase*(*)(TCreateMethodArgs...)>& TheMap();
     
 };
 
 template<typename Key, typename TBase, typename...TCreateMethodArgs>
 bool FactoryMethod<Key, TBase, TCreateMethodArgs...>::Register(Key k, TCreateMethod createFunc)
 {
-    if(_creators.find(k) != _creators.end())
+    if(TheMap().find(k) != TheMap().end())
         return false;
     
-    _creators[k] = createFunc;
+    TheMap()[k] = createFunc;
     return true;
 }
 
 template<typename Key, typename TBase, typename...TCreateMethodArgs>
 TBase* FactoryMethod<Key, TBase, TCreateMethodArgs...>::Create(Key k, TCreateMethodArgs... args)
 {
-    if(auto it = _creators.find(k); it != _creators.end())
+    if(auto it = TheMap().find(k); it != TheMap().end())
     {
         return it->second(args...);
     }
+ 
     return nullptr;
+}
+
+template<typename Key, typename TBase, typename...TCreateMethodArgs>
+std::map<Key, TBase*(*)(TCreateMethodArgs...)>& FactoryMethod<Key, TBase, TCreateMethodArgs...>::TheMap()
+{
+    static std::map<Key, TBase*(*)(TCreateMethodArgs...)> _creators{};
+    return _creators;
 }
 
 #endif /* FactoryMethod_hpp */
