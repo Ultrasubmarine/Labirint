@@ -70,6 +70,7 @@
 		0228C27129AA327100F8B558 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		0228C27329AA375400F8B558 /* FontLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FontLoader.cpp; sourceTree = "<group>"; };
 		0228C27429AA375400F8B558 /* FontLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FontLoader.hpp; sourceTree = "<group>"; };
+		0228C27729AB816500F8B558 /* TextTexture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextTexture.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
@@ -152,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				0225D2B92998FD590015919D /* Texture.hpp */,
+				0228C27729AB816500F8B558 /* TextTexture.hpp */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -512,6 +514,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
+				GCC_NO_COMMON_BLOCKS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,6 +541,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
+				GCC_NO_COMMON_BLOCKS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (

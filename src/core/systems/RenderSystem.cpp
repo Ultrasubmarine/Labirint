@@ -23,20 +23,40 @@ void RenderSystem::Render()
     
     for(auto obj : _renderObjects)
     {
-        if(obj.second.transform->IsDirty() || obj.second.image->IsDirty())
+        if(obj.second.image)
         {
-            auto p = obj.second.transform->GetPosition();
+            if(obj.second.transform->IsDirty() || obj.second.image->IsDirty())
+            {
+                auto p = obj.second.transform->GetPosition();
 
-            obj.second.dst->x = p.x;
-            obj.second.dst->y = p.y;
-            obj.second.dst->w = obj.second.image->GetRect().w * obj.second.transform->GetScale().x;
-            obj.second.dst->h = obj.second.image->GetRect().h * obj.second.transform->GetScale().y;
+                obj.second.dst->x = p.x;
+                obj.second.dst->y = p.y;
+                obj.second.dst->w = obj.second.image->GetRect().w * obj.second.transform->GetScale().x;
+                obj.second.dst->h = obj.second.image->GetRect().h * obj.second.transform->GetScale().y;
+                
+                obj.second.transform->ClearDirty();
+                obj.second.image->ClearDirty();
+            }
             
-            obj.second.transform->ClearDirty();
-            obj.second.image->ClearDirty();
+            SDL_RenderCopy(_render, obj.second.image->GetTexture(), &obj.second.image->GetRect(), obj.second.dst);
         }
+//        else{ // text
+//            if(obj.second.transform->IsDirty() || obj.second.image->IsDirty())
+//            {
+//                auto p = obj.second.transform->GetPosition();
+//
+//                obj.second.dst->x = p.x;
+//                obj.second.dst->y = p.y;
+//                obj.second.dst->w = obj.second.text->GetRect().w * obj.second.transform->GetScale().x;
+//                obj.second.dst->h = obj.second.text->GetRect().h * obj.second.transform->GetScale().y;
+//                
+//                obj.second.transform->ClearDirty();
+//                obj.second.text->ClearDirty();
+//            }
+//            
+//            SDL_RenderCopy(_render, obj.second.text->GetTexture(), &obj.second.text->GetRect(), obj.second.dst);
+//        }
         
-        SDL_RenderCopy(_render, obj.second.image->GetTexture(), &obj.second.image->GetRect(), obj.second.dst);
     }
     
     SDL_RenderPresent(_render);
@@ -57,6 +77,22 @@ void RenderSystem::AddRenderObj(SId id, Image* image)
     
     _renderObjects[id] = obj;
 }
+
+//void RenderSystem::AddRenderObj(SId id, Text* text)
+//{
+//    RenderObject obj;
+//    obj.transform = GetComponent<Transform>(id);
+//    obj.text = text;
+//    obj.dst = new SDL_Rect();
+//    
+//    obj.dst->x = obj.transform->GetPosition().x;
+//    obj.dst->y = obj.transform->GetPosition().y;
+//    
+//    obj.dst->w = text->GetRect().w * obj.transform->GetScale().x;
+//    obj.dst->y = text->GetRect().h * obj.transform->GetScale().y;
+//    
+//    _renderObjects[id] = obj;
+//}
 
 void RenderSystem::DeleteRenderObj(SId id)
 {

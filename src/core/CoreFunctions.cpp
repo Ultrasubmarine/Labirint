@@ -57,6 +57,12 @@ Component* CreateComponent(TypeId component_id, GameHub* hub)
        auto im = static_cast<Image*>(c);
        Game::Instance().renderSystem->AddRenderObj(object_id, im);
     }
+//    else if(component_id == TYPE_ID(Text))
+//    {
+//       auto im = static_cast<Text*>(c);
+//       Game::Instance().renderSystem->AddRenderObj(object_id, im);
+//    }
+    
     hub->AddComponent(component_id, c);
     return c;
 }

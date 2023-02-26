@@ -6,28 +6,61 @@
 //
 
 #include "Text.hpp"
-#include <SDL2/SDL.h>
-#include <SDL2_ttf/SDL_ttf.h>
 
-
-void Text::SetText(std::string& t)
-{
-// FontLoader
-    TTF_Font* Sans = TTF_OpenFont("Sans.ttf", 24);
-    
-    SDL_Surface* surfaceText = TTF_RenderText_Solid(Sans,t.c_str(), Color);
+//COMPONENT_CPP(Text)
 //
-//    // now you can convert it into a texture
-    SDL_Texture* Text_texture = SDL_CreateTextureFromSurface(renderer, surfaceText);
-    
-    SDL_FreeSurface(surfaceText);
-    
-    auto txt =   Game::Instance().resourceManager->GetTexture(tx_name);
-//
+//void Text::SetTexture(std::shared_ptr<TextTexture> texture, SDL_Rect* srcrect)
+//{
+//    _texture = texture;
+//    if(srcrect)
+//    {
+//        this->_srcrect.x = srcrect->x;
+//        this->_srcrect.y = srcrect->y;
+//        this->_srcrect.w = srcrect->w;
+//        this->_srcrect.h = srcrect->h;
+//        
+//        return;
+//    }
 //    
-//    // as TTF_RenderText_Solid could only be used on
-//    // SDL_Surface then you have to create the surface first
-//    SDL_Surface* surfaceMessage =
-//        TTF_RenderText_Solid(Sans, "put your text here", White);
-    
-}
+//    SDL_QueryTexture(texture->texture, NULL, NULL, &this->_srcrect.w , &this->_srcrect.h);
+//    
+//    this->_srcrect.x = 0;
+//    this->_srcrect.y = 0;
+//    
+//    _dirty = true;
+//}
+//
+//SDL_Texture* Text::GetTexture()
+//{
+//    return _texture->texture;
+//}
+//
+//const SDL_Rect& Text::GetRect()
+//{
+//    return _srcrect;
+//}
+//
+//bool Text::IsDirty()
+//{
+//    return _dirty;
+//}
+//
+//void Text::ClearDirty()
+//{
+//    _dirty = false;
+//}
+//
+//#include "Game.hpp"
+//
+//void Text::Serialize(json &j)
+//{
+//    auto font = j["font"].get<std::string>();
+//    auto text = j["text"].get<std::string>();
+//    auto size = j["size"].get<int>();
+//    
+//    if(!text.empty() && !font.empty())
+//    {
+//   //     auto txt =  Game::Instance().resourceManager->GetTextTexture(text, font, size);
+//     //   SetTexture(txt);
+//    }
+//}

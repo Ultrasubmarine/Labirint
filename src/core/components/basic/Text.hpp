@@ -10,33 +10,32 @@
 
 #include <stdio.h>
 #include "Component.hpp"
-#include "Image.hpp"
+#include "TextTexture.hpp"
 
 #include <string>
-#include <SDL2/SDL.h>
 
 
-class Text: Image
-{
-    COMPONENT_BODY(Text, Image)
-    
-//    std::string text;
+//class Text: public Component
+//{
+//   // COMPONENT_BODY(Text)
+//    
+////  std::string text;
+//    std::shared_ptr<TextTexture> _texture;
+//    SDL_Rect _srcrect;
 //
-    SDL_Color color;
-    Texture* texture;
-    
+//    void SetTexture(std::shared_ptr<TextTexture> texture, SDL_Rect* srcrect = NULL);
+//    bool _dirty;
+//public:
 //
-//    // now you can convert it into a texture
-//    SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-//
-//    SDL_Rect Message_rect; //create a rect
-//
-//
-public:
-
-    void Render();    
-    void SetText(std::string& text);
-  
-};
+//    void Render();    
+//    void Serialize(json &j);
+//  
+//    
+//    SDL_Texture* GetTexture();
+//    const SDL_Rect& GetRect();
+//    
+//    bool IsDirty();
+//    void ClearDirty();
+//};
 
 #endif /* Text_hpp */

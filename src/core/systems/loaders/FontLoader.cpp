@@ -8,8 +8,6 @@
 #include "FontLoader.hpp"
 #include <iostream>
 
-#include <SDL2_ttf/SDL_ttf.h>
-
 FontLoader::FontLoader(SDL_Renderer *render)
 {
     _render = render;
@@ -20,34 +18,49 @@ FontLoader::FontLoader(SDL_Renderer *render)
     }
 }
 
-Texture* FontLoader::GetFont(std::string& name)
+std::shared_ptr<TTF_Font> FontLoader::GetFont(std::string& name)
 {
     if(auto it = _fonts.find(name); it != _fonts.end())
-        return it->second;
+        return it->second.lock();
     
     return nullptr;
 }
 
-Texture* FontLoader::LoadFont(std::string& name, char *fullPath)
+std::shared_ptr<TTF_Font> FontLoader::LoadFont(std::string& name, char *fullPath)
 {
-    SDL_Surface *bmpSurf = SDL_LoadBMP(fullPath);
+    // TODO use custom deleter
+    auto f =TTF_OpenFont(fullPath, 24);
+    std::shared_ptr<TTF_Font> font{f, DeleteTTF_Font};
     
-    SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(_render, bmpSurf);
-    SDL_FreeSurface(bmpSurf);
+    if(font)
+    {
+        _fonts[name] = std::weak_ptr<TTF_Font>{font};
+        return font;
+    }
     
-    if(bmpTex)
-        return _fonts[name] = new Texture{ name, bmpTex};
-    
-    std::cout<<"error: TextureLoader::LoadTexture() texture:"<<name;
-    return NULL;
+    return nullptr;
 }
 
 
+std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_ptr<TTF_Font> font, int fsize)
+{
+    if( TTF_SetFontSize(font.get(), fsize) == -1)
+    {
+        std::cout<<"FontLoader::GetText error set size. \ntext:"""<<text<<""" \nsize:"<<fsize;
+    }
+    
+    SDL_Surface* surfaceText = TTF_RenderText_Solid(font.get(), text.c_str(), SDL_Color{66,66,66});
+
+    SDL_Texture* textTex = SDL_CreateTextureFromSurface(_render, surfaceText);
+    SDL_FreeSurface(surfaceText);
+
+    if(textTex)
+        return std::make_shared<TextTexture>( TextTexture{ text, textTex, font});
+    
+    std::cout<<"error: FontLoader::GetText() text:"<<text;
+    return NULL;
+}
+
 FontLoader::~FontLoader()
 {
-    for(auto t : _textures)
-    {
-        delete t.second;
-    }
-    _textures.clear();
 }
