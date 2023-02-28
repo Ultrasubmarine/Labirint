@@ -32,9 +32,11 @@ REGISTER_TYPE_BODY(CLASS_NAME)
 /// Generating needed information to Component in cpp.
 /// @param CLASS_NAME - current class type
 #define COMPONENT_CPP(CLASS_NAME) \
-bool CLASS_NAME::c_register = REGISTER_TYPE(CLASS_NAME) && \
-                              REGISTER_COMPONENT_IN_FACTORY(CLASS_NAME) && \
-                              REGISTER_UPDATE(CLASS_NAME);
+bool CLASS_NAME::c_register =   REGISTER_TYPE(CLASS_NAME) && \
+                                REGISTER_COMPONENT_IN_FACTORY(CLASS_NAME) && \
+                                REGISTER_UPDATE(CLASS_NAME) && \
+                                REGISTER_DRAW(CLASS_NAME);
+                              
 
 /// Generating constructors.
 #define COMPONENT_CONSTRUCTORS(CLASS_NAME, BASE_CLASS_COMPONENT, ...) \
@@ -57,7 +59,10 @@ private: \
 
 ///
 #define REGISTER_UPDATE(CLASS_NAME) \
-(( &CLASS_NAME::Update != &DEFAULT_COMPONENT_VALUE::Update) ? RegisterUpdate(TYPE_ID(CLASS_NAME)) : true)
+( &CLASS_NAME::Update != &DEFAULT_COMPONENT_VALUE::Update) ? RegisterUpdate(TYPE_ID(CLASS_NAME)) : true
+
+#define REGISTER_DRAW(CLASS_NAME) \
+( &CLASS_NAME::Draw != &DEFAULT_COMPONENT_VALUE::Draw) ? RegisterDraw(TYPE_ID(CLASS_NAME)) : true 
 
 
 class Component
@@ -78,6 +83,7 @@ public:
     const TypeInfo* GetTypeInfo();
     
     virtual void Update(double deltaTime) {};
+    virtual void Draw() {};
     
     virtual void Serialize(json &j) {};
     virtual void Deserialize(json &j) {};
@@ -86,6 +92,8 @@ public:
 
 using TCreateComponent = Component*(*)(SId);
 bool RegisterComponent(const char *componentName, TCreateComponent createFunc);
+
 bool RegisterUpdate(TypeId componentID);
+bool RegisterDraw(TypeId componentID);
 
 #endif /* Component_hpp */

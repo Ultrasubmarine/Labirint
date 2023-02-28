@@ -17,10 +17,13 @@
 
 using namespace std;
 
+
+//TODO static obj
 class ComponentSystem
 {
     static map<TypeId, map<SId,Component*>> _allComponents;
     static list<TypeId> _updateableComponents;
+    static list<TypeId> _drawComponents;
     
     static FactoryMethod<TypeId, Component, SId> _factory;
     
@@ -34,6 +37,7 @@ public:
     static void UpdateComponents(double deltaTime);
     
     static void RegisterUpdateComponent(TypeId componentID);
+    static void RegisterDrawComponent(TypeId componentID);
     static bool RegisterComponent(const TypeInfo &typeInfo, TCreateComponent createFunc);
 };
 

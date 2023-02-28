@@ -45,4 +45,10 @@ bool RegisterUpdate(TypeId compoenntID)
     return true;
 }
 
+bool RegisterDraw(TypeId compoenntID)
+{
+    ComponentSystem::RegisterDrawComponent(compoenntID);
+    return true;
+}
+
 

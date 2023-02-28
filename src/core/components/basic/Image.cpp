@@ -66,3 +66,9 @@ void Image::Deserialize(json &j)
 {
    // j << position.x
 }
+
+void Image::Draw()
+{
+    //Image::
+     std::cout<<"image draw";
+};

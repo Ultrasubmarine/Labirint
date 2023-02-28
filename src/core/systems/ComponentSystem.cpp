@@ -10,6 +10,8 @@
 
 map<TypeId, map<SId,Component*>> ComponentSystem::_allComponents = {};
 list<TypeId> ComponentSystem::_updateableComponents = {};
+list<TypeId> ComponentSystem::_drawComponents = {};
+
 FactoryMethod<TypeId, Component, SId> ComponentSystem::_factory{};
 
 bool ComponentSystem::IsComponentExist(TypeId componentID, SId objectID)
@@ -72,6 +74,11 @@ void ComponentSystem::UpdateComponents(double deltaTime)
             }
         }
     }
+}
+
+void ComponentSystem::RegisterDrawComponent(TypeId componentID)
+{
+    _drawComponents.push_back(componentID);
 }
 
 bool ComponentSystem::RegisterComponent(const TypeInfo &typeInfo, TCreateComponent createFunc)

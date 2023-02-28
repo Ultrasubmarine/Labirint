@@ -35,6 +35,8 @@ public:
     bool IsDirty();
     void ClearDirty();
     
+    void Draw() override;
+ //   void Update(double deltaTime) override {};
     void Serialize(json &j) override;
     void Deserialize(json &j) override;
 };
