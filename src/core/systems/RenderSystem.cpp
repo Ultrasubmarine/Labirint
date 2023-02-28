@@ -25,20 +25,7 @@ void RenderSystem::Render()
     {
         if(obj.second.image)
         {
-            if(obj.second.transform->IsDirty() || obj.second.image->IsDirty())
-            {
-                auto p = obj.second.transform->GetPosition();
-
-                obj.second.dst->x = p.x;
-                obj.second.dst->y = p.y;
-                obj.second.dst->w = obj.second.image->GetRect().w * obj.second.transform->GetScale().x;
-                obj.second.dst->h = obj.second.image->GetRect().h * obj.second.transform->GetScale().y;
-                
-                obj.second.transform->ClearDirty();
-                obj.second.image->ClearDirty();
-            }
-            
-            SDL_RenderCopy(_render, obj.second.image->GetTexture(), &obj.second.image->GetRect(), obj.second.dst);
+            obj.second.image->Draw(_render);
         }
         else{ // text
             if(obj.second.transform->IsDirty() || obj.second.text->IsDirty())
@@ -65,15 +52,15 @@ void RenderSystem::Render()
 void RenderSystem::AddRenderObj(SId id, Image* image)
 {
     RenderObject obj;
-    obj.transform = GetComponent<Transform>(id);
+//    obj.transform = GetComponent<Transform>(id);
     obj.image = image;
-    obj.dst = new SDL_Rect();
+//    obj.dst = new SDL_Rect();
     
-    obj.dst->x = obj.transform->GetPosition().x;
-    obj.dst->y = obj.transform->GetPosition().y;
-    
-    obj.dst->w = image->GetRect().w * obj.transform->GetScale().x;
-    obj.dst->y = image->GetRect().h * obj.transform->GetScale().y;
+//    obj.dst->x = obj.transform->GetPosition().x;
+//    obj.dst->y = obj.transform->GetPosition().y;
+//
+//    obj.dst->w = image->GetRect().w * obj.transform->GetScale().x;
+//    obj.dst->y = image->GetRect().h * obj.transform->GetScale().y;
     
     _renderObjects[id] = obj;
 }

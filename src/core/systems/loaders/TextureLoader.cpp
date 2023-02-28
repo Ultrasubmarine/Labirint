@@ -31,10 +31,16 @@ Texture* TextureLoader::LoadTexture(std::string& name, char *fullPath)
     SDL_Surface *bmpSurf = SDL_LoadBMP(fullPath);
     
     SDL_Texture *bmpTex = SDL_CreateTextureFromSurface(_render, bmpSurf);
+    
+    SDL_Rect src;
+    src.x = 0;
+    src.y = 0;
+    src.w = bmpSurf->w;
+    src.h = bmpSurf->h;
     SDL_FreeSurface(bmpSurf);
     
     if(bmpTex)
-        return _textures[name] = new Texture{ name, bmpTex};
+        return _textures[name] = new Texture{ name, bmpTex, src};
     
     std::cout<<"error: TextureLoader::LoadTexture() texture:"<<name;
     return NULL;

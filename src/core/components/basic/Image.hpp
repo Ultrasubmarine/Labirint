@@ -13,6 +13,7 @@
 
 #include "Texture.hpp"
 #include "Component.hpp"
+#include "Transform.hpp"
 
 class Image : public Component
 {
@@ -20,7 +21,8 @@ class Image : public Component
     
 private:
     Texture *_texture;
-    SDL_Rect _srcrect;
+    SDL_Rect *dst;
+    Transform* transform;
     
     uint _layer;
     
@@ -32,11 +34,13 @@ public:
     SDL_Texture* GetTexture();
     const SDL_Rect& GetRect();
     
+    void Init() override;
+    
     bool IsDirty();
     void ClearDirty();
     
-    void Draw() override;
- //   void Update(double deltaTime) override {};
+    void Draw(SDL_Renderer* render) override;
+    
     void Serialize(json &j) override;
     void Deserialize(json &j) override;
 };

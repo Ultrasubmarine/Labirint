@@ -12,20 +12,9 @@ COMPONENT_CPP(Image)
 void Image::SetTexture(Texture *texture, SDL_Rect* srcrect)
 {
     _texture = texture;
-    if(srcrect)
-    {
-        this->_srcrect.x = srcrect->x;
-        this->_srcrect.y = srcrect->y;
-        this->_srcrect.w = srcrect->w;
-        this->_srcrect.h = srcrect->h;
-        
-        return;
-    }
     
-    SDL_QueryTexture(texture->texture, NULL, NULL, &this->_srcrect.w , &this->_srcrect.h);
-    
-    this->_srcrect.x = 0;
-    this->_srcrect.y = 0;
+ //   SDL_QueryTexture(texture->texture, NULL, NULL, &this->_srcrect.w , &this->_srcrect.h);
+
     
     _dirty = true;
 }
@@ -37,7 +26,7 @@ SDL_Texture* Image::GetTexture()
 
 const SDL_Rect& Image::GetRect()
 {
-    return _srcrect;
+    return _texture->src;
 }
 
 bool Image::IsDirty()
@@ -45,12 +34,25 @@ bool Image::IsDirty()
     return _dirty;
 }
 
+#include "Game.hpp"
+#include "CoreFunctions.hpp"
+#include <SDL2/SDL.h>
+
+void Image::Init()
+{
+    transform = GetComponent<Transform>(_sid);
+    //TODO FREE MEMORY
+    dst = new SDL_Rect();
+    
+    dst->x = transform->GetPosition().x;
+    dst->y = transform->GetPosition().y;
+}
+
 void Image::ClearDirty()
 {
     _dirty = false;
 }
 
-#include "Game.hpp"
 
 void Image::Serialize(json &j)
 {
@@ -67,8 +69,21 @@ void Image::Deserialize(json &j)
    // j << position.x
 }
 
-void Image::Draw()
+
+void Image::Draw(SDL_Renderer* render)
 {
-    //Image::
-     std::cout<<"image draw";
+    if(transform->IsDirty() || IsDirty())
+    {
+        auto p = transform->GetPosition();
+
+        dst->x = p.x;
+        dst->y = p.y;
+        dst->w = _texture->src.w * transform->GetScale().x;
+        dst->h = _texture->src.h * transform->GetScale().y;
+        
+        transform->ClearDirty();
+        ClearDirty();
+    }
+    
+    SDL_RenderCopy(render, _texture->texture , &_texture->src, dst);
 };

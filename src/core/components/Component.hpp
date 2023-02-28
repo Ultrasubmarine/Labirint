@@ -64,7 +64,8 @@ private: \
 #define REGISTER_DRAW(CLASS_NAME) \
 ( &CLASS_NAME::Draw != &DEFAULT_COMPONENT_VALUE::Draw) ? RegisterDraw(TYPE_ID(CLASS_NAME)) : true 
 
-
+//temp place
+#include <SDL2/SDL.h>
 class Component
 {
 protected:
@@ -79,11 +80,10 @@ public:
     virtual ~Component();
     
     const SId GetSid();
-    
     const TypeInfo* GetTypeInfo();
     
     virtual void Update(double deltaTime) {};
-    virtual void Draw() {};
+    virtual void Draw(SDL_Renderer* render) {};
     
     virtual void Serialize(json &j) {};
     virtual void Deserialize(json &j) {};

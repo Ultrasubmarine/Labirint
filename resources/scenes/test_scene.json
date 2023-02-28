@@ -3,14 +3,14 @@
     "hubs":[
         {"name":"frog", "components": [
             {"name": "Transform",
-                "position":  { "x": 5, "y": 70} },
+                "position":  { "x": 90, "y": 70} },
             {"name": "Image",
                 "texture" : "frog"},
             {"name": "MovingScript"}
         ]},
         {"name":"frog_static", "components": [
             {"name": "Transform",
-                "position":  { "x": 50, "y": 170} },
+                "position":  { "x": 150, "y": 170} },
             {"name": "Image",
                 "texture" : "frog"}] },
         {"name":"text_", "components": [

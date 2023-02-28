@@ -15,7 +15,9 @@
 struct Texture
 {
     std::string name;
+    
     SDL_Texture *texture;
+    SDL_Rect src;
     
     ~Texture()
     {
