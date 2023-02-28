@@ -59,7 +59,7 @@ std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_
     SDL_FreeSurface(surfaceText);
 
     if(textTex)
-        return std::make_shared<TextTexture>( TextTexture{ text, textTex, font});
+        return std::shared_ptr<TextTexture>( new TextTexture{ text, textTex, font});
     
     std::cout<<"error: FontLoader::GetText() text:"<<text;
     return NULL;

@@ -78,9 +78,9 @@
             filePath = "src/core/game.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "Game::Init()"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "Game::Loop()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -846,10 +846,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "ResourceManager::GetScene(title)"
-            landmarkType = "7">
+            startingLineNumber = "118"
+            endingLineNumber = "118">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -862,8 +860,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "ResourceManager::GetScene(title)"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +876,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "ResourceManager::GetScene(title)"
             landmarkType = "7">
          </BreakpointContent>
@@ -894,8 +892,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "ResourceManager::GetScene(title)"
             landmarkType = "7">
          </BreakpointContent>
@@ -942,9 +940,9 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "ResourceManager::GetTextTexture(text, fontName, fsize)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "ResourceManager::GetGameSettings()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -958,8 +956,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "ResourceManager::GetFont(name)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1022,10 +1020,42 @@
             filePath = "src/core/systems/loaders/FontLoader.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "FontLoader::GetText(text, font, fsize)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "FontLoader::~FontLoader()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6D9184D1-6892-4B31-8DA1-B00484BB7271 - a81cc2d7ba995010"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FontLoader::~FontLoader()"
+                  moduleName = "Labirint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/loaders/FontLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "6D9184D1-6892-4B31-8DA1-B00484BB7271 - a81cc2d7ba995ff1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FontLoader::~FontLoader()"
+                  moduleName = "Labirint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/loaders/FontLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1038,9 +1068,89 @@
             filePath = "src/core/systems/loaders/FontLoader.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "FontLoader::GetText(text, font, fsize)"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "FontLoader::~FontLoader()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6BB3E383-2A76-4F44-AAE2-7BFB62A13AFC - a81cc2d7ba995010"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FontLoader::~FontLoader()"
+                  moduleName = "Labirint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/loaders/FontLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "6BB3E383-2A76-4F44-AAE2-7BFB62A13AFC - a81cc2d7ba995ff1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FontLoader::~FontLoader()"
+                  moduleName = "Labirint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/loaders/FontLoader.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5187C30E-7AD7-4495-ABAF-248B5E80BF99"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/core/Game.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "Game::~Game()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA94CC33-35CA-4A94-8BA8-1C9A6E78D6F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/core/Game.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "Game::Input()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE2E2E73-8516-47D0-929A-814219443625"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/core/systems/ResourceManager.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "ResourceManager::GetGameSettings()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
