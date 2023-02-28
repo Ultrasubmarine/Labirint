@@ -29,7 +29,7 @@ public:
     ~FontLoader();
     
     /// doesn't storage; TODO is it okay? 
-    std::shared_ptr<TextTexture> GetText(std::string& text, std::shared_ptr<TTF_Font> font, int fsize);
+    std::shared_ptr<TextTexture> GetText(std::string& text, std::shared_ptr<TTF_Font> font, int fsize, SDL_Color color);
     
     std::shared_ptr<TTF_Font> GetFont(std::string& name);
     std::shared_ptr<TTF_Font> LoadFont(std::string& name, char *fullPath);

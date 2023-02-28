@@ -20,11 +20,13 @@
 
 struct TextTexture
 {
-    std::string text;
     SDL_Texture *texture;
-    std::shared_ptr<TTF_Font> font;
-    SDL_Color color;
     
+    std::shared_ptr<TTF_Font> font;
+    std::string text;
+    SDL_Color color;
+    SDL_Rect rect;
+
     ~TextTexture()
     {
         SDL_DestroyTexture(texture);

@@ -58,10 +58,10 @@ void Text::Serialize(json &j)
     auto font = j["font"].get<std::string>();
     auto text = j["text"].get<std::string>();
     auto size = j["size"].get<int>();
-    
+    auto color = j["color"].get<std::vector<Uint8>>();
     if(!text.empty() && !font.empty())
     {
-        auto txt =  Game::Instance().resourceManager->GetTextTexture(text, font, size);
+        auto txt =  Game::Instance().resourceManager->GetTextTexture(text, font, size, SDL_Color{ color[0], color[1], color[2]});
         SetTexture(txt);
     }
 }

@@ -54,13 +54,13 @@ std::shared_ptr<TTF_Font> ResourceManager::GetFont(std::string& name)
     return ft;
 }
 
-std::shared_ptr<TextTexture> ResourceManager::GetTextTexture(std::string& text, std::string& fontName, int fsize)
+std::shared_ptr<TextTexture> ResourceManager::GetTextTexture(std::string& text, std::string& fontName, int fsize, SDL_Color color)
 {
     auto font = GetFont(fontName);
     if(!font)
         return nullptr;
 
-    return _fontLoader->GetText(text, font, fsize);
+    return _fontLoader->GetText(text, font, fsize, color);
 }
 
 const json* ResourceManager::GetGameSettings()
@@ -96,4 +96,34 @@ const json* ResourceManager::GetScene(std::string& title)
     delete json_path;
     
     return j;
+}
+
+
+const char* ResourceManager::GetResourcePath(ResourceType type, std::string& name, std::string format)
+{
+    std::string _path ="resources/";
+    
+    switch (type) {
+        case ResourceType::texture:
+        {
+            _path += "images/";
+            break;
+        }
+        case ResourceType::font:
+        {
+            _path += "fonts/";
+            break;
+        }
+        case ResourceType::scene:
+        {
+            _path += "scenes/";
+            break;
+        }
+        default:
+            return nullptr;
+    }
+    _path += name;
+    
+    char *full_path = GetPath(_path, format);
+    return full_path;
 }

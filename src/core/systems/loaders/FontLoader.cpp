@@ -41,25 +41,23 @@ std::shared_ptr<TTF_Font> FontLoader::LoadFont(std::string& name, char *fullPath
 }
 
 
-std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_ptr<TTF_Font> font, int fsize)
+std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_ptr<TTF_Font> font, int fsize, SDL_Color color)
 {
     if( TTF_SetFontSize(font.get(), fsize) == -1)
     {
-        std::cout<<"FontLoader::GetText error set size. \ntext:"""<<text<<""" \nsize:"<<fsize;
+        std::cout<<"error: FontLoader::GetText() set size. \ntext:"""<<text<<""" \nsize:"<<fsize<<"\n";
     }
     
-    SDL_Color textColor = { 255, 0, 0, 255};
-    SDL_Surface* surfaceText = TTF_RenderText_Solid(font.get(), text.c_str(), textColor);
-
+    SDL_Surface* surfaceText = TTF_RenderText_Solid(font.get(), text.c_str(), color);
     SDL_Texture* textTex = SDL_CreateTextureFromSurface(_render, surfaceText);
     
-    auto text_width = surfaceText->w;
-    auto text_height = surfaceText->h;
-
+    SDL_Rect rect;
+    rect.w = surfaceText->w;
+    rect.h = surfaceText->h;
     SDL_FreeSurface(surfaceText);
 
     if(textTex)
-        return std::shared_ptr<TextTexture>( new TextTexture{ text, textTex, font});
+        return std::shared_ptr<TextTexture>( new TextTexture{ textTex, font, text, color, rect});
     
     std::cout<<"error: FontLoader::GetText() text:"<<text;
     return NULL;

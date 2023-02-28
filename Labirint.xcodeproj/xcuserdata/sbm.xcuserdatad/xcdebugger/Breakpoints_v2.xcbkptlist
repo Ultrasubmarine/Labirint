@@ -846,8 +846,10 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118">
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "ResourceManager::GetResourcePath(type, name, format)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -860,9 +862,9 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "ResourceManager::GetScene(title)"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "ResourceManager::GetResourcePath(type, name, format)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -876,9 +878,9 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "ResourceManager::GetScene(title)"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "ResourceManager::GetResourcePath(type, name, format)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -892,9 +894,9 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "ResourceManager::GetScene(title)"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "ResourceManager::GetResourcePath(type, name, format)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -942,7 +944,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
-            landmarkName = "ResourceManager::GetGameSettings()"
+            landmarkName = "ResourceManager::GetScene(title)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1004,9 +1006,9 @@
             filePath = "src/core/systems/loaders/FontLoader.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "FontLoader::GetText(text, font, fsize)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "FontLoader::GetText(text, font, fsize, color)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1020,8 +1022,8 @@
             filePath = "src/core/systems/loaders/FontLoader.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "FontLoader::~FontLoader()"
             landmarkType = "7">
             <Locations>
@@ -1068,8 +1070,8 @@
             filePath = "src/core/systems/loaders/FontLoader.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "FontLoader::~FontLoader()"
             landmarkType = "7">
             <Locations>
@@ -1150,7 +1152,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
             endingLineNumber = "92"
-            landmarkName = "ResourceManager::GetGameSettings()"
+            landmarkName = "ResourceManager::GetScene(title)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
