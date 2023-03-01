@@ -52,6 +52,8 @@ std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_
     SDL_Texture* textTex = SDL_CreateTextureFromSurface(_render, surfaceText);
     
     SDL_Rect rect;
+    rect.x = 0;
+    rect.y = 0;
     rect.w = surfaceText->w;
     rect.h = surfaceText->h;
     SDL_FreeSurface(surfaceText);

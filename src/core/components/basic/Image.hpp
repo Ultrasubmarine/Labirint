@@ -27,14 +27,13 @@ private:
     uint _layer;
     
     bool _dirty;
+    void Init() override;
 public:
     
     void SetTexture(Texture *texture, SDL_Rect* srcrect = NULL);
     
     SDL_Texture* GetTexture();
     const SDL_Rect& GetRect();
-    
-    void Init() override;
     
     bool IsDirty();
     void ClearDirty();

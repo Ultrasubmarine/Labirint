@@ -37,7 +37,6 @@ void DeleteGameHub(SId objID)
     {
         DeleteComponent(comp.first, objID);
     }
-
     Game::Instance().sceneManager->GetCurrentScene()->DestroyGameHub(hub);
 };
 
@@ -47,22 +46,8 @@ Component* CreateComponent(TypeId component_id, GameHub* hub)
         return nullptr;
     
     SId object_id = hub->GetSid();
-    
+
     Component *c = ComponentSystem::CreateComponent(component_id, object_id);
-    
-    
-    //TODO hide it somewhere 
-    if(component_id == TYPE_ID(Image))
-    {
-       auto im = static_cast<Image*>(c);
-       Game::Instance().renderSystem->AddRenderObj(object_id, im);
-    }
-    else if(component_id == TYPE_ID(Text))
-    {
-       auto im = static_cast<Text*>(c);
-       Game::Instance().renderSystem->AddRenderObj(object_id, im);
-    }
-    
     hub->AddComponent(component_id, c);
     return c;
 }

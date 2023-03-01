@@ -7,6 +7,7 @@
 
 #include "ResourceManager.hpp"
 #include "GetPath_Apple.hpp"
+#include <iostream>
 
 ResourceManager::ResourceManager(RenderSystem* renderSystem)
 {
@@ -88,7 +89,7 @@ const json* ResourceManager::GetScene(std::string& title)
     
     if(*json_path == '\0')
     {
-        cout<<"error: ResourceManager::GetScene() scene (" <<title<<") didn't found"<<endl;
+        std::cout<<"error: ResourceManager::GetScene() scene (" <<title<<") didn't found";//<<endl;
         return nullptr;
     }
     

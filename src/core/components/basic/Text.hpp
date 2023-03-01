@@ -12,7 +12,9 @@
 
 #include "TextTexture.hpp"
 #include "Component.hpp"
+#include "Transform.hpp"
 
+#include <SDL2/SDL.h>
 #include <string>
 #include <memory>
 
@@ -26,11 +28,17 @@ class Text: public Component
 
     void SetTexture(std::shared_ptr<TextTexture> texture, SDL_Rect* srcrect = NULL);
     bool _dirty;
+    
+    SDL_Rect *dst;
+    Transform* transform;
+    
+    void Init() override;
 public:
 
     void Render();    
-    void Serialize(json &j);
+    void Serialize(json &j) override;
   
+    void Draw(SDL_Renderer* render) override;
     
     SDL_Texture* GetTexture();
     const SDL_Rect& GetRect();

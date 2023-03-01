@@ -57,6 +57,15 @@ Component* ComponentSystem::GetComponentBySid(TypeId componentID, SId objectID)
     return nullptr;
 }
 
+const map<SId,Component*>* ComponentSystem::GetAllComponentByType(TypeId componentID)
+{
+    if(auto it = _allComponents.find(componentID); it != _allComponents.end())
+    {
+        return &it->second;
+    }
+    return nullptr;
+}
+
 void ComponentSystem::RegisterUpdateComponent(TypeId componentID)
 {
     _updateableComponents.push_back(componentID);
@@ -76,9 +85,21 @@ void ComponentSystem::UpdateComponents(double deltaTime)
     }
 }
 
+list<TypeId>& ComponentSystem::GetDrawComponents()
+{
+    return DrawList();
+}
+
 void ComponentSystem::RegisterDrawComponent(TypeId componentID)
 {
-    _drawComponents.push_back(componentID);
+    DrawList().push_back(componentID);
+}
+
+
+list<TypeId>& ComponentSystem::DrawList()
+{
+    static list<TypeId> drawComponents = {};
+    return drawComponents;
 }
 
 bool ComponentSystem::RegisterComponent(const TypeInfo &typeInfo, TCreateComponent createFunc)

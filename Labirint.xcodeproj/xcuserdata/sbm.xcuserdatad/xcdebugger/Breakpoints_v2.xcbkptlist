@@ -375,70 +375,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2B218758-4E13-44E3-A160-52D6DFB72E9F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "src/core/systems/RenderSystem.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "RenderSystem::Render()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2B218758-4E13-44E3-A160-52D6DFB72E9F - 340af849895ed8c2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RenderSystem::Render()"
-                  moduleName = "Labirint"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/RenderSystem.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "2B218758-4E13-44E3-A160-52D6DFB72E9F - 340af849895ed8c2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RenderSystem::Render()"
-                  moduleName = "Labirint"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/RenderSystem.cpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "124">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "495DCE48-C272-4F3F-855C-58A92F0A8535"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "src/core/systems/RenderSystem.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "RenderSystem::Render()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A4F1AE7C-3E9D-47B9-85D1-34FF3CF38D54"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -465,22 +401,6 @@
             startingLineNumber = "20"
             endingLineNumber = "20"
             landmarkName = "ComponentFactory::Register(typeInfo, createFunc)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "697847F9-05B5-4E80-8520-63A65D93B504"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "src/core/systems/RenderSystem.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "RenderSystem::AddRenderObj(id, image)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -606,8 +526,8 @@
             filePath = "src/core/CoreFunctions.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "CreateComponent(component_id, hub)"
             landmarkType = "9">
          </BreakpointContent>
@@ -702,8 +622,8 @@
             filePath = "src/core/systems/ComponentSystem.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "ComponentSystem::RegisterUpdateComponent(componentID)"
             landmarkType = "7">
          </BreakpointContent>
@@ -750,8 +670,8 @@
             filePath = "src/core/CoreFunctions.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "CreateComponent(component_id, hub)"
             landmarkType = "9">
          </BreakpointContent>
@@ -846,8 +766,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "ResourceManager::GetResourcePath(type, name, format)"
             landmarkType = "7">
          </BreakpointContent>
@@ -862,8 +782,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "ResourceManager::GetResourcePath(type, name, format)"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +798,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "ResourceManager::GetResourcePath(type, name, format)"
             landmarkType = "7">
          </BreakpointContent>
@@ -894,8 +814,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "ResourceManager::GetResourcePath(type, name, format)"
             landmarkType = "7">
          </BreakpointContent>
@@ -942,8 +862,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "ResourceManager::GetScene(title)"
             landmarkType = "7">
          </BreakpointContent>
@@ -958,25 +878,9 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "ResourceManager::GetFont(name)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B8B4387C-8067-4E24-96F1-66510E4DB006"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "src/core/systems/RenderSystem.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "RenderSystem::Render()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1022,13 +926,13 @@
             filePath = "src/core/systems/loaders/FontLoader.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "FontLoader::~FontLoader()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6D9184D1-6892-4B31-8DA1-B00484BB7271 - a81cc2d7ba995fd6"
+                  uuid = "6D9184D1-6892-4B31-8DA1-B00484BB7271 - a81cc2d7ba995010"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1038,12 +942,12 @@
                   urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/loaders/FontLoader.cpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
-                  uuid = "6D9184D1-6892-4B31-8DA1-B00484BB7271 - a81cc2d7ba995fb7"
+                  uuid = "6D9184D1-6892-4B31-8DA1-B00484BB7271 - a81cc2d7ba995ff1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1053,8 +957,8 @@
                   urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/loaders/FontLoader.cpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
@@ -1070,13 +974,13 @@
             filePath = "src/core/systems/loaders/FontLoader.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "FontLoader::~FontLoader()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6BB3E383-2A76-4F44-AAE2-7BFB62A13AFC - a81cc2d7ba995fd6"
+                  uuid = "6BB3E383-2A76-4F44-AAE2-7BFB62A13AFC - a81cc2d7ba995010"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1086,12 +990,12 @@
                   urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/loaders/FontLoader.cpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
-                  uuid = "6BB3E383-2A76-4F44-AAE2-7BFB62A13AFC - a81cc2d7ba995fb7"
+                  uuid = "6BB3E383-2A76-4F44-AAE2-7BFB62A13AFC - a81cc2d7ba995ff1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1101,8 +1005,8 @@
                   urlString = "file:///Users/sbm/Projects/Labirint/src/core/systems/loaders/FontLoader.cpp"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
@@ -1150,8 +1054,8 @@
             filePath = "src/core/systems/ResourceManager.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "ResourceManager::GetScene(title)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1182,8 +1086,8 @@
             filePath = "src/core/systems/ComponentSystem.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "ComponentSystem::RegisterDrawComponent(componentID)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1256,7 +1160,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "29C9C2CF-1ACA-4073-A402-60DEBC941D41"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/core/components/basic/Image.cpp"
@@ -1272,7 +1176,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6490D3D0-3E48-4B8A-B673-43DCB907AFB2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/core/components/basic/Image.cpp"
@@ -1304,7 +1208,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BE81587F-97A0-4948-B056-5906C9B36F8F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/core/components/basic/Image.cpp"
@@ -1319,16 +1223,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F1D3DADB-6087-4E34-B538-AEFFFC074062"
-            shouldBeEnabled = "No"
+            uuid = "91F432AB-3A3E-40B2-9FF1-56C3ED1E81C6"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "src/core/systems/RenderSystem.cpp"
+            filePath = "src/core/components/basic/Text.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "RenderSystem::AddRenderObj(id, image)"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "Text::Draw(render)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79525B71-5B56-420C-81B7-8A6C4C6F58D3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/core/components/basic/Text.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "Text::Init()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
