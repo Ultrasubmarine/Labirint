@@ -5,12 +5,8 @@
 //  Created by marina porkhunova on 06.01.2023.
 //
 
-#include "Game.hpp"
 #include "RenderSystem.hpp"
-#include "Transform.hpp"
-
 #include "ComponentSystem.hpp"
-#include "CoreFunctions.hpp"
 
 RenderSystem::RenderSystem(SDL_Window *window)
 {
@@ -23,7 +19,7 @@ void RenderSystem::Render()
     SDL_SetRenderDrawColor(_render, 0,0,0,0xFF);//0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(_render);
     
-    auto drawComponents = ComponentSystem::GetDrawComponents();
+    auto drawComponents = ComponentSystem::GetDrawList();
     for(auto compID: drawComponents)
     {
         auto compList = ComponentSystem::GetAllComponentByType(compID);

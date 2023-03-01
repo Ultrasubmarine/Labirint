@@ -10,15 +10,13 @@
 
 #include <SDL2/SDL.h>
 #include <stdio.h>
-#include <map>
 
-
+//TODO LAYERS
 class RenderSystem
 {
     SDL_Renderer *_render;
     
 public:
-    
     RenderSystem(SDL_Window *window);
     ~RenderSystem();
         

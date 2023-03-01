@@ -9,10 +9,24 @@
 
 
 map<TypeId, map<SId,Component*>> ComponentSystem::_allComponents = {};
-list<TypeId> ComponentSystem::_updateableComponents = {};
-list<TypeId> ComponentSystem::_drawComponents = {};
 
-FactoryMethod<TypeId, Component, SId> ComponentSystem::_factory{};
+list<TypeId>& ComponentSystem::DrawList()
+{
+    static list<TypeId> drawComponents = {};
+    return drawComponents;
+}
+
+list<TypeId>& ComponentSystem::UpdateList()
+{
+    static list<TypeId> updateableComponents = {};
+    return updateableComponents;
+}
+
+FactoryMethod<TypeId, Component, SId>& ComponentSystem::ComponentFactory()
+{
+    static FactoryMethod<TypeId, Component, SId> factory = {};
+    return factory;
+}
 
 bool ComponentSystem::IsComponentExist(TypeId componentID, SId objectID)
 {
@@ -29,8 +43,7 @@ Component* ComponentSystem::CreateComponent(TypeId componentID, SId objectID)
     if(IsComponentExist(componentID, objectID))
         return nullptr;
   
-    
-    Component *c = _factory.Create(componentID, objectID);//ComponentFactory::Create(componentID, objectID);
+    Component *c = ComponentFactory().Create(componentID, objectID);//ComponentFactory::Create(componentID, objectID);
     _allComponents[componentID][objectID] = c;
     return c;
 }
@@ -66,14 +79,19 @@ const map<SId,Component*>* ComponentSystem::GetAllComponentByType(TypeId compone
     return nullptr;
 }
 
-void ComponentSystem::RegisterUpdateComponent(TypeId componentID)
+const list<TypeId>& ComponentSystem::GetUpdateList()
 {
-    _updateableComponents.push_back(componentID);
+    return UpdateList();
+}
+
+const list<TypeId>& ComponentSystem::GetDrawList()
+{
+    return DrawList();
 }
 
 void ComponentSystem::UpdateComponents(double deltaTime)
 {
-    for(auto u_id : _updateableComponents)
+    for(auto u_id : UpdateList())
     {
         if(auto c_it = _allComponents.find(u_id); c_it != _allComponents.end())
         {
@@ -85,9 +103,9 @@ void ComponentSystem::UpdateComponents(double deltaTime)
     }
 }
 
-list<TypeId>& ComponentSystem::GetDrawComponents()
+void ComponentSystem::RegisterUpdateComponent(TypeId componentID)
 {
-    return DrawList();
+    UpdateList().push_back(componentID);
 }
 
 void ComponentSystem::RegisterDrawComponent(TypeId componentID)
@@ -95,16 +113,9 @@ void ComponentSystem::RegisterDrawComponent(TypeId componentID)
     DrawList().push_back(componentID);
 }
 
-
-list<TypeId>& ComponentSystem::DrawList()
-{
-    static list<TypeId> drawComponents = {};
-    return drawComponents;
-}
-
 bool ComponentSystem::RegisterComponent(const TypeInfo &typeInfo, TCreateComponent createFunc)
 {
-    bool b = _factory.Register(typeInfo.id, createFunc);
+    bool b = ComponentFactory().Register(typeInfo.id, createFunc);
     
     std::cout<<"ComponentSystem::RegisterComponent: "<<typeInfo.name;
     if(b)
