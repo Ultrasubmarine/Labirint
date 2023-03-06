@@ -9,20 +9,19 @@
 #define FontLoader_hpp
 
 #include <stdio.h>
-#include <map>
+#include <unordered_map>
 
 #include <SDL2/SDL.h>
 #include <SDL2_ttf/SDL_ttf.h>
 
 #include "TextTexture.hpp"
 
-
 class FontLoader
 {
     SDL_Renderer *_render;
-
-    // TODO hash + unordered map & smart_ptr
-    std::map<std::string, std::weak_ptr<TTF_Font>> _fonts;
+    
+    // TODO remove null ptrs
+    std::unordered_map<std::string, std::weak_ptr<TTF_Font>> _fonts;
 
 public:
     FontLoader(SDL_Renderer *render);

@@ -35,14 +35,13 @@ class ResourceManager
     FontLoader* _fontLoader;
     JsonLoader* _jsonLoader;
     
-    
     std::shared_ptr<TTF_Font> GetFont(std::string& name);
     
 public:
     ResourceManager(RenderSystem* render);
     ~ResourceManager();
     
-    Texture* GetTexture(std::string& title);
+    std::shared_ptr<Texture> GetTexture(std::string& title);
     std::shared_ptr<TextTexture> GetTextTexture(std::string& text, std::string& fontName, int fsize, SDL_Color color);
     
     static const json* GetGameSettings();

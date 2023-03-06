@@ -8,9 +8,10 @@
 #ifndef TextureLoader_hpp
 #define TextureLoader_hpp
 
-#include <stdio.h>
+#include <memory>
 #include <string>
-#include <map>
+#include <stdio.h>
+#include <unordered_map>
 
 #include <SDL2/SDL.h>
 
@@ -20,15 +21,14 @@ class TextureLoader
 {
     SDL_Renderer *_render;
 
-    // TODO hash + unordered map & smart_ptr
-    std::map<std::string, Texture*> _textures;
+    std::unordered_map<std::string, std::weak_ptr<Texture>> _textures;
 
 public:
     TextureLoader(SDL_Renderer *render);
     ~TextureLoader();
     
-    Texture* GetTexture(std::string& name);
-    Texture* LoadTexture(std::string& name, char *fullPath);
+    std::shared_ptr<Texture> GetTexture(std::string& name);
+    std::shared_ptr<Texture> LoadTexture(std::string& name, char *fullPath);
 };
 
 #endif /* TextureLoader_hpp */

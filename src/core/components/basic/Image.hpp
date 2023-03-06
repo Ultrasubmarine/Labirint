@@ -20,7 +20,7 @@ class Image : public Component
     COMPONENT_BODY(Image)
     
 private:
-    Texture *_texture;
+    std::shared_ptr<Texture> _texture;
     SDL_Rect *dst;
     Transform* transform;
     
@@ -30,7 +30,7 @@ private:
     void Init() override;
 public:
     
-    void SetTexture(Texture *texture, SDL_Rect* srcrect = NULL);
+    void SetTexture(std::shared_ptr<Texture> texture, SDL_Rect* srcrect = NULL);
     
     SDL_Texture* GetTexture();
     const SDL_Rect& GetRect();

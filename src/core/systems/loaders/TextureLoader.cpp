@@ -7,8 +7,6 @@
 
 #include "TextureLoader.hpp"
 
-#include "GetPath_Apple.hpp"
-
 #include <string>
 #include <iostream>
 
@@ -18,15 +16,15 @@ TextureLoader::TextureLoader(SDL_Renderer *render)
     _render = render;
 }
 
-Texture* TextureLoader::GetTexture(std::string& name)
+std::shared_ptr<Texture> TextureLoader::GetTexture(std::string& name)
 {
     if(auto it = _textures.find(name); it != _textures.end())
-        return it->second;
+        return it->second.lock() ;
     
     return nullptr;
 }
 
-Texture* TextureLoader::LoadTexture(std::string& name, char *fullPath)
+std::shared_ptr<Texture> TextureLoader::LoadTexture(std::string& name, char *fullPath)
 {
     SDL_Surface *bmpSurf = SDL_LoadBMP(fullPath);
     
@@ -40,7 +38,12 @@ Texture* TextureLoader::LoadTexture(std::string& name, char *fullPath)
     SDL_FreeSurface(bmpSurf);
     
     if(bmpTex)
-        return _textures[name] = new Texture{ name, bmpTex, src};
+    {
+        std::shared_ptr<Texture> texture{new Texture{ name, bmpTex, src}};
+        
+        _textures[name] = std::weak_ptr<Texture>{texture};
+        return texture;
+    }
     
     std::cout<<"error: TextureLoader::LoadTexture() texture:"<<name;
     return NULL;
@@ -49,10 +52,6 @@ Texture* TextureLoader::LoadTexture(std::string& name, char *fullPath)
 
 TextureLoader::~TextureLoader()
 {
-    for(auto t : _textures)
-    {
-        delete t.second;
-    }
     _textures.clear();
 }
 

@@ -19,6 +19,7 @@ struct Texture
     SDL_Texture *texture;
     SDL_Rect src;
     
+    
     ~Texture()
     {
         SDL_DestroyTexture(texture);

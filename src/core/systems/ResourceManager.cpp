@@ -23,9 +23,9 @@ ResourceManager::~ResourceManager()
     delete _jsonLoader;
 }
 
-Texture* ResourceManager::GetTexture(std::string& title)
+std::shared_ptr<Texture> ResourceManager::GetTexture(std::string& title)
 {
-    Texture* t = _textureLoader->GetTexture(title);
+    auto t = _textureLoader->GetTexture(title);
     if(t)
         return t;
     

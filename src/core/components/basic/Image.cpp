@@ -9,7 +9,7 @@
 
 COMPONENT_CPP(Image)
 
-void Image::SetTexture(Texture *texture, SDL_Rect* srcrect)
+void Image::SetTexture(std::shared_ptr<Texture> texture, SDL_Rect* srcrect)
 {
     _texture = texture;
     
