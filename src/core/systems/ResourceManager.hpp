@@ -48,7 +48,5 @@ public:
     const json* GetScene(std::string& title);
     
     const char* GetResourcePath(ResourceType type, std::string& name, std::string format);
-    
-   // char* GeneratePath(
 };
 #endif /* ResourceManager_hpp */

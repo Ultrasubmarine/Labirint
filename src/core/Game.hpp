@@ -18,6 +18,7 @@
 #include "ResourceManager.hpp"
 #include "SceneManager.hpp"
 #include "Time.hpp"
+#include "DebugSystem.hpp"
 
 class Game : public Singleton<Game>
 {
@@ -36,6 +37,7 @@ public:
     ResourceManager *resourceManager;
     SceneManager *sceneManager;
     Time time;
+    DebugSystem *debug;
     
     ~Game();
     

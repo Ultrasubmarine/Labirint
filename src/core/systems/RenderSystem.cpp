@@ -14,6 +14,8 @@ RenderSystem::RenderSystem(SDL_Window *window)
                                  SDL_RENDERER_ACCELERATED); //| SDL_RENDERER_TARGETTEXTURE);    
 }
 
+#include "Game.hpp"
+
 void RenderSystem::Render()
 {
     SDL_SetRenderDrawColor(_render, 0,0,0,0xFF);//0xFF, 0xFF, 0xFF, 0xFF);
@@ -26,6 +28,8 @@ void RenderSystem::Render()
         for(auto c: *compList)
             c.second->Draw(_render);
     }
+    
+    Game::Instance().debug->Draw(_render);
     SDL_RenderPresent(_render);
 }
 

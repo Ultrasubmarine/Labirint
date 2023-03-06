@@ -21,6 +21,7 @@
 		0228C26D29AA179D00F8B558 /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0228C26B29AA179D00F8B558 /* Text.cpp */; };
 		0228C27229AA327100F8B558 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0228C27129AA327100F8B558 /* SDL2_ttf.framework */; };
 		0228C27529AA375400F8B558 /* FontLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0228C27329AA375400F8B558 /* FontLoader.cpp */; };
+		0228C29229B643D500F8B558 /* DebugSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0228C29029B643D500F8B558 /* DebugSystem.cpp */; };
 		022A7C5E297D73F50056C438 /* ComponentSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022A7C5C297D73F50056C438 /* ComponentSystem.cpp */; };
 		026DF92B29520C0C00D8E415 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02696DDB29251EFA0099F80F /* main.cpp */; };
 		029A304D29114F8500FD3779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029A304C29114F8500FD3779 /* Assets.xcassets */; };
@@ -71,6 +72,8 @@
 		0228C27329AA375400F8B558 /* FontLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FontLoader.cpp; sourceTree = "<group>"; };
 		0228C27429AA375400F8B558 /* FontLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FontLoader.hpp; sourceTree = "<group>"; };
 		0228C27729AB816500F8B558 /* TextTexture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextTexture.hpp; sourceTree = "<group>"; };
+		0228C29029B643D500F8B558 /* DebugSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DebugSystem.cpp; sourceTree = "<group>"; };
+		0228C29129B643D500F8B558 /* DebugSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DebugSystem.hpp; sourceTree = "<group>"; };
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
@@ -171,6 +174,15 @@
 			path = loaders;
 			sourceTree = "<group>";
 		};
+		0228C28F29B643B300F8B558 /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				0228C29029B643D500F8B558 /* DebugSystem.cpp */,
+				0228C29129B643D500F8B558 /* DebugSystem.hpp */,
+			);
+			path = debug;
+			sourceTree = "<group>";
+		};
 		029A303D29114F8500FD3779 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +263,7 @@
 		02C6F77C295215DA0032572C /* core */ = {
 			isa = PBXGroup;
 			children = (
+				0228C28F29B643B300F8B558 /* debug */,
 				0225D2B72998FD300015919D /* resources */,
 				029A61B32978776B00206D64 /* systems */,
 				029A61B2297876BD00206D64 /* components */,
@@ -367,6 +380,7 @@
 				0225D2A4298EBE130015919D /* TypeId.cpp in Sources */,
 				029A61BD2979A6D600206D64 /* Component.cpp in Sources */,
 				022337AE2969C80B0080A8BA /* TextureLoader.cpp in Sources */,
+				0228C29229B643D500F8B558 /* DebugSystem.cpp in Sources */,
 				0228C26D29AA179D00F8B558 /* Text.cpp in Sources */,
 				022337AB2969A7020080A8BA /* CoreFunctions.cpp in Sources */,
 				0225D2BD299A48E80015919D /* JsonLoader.cpp in Sources */,

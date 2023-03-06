@@ -16,6 +16,7 @@ class Time
 public:
     double deltaTime; // seconds
     
+    
     void FirstInitialization();
     void CalculateTime();
 };

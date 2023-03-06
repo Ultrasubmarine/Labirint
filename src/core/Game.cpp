@@ -23,7 +23,7 @@ int Game::Init()
     renderSystem = new RenderSystem(window->GetWindow());
     resourceManager = new ResourceManager(renderSystem);
     sceneManager = new SceneManager();
-    
+    debug = new DebugSystem();
     
     std::string s_name = (*gameSettings)["main_scene"].get<std::string>();
     sceneManager->LoadScene(s_name);
@@ -33,6 +33,7 @@ int Game::Init()
 
 Game::~Game()
 {
+    delete debug;
     delete resourceManager;
     delete renderSystem;
     delete sceneManager;
@@ -81,7 +82,12 @@ void Game::Loop()
         time.CalculateTime();
         Input();
         Tick(time.deltaTime);//TODO GET TIME
+        
+        debug->Update();
+        
         Render();
+        
+     //   debug->Draw(renderSystem->GetRenderer());
     }
 }
 
