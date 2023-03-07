@@ -11,18 +11,30 @@
 
 void Time::FirstInitialization()
 {
-    deltaTime = 0;
+//    delta = std::chrono::nanoseconds;
+    last_clock = std::chrono::steady_clock::now();
 }
 
 #include <iostream>
 
-void Time::CalculateTime()
-{
-    static  Uint64 _nowCounter = SDL_GetPerformanceCounter();
-    static  Uint64 _lastCounter = 0;
+void Time::CalculateNewFrameTime()
+{    
+    static auto now_clock = std::chrono::high_resolution_clock::now();
+  
+    last_clock = now_clock;
+    now_clock = std::chrono::high_resolution_clock::now();
     
-    _lastCounter = _nowCounter;
-    _nowCounter = SDL_GetPerformanceCounter();
+    delta = std::chrono::duration_cast<std::chrono::milliseconds>(now_clock - last_clock);
+    
+}
 
-    deltaTime = ((_nowCounter - _lastCounter) / static_cast<double>(SDL_GetPerformanceFrequency()));
+
+double Time::GetDeltaTime()
+{
+    return std::chrono::duration<double>(delta).count();
+}
+
+std::chrono::nanoseconds Time::GetElapsedTime()
+{
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - last_clock);
 }

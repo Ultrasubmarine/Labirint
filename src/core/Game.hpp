@@ -20,6 +20,9 @@
 #include "Time.hpp"
 #include "DebugSystem.hpp"
 
+
+//#include "FixedFrameRate.h"
+
 class Game : public Singleton<Game>
 {
     bool play = true;
@@ -28,7 +31,10 @@ class Game : public Singleton<Game>
     void Tick(float delta_tick);
     void Render();
     
-    const int ms_frame = 1000 / 60;
+    void WaitFixedRate();
+
+    std::chrono::nanoseconds fixedFrame_nanosec;
+    
 public:
 
     SDL_Event event;
