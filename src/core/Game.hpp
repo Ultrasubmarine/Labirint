@@ -28,6 +28,7 @@ class Game : public Singleton<Game>
     void Tick(float delta_tick);
     void Render();
     
+    const int ms_frame = 1000 / 60;
 public:
 
     SDL_Event event;

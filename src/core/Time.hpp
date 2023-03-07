@@ -19,5 +19,6 @@ public:
     
     void FirstInitialization();
     void CalculateTime();
+    
 };
 #endif /* Time_hpp */

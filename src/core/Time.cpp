@@ -25,6 +25,4 @@ void Time::CalculateTime()
     _nowCounter = SDL_GetPerformanceCounter();
 
     deltaTime = ((_nowCounter - _lastCounter) / static_cast<double>(SDL_GetPerformanceFrequency()));
-    
-    std::cout<< deltaTime<<std::endl;
 }

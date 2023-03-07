@@ -74,11 +74,18 @@ void Game::Input()
     }
 }
 
+#include <thread>
 void Game::Loop()
 {
     time.FirstInitialization();
+    
+    Uint32 initial_ticks, elapsed_ms;
     while(play)
     {
+        
+        initial_ticks = SDL_GetTicks();
+
+         //do things
         time.CalculateTime();
         Input();
         Tick(time.deltaTime);//TODO GET TIME
@@ -87,7 +94,10 @@ void Game::Loop()
         
         Render();
         
-     //   debug->Draw(renderSystem->GetRenderer());
+        
+        elapsed_ms = SDL_GetTicks() - initial_ticks;
+        if(elapsed_ms < ms_frame)
+            SDL_Delay(ms_frame - elapsed_ms);
     }
 }
 
