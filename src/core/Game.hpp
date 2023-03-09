@@ -19,9 +19,7 @@
 #include "SceneManager.hpp"
 #include "Time.hpp"
 #include "DebugSystem.hpp"
-
-
-//#include "FixedFrameRate.h"
+#include "FrameRate.hpp"
 
 class Game : public Singleton<Game>
 {
@@ -30,10 +28,6 @@ class Game : public Singleton<Game>
     void Input();
     void Tick(float delta_tick);
     void Render();
-    
-    void WaitFixedRate();
-
-    std::chrono::nanoseconds fixedFrame_nanosec;
     
 public:
 
@@ -45,6 +39,9 @@ public:
     SceneManager *sceneManager;
     Time time;
     DebugSystem *debug;
+    
+    FrameRate frameRate;
+    
     
     ~Game();
     

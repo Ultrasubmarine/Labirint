@@ -11,7 +11,7 @@
 
 void DebugSystem::Update()
 {
-    int fps = 1/Game::Instance().time.GetDeltaTime();
+    int fps = 1/Game::Instance().frameRate.GetDeltaTime();
     
     if(  last_fps != fps)
     {

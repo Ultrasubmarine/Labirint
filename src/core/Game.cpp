@@ -29,9 +29,11 @@ int Game::Init()
     sceneManager->LoadScene(s_name);
     
     
-    auto  rate = 60ll;
-    fixedFrame_nanosec = std::chrono::seconds(1) ;
-    fixedFrame_nanosec /= rate;
+    frameRate.SetFixedFrame(60);
+//    frameRate
+ //  int  rate = 60;
+   // fixedFrame_nanosec = std::chrono::seconds(1);
+  //  fixedFrame_nanosec /= rate;
     
     return 0;
 }
@@ -83,56 +85,18 @@ void Game::Input()
 #include <thread>
 void Game::Loop()
 {
-    time.FirstInitialization();
-    
-    
-    std::chrono::nanoseconds delta = std::chrono::nanoseconds::zero();
-
-    std::chrono::time_point<std::chrono::steady_clock> last_clock;// = std::chrono::high_resolution_clock::now();
-    std::chrono::time_point<std::chrono::steady_clock> now_clock = std::chrono::steady_clock::now();
+    frameRate.FirstInitialization();
     
     while(play)
     {
-         //do things
-        time.CalculateNewFrameTime();
-        
         Input();
-        Tick(delta.count()/ static_cast<float>(std::nano::den));//time.GetDeltaTime());//TODO GET TIME
+        Tick(frameRate.GetDeltaTime());
         
         debug->Update();
-        
         Render();
         
-        
-     //   last_clock = now_clock;
-        now_clock = std::chrono::steady_clock::now();
-        delta = now_clock - last_clock;
-        
-        auto wait = fixedFrame_nanosec - delta;
-        delta += wait;
-        
-        if( wait > std::chrono::nanoseconds::zero())
-        {
-            std::this_thread::sleep_for(wait);
-            std::cout<<"wait:"<< (wait).count()<<endl;
-        }
-        
-        last_clock = std::chrono::steady_clock::now();
-        //WaitFixedRate();
-         //   SDL_Delay(ms_frame - elapsedTime.count());
+        frameRate.WaitFrame();
     }
 }
 
 
-
-void Game::WaitFixedRate()
-{    
-    auto elapsed_nanosec = time.GetElapsedTime();
-    if( elapsed_nanosec < fixedFrame_nanosec)
-        std::this_thread::sleep_for( fixedFrame_nanosec - elapsed_nanosec);
-    
-    
-  
- //   auto f = std::chrono::duration<double, std::chrono::nanoseconds>(fixedFrame_nanosec - elapsed_nanosec);
-    std::cout<<"wait:"<<  ( fixedFrame_nanosec - elapsed_nanosec).count()<<endl;
-}
