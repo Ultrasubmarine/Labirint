@@ -21,6 +21,8 @@ public:
     ~RenderSystem();
         
     void Render();
+    void Present();
+    
     SDL_Renderer* GetRenderer();
 };
 

@@ -7,8 +7,6 @@
 #include "ComponentSystem.hpp"
 #include "Game.hpp"
 
-#include <SDL2/SDL.h>
-
 #include "json.hpp"
 using json = nlohmann::json;
 
@@ -25,19 +23,13 @@ int Game::Init()
     sceneManager = new SceneManager();
     debug = new DebugSystem();
     
+    frameRate.SetFixedFrame(60);
+    
     std::string s_name = (*gameSettings)["main_scene"].get<std::string>();
     sceneManager->LoadScene(s_name);
     
-    
-    frameRate.SetFixedFrame(60);
-//    frameRate
- //  int  rate = 60;
-   // fixedFrame_nanosec = std::chrono::seconds(1);
-  //  fixedFrame_nanosec /= rate;
-    
     return 0;
 }
-
 
 Game::~Game()
 {
@@ -48,18 +40,20 @@ Game::~Game()
     delete window;
 }
 
-
 void Game::Render()
 {
     renderSystem->Render();
+    debug->Render(renderSystem->GetRenderer());
+    renderSystem->Present();
 }
 
-void Game::Tick(float delta_tick)
+void Game::Update(float delta_tick)
 {
     ComponentSystem::UpdateComponents(delta_tick);
-   // scene->Tick(delta_tick);
+    debug->Update();
 }
 
+#include <SDL2/SDL.h>
 void Game::Input()
 {
     if(SDL_PollEvent(&event) )
@@ -82,21 +76,17 @@ void Game::Input()
     }
 }
 
-#include <thread>
 void Game::Loop()
 {
     frameRate.FirstInitialization();
     
+    LOG("first initialization " + std::to_string(6) + " end");
     while(play)
     {
         Input();
-        Tick(frameRate.GetDeltaTime());
-        
-        debug->Update();
+        Update(frameRate.GetDeltaTime() * timeScale);
         Render();
         
         frameRate.WaitFrame();
     }
 }
-
-

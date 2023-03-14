@@ -13,6 +13,8 @@
 #include <SDL2/SDL.h>
 #include "TextTexture.hpp"
 
+#define LOG(message) Game::Instance().debug->Log(std::string{message});
+
 class DebugSystem
 {
     std::string fontName = "Roboto-Light";
@@ -20,7 +22,6 @@ class DebugSystem
     SDL_Rect *dst;
     int last_fps;
     std::shared_ptr<TextTexture> fpsText;
-    
     
 public:
     DebugSystem(){
@@ -30,7 +31,8 @@ public:
     };
     
     void Update();
-    void Draw(SDL_Renderer* renderer);
+    void Render(SDL_Renderer* renderer);
+    void Log(std::string str);
 };
 
 #endif /* DebugSystem_hpp */

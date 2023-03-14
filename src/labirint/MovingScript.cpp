@@ -21,7 +21,7 @@ void MovingScript::Init()
 }
 
 #include "Game.hpp"
-#include "Time.hpp"
+
 void MovingScript::Update(double deltaTime)
 {
     

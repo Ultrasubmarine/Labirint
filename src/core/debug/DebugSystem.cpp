@@ -24,7 +24,12 @@ void DebugSystem::Update()
     }
 }
 
-void DebugSystem::Draw(SDL_Renderer* render)
+void DebugSystem::Render(SDL_Renderer* render)
 {
     SDL_RenderCopy(render, fpsText->texture, &fpsText->rect, dst);
+}
+
+void DebugSystem::Log(std::string str)
+{
+    std::cout<<str<<std::endl;
 }

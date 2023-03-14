@@ -17,16 +17,16 @@
 #include "RenderSystem.hpp"
 #include "ResourceManager.hpp"
 #include "SceneManager.hpp"
-#include "Time.hpp"
 #include "DebugSystem.hpp"
 #include "FrameRate.hpp"
 
 class Game : public Singleton<Game>
 {
     bool play = true;
+    float timeScale = 1.0f;
     
     void Input();
-    void Tick(float delta_tick);
+    void Update(float deltaTime);
     void Render();
     
 public:
@@ -37,11 +37,9 @@ public:
     RenderSystem *renderSystem;
     ResourceManager *resourceManager;
     SceneManager *sceneManager;
-    Time time;
     DebugSystem *debug;
     
     FrameRate frameRate;
-    
     
     ~Game();
     
