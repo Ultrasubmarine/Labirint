@@ -6,9 +6,9 @@
 //
 
 #include "ComponentSystem.hpp"
+#include "Debug.h"
 
-
-map<TypeId, map<SId,Component*>> ComponentSystem::_allComponents = {};
+unordered_map<TypeId, unordered_map<SId,Component*>> ComponentSystem::_allComponents = {};
 
 list<TypeId>& ComponentSystem::DrawList()
 {
@@ -70,7 +70,7 @@ Component* ComponentSystem::GetComponentBySid(TypeId componentID, SId objectID)
     return nullptr;
 }
 
-const map<SId,Component*>* ComponentSystem::GetAllComponentByType(TypeId componentID)
+const unordered_map<SId,Component*>* ComponentSystem::GetAllComponentByType(TypeId componentID)
 {
     if(auto it = _allComponents.find(componentID); it != _allComponents.end())
     {
@@ -117,11 +117,10 @@ bool ComponentSystem::RegisterComponent(const TypeInfo &typeInfo, TCreateCompone
 {
     bool b = ComponentFactory().Register(typeInfo.id, createFunc);
     
-    std::cout<<"ComponentSystem::RegisterComponent: "<<typeInfo.name;
     if(b)
-        std::cout<<" (Success)"<<endl;
+        LOG("ComponentSystem::RegisterComponent: " + std::string(typeInfo.name) +" (Success)");
     else
-        std::cout<<" (Fail)"<<endl;
+        LOG("ComponentSystem::RegisterComponent: " + std::string(typeInfo.name) + "  (Fail)");
 
     return b;
 }

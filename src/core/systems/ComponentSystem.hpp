@@ -9,8 +9,9 @@
 #define ComponentSystem_hpp
 
 #include <stdio.h>
+#include <unordered_map>
 #include <list>
-#include <map>
+
 
 #include "Component.hpp"
 #include "FactoryMethod.hpp"
@@ -19,7 +20,7 @@ using namespace std;
 
 class ComponentSystem
 {
-    static map<TypeId, map<SId,Component*>> _allComponents;
+    static unordered_map<TypeId, unordered_map<SId,Component*>> _allComponents;
         
     static list<TypeId>& DrawList();
     static list<TypeId>& UpdateList();
@@ -32,7 +33,7 @@ public:
     static bool IsComponentExist(TypeId componentID, SId objectID);
     static Component* GetComponentBySid(TypeId componentID, SId objectID);
     
-    static const map<SId,Component*>* GetAllComponentByType(TypeId componentID);
+    static const unordered_map<SId,Component*>* GetAllComponentByType(TypeId componentID);
     static const list<TypeId>& GetDrawList();
     static const list<TypeId>& GetUpdateList();
     

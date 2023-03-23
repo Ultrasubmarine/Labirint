@@ -8,6 +8,8 @@
 #include "Game.hpp"
 
 #include "json.hpp"
+#include "Debug.h"
+
 using json = nlohmann::json;
 
 int Game::Init()

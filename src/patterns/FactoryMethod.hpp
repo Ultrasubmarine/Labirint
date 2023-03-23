@@ -9,7 +9,7 @@
 #define FactoryMethod_hpp
 
 #include <stdio.h>
-#include <map>
+#include <unordered_map>
 /// Facroty
 /// @arg TKey - me
 template<typename TKey, typename TBase, typename...TCreateMethodArgs>
@@ -22,7 +22,7 @@ public:
     TBase* Create(TKey k,TCreateMethodArgs... args);
     
 private:
-    std::map<TKey,TBase*(*)(TCreateMethodArgs...)>& TheMap();
+    std::unordered_map<TKey,TBase*(*)(TCreateMethodArgs...)>& TheMap();
     
 };
 
@@ -48,9 +48,9 @@ TBase* FactoryMethod<Key, TBase, TCreateMethodArgs...>::Create(Key k, TCreateMet
 }
 
 template<typename Key, typename TBase, typename...TCreateMethodArgs>
-std::map<Key, TBase*(*)(TCreateMethodArgs...)>& FactoryMethod<Key, TBase, TCreateMethodArgs...>::TheMap()
+std::unordered_map<Key, TBase*(*)(TCreateMethodArgs...)>& FactoryMethod<Key, TBase, TCreateMethodArgs...>::TheMap()
 {
-    static std::map<Key, TBase*(*)(TCreateMethodArgs...)> _creators{};
+    static std::unordered_map<Key, TBase*(*)(TCreateMethodArgs...)> _creators{};
     return _creators;
 }
 

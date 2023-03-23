@@ -40,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0206F8CE29CCC175008D8496 /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		0223379F2968645B0080A8BA /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
 		022337A02968645B0080A8BA /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Image.hpp; sourceTree = "<group>"; };
 		022337A229687B200080A8BA /* RenderSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderSystem.cpp; sourceTree = "<group>"; };
@@ -177,8 +178,7 @@
 		0228C28F29B643B300F8B558 /* debug */ = {
 			isa = PBXGroup;
 			children = (
-				0228C29029B643D500F8B558 /* DebugSystem.cpp */,
-				0228C29129B643D500F8B558 /* DebugSystem.hpp */,
+				0206F8CE29CCC175008D8496 /* Debug.h */,
 			);
 			path = debug;
 			sourceTree = "<group>";
@@ -236,6 +236,8 @@
 		029A61B32978776B00206D64 /* systems */ = {
 			isa = PBXGroup;
 			children = (
+				0228C29029B643D500F8B558 /* DebugSystem.cpp */,
+				0228C29129B643D500F8B558 /* DebugSystem.hpp */,
 				0225D2BE299A5C8B0015919D /* loaders */,
 				022337A229687B200080A8BA /* RenderSystem.cpp */,
 				022337A329687B200080A8BA /* RenderSystem.hpp */,

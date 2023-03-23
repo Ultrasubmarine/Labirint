@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
     if(Game::Instance().Init())
         return -1;
 
-    Game::Instance().Loop();    
+    Game::Instance().Loop();
     return 0;
+
+
 }

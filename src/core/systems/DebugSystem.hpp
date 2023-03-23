@@ -13,7 +13,7 @@
 #include <SDL2/SDL.h>
 #include "TextTexture.hpp"
 
-#define LOG(message) Game::Instance().debug->Log(std::string{message});
+
 
 class DebugSystem
 {
