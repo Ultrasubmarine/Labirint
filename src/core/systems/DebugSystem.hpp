@@ -13,22 +13,24 @@
 #include <SDL2/SDL.h>
 #include "TextTexture.hpp"
 
+struct DebugFPS
+{
+    int last_fps;
+    std::shared_ptr<TextTexture> text;
+    SDL_Rect *dst;
+    
+    DebugFPS();
+    ~DebugFPS();
+};
 
 
 class DebugSystem
 {
-    std::string fontName = "Roboto-Light";
-    
-    SDL_Rect *dst;
-    int last_fps;
-    std::shared_ptr<TextTexture> fpsText;
+    DebugFPS fpsInfo;
     
 public:
-    DebugSystem(){
-        dst = new SDL_Rect();
-        dst->x = 5;
-        dst->y = 5;
-    };
+    DebugSystem();
+    ~DebugSystem();
     
     void Update();
     void Render(SDL_Renderer* renderer);

@@ -16,6 +16,8 @@
 
 #include "TextTexture.hpp"
 
+#define DEFAULT_FONT "Roboto-Light"
+
 class FontLoader
 {
     SDL_Renderer *_render;

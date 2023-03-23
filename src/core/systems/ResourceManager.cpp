@@ -6,7 +6,7 @@
 //
 
 #include "ResourceManager.hpp"
-#include "GetPath_Apple.hpp"
+#include "GetPath.hpp"
 #include <iostream>
 
 ResourceManager::ResourceManager(RenderSystem* renderSystem)

@@ -9,27 +9,49 @@
 #include "Game.hpp"
 
 
+DebugSystem::DebugSystem()
+{
+}
+
+DebugSystem::~DebugSystem()
+{
+}
+
 void DebugSystem::Update()
 {
     int fps = 1/Game::Instance().frameRate.GetDeltaTime();
     
-    if(  last_fps != fps)
+    if( fpsInfo.last_fps != fps)
     {
         auto s = "fps:" + std::to_string(fps);
-        fpsText = Game::Instance().resourceManager->GetTextTexture(s, fontName, 14, SDL_Color{255,0,0});
-        last_fps = fps;
+        auto fontName = std::string(DEFAULT_FONT);
+        fpsInfo.text = Game::Instance().resourceManager->GetTextTexture(s, fontName, 14, SDL_Color{255,0,0});
+        fpsInfo.last_fps = fps;
         
-        dst->w = fpsText->rect.w;
-        dst->h = fpsText->rect.h;
+        fpsInfo.dst->w = fpsInfo.text->rect.w;
+        fpsInfo.dst->h = fpsInfo.text->rect.h;
     }
 }
 
 void DebugSystem::Render(SDL_Renderer* render)
 {
-    SDL_RenderCopy(render, fpsText->texture, &fpsText->rect, dst);
+    SDL_RenderCopy(render, fpsInfo.text->texture, &fpsInfo.text->rect, fpsInfo.dst);
 }
 
 void DebugSystem::Log(std::string str)
 {
     std::cout<<str<<std::endl;
+}
+
+
+DebugFPS::DebugFPS()
+{
+    dst = new SDL_Rect();
+    dst->x = 5;
+    dst->y = 5;
+}
+
+DebugFPS::~DebugFPS()
+{
+    delete dst;
 }

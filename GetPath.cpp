@@ -5,7 +5,7 @@
 //  Created by marina porkhunova on 07.01.2023.
 //
 
-#include "GetPath_Apple.hpp"
+#include "GetPath.hpp"
 
 char* GetPath_Apple(CFStringRef name, CFStringRef type)
 {
