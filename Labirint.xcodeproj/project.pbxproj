@@ -238,7 +238,6 @@
 			children = (
 				0228C29029B643D500F8B558 /* DebugSystem.cpp */,
 				0228C29129B643D500F8B558 /* DebugSystem.hpp */,
-				0225D2BE299A5C8B0015919D /* loaders */,
 				022337A229687B200080A8BA /* RenderSystem.cpp */,
 				022337A329687B200080A8BA /* RenderSystem.hpp */,
 				022A7C5C297D73F50056C438 /* ComponentSystem.cpp */,
@@ -265,6 +264,7 @@
 		02C6F77C295215DA0032572C /* core */ = {
 			isa = PBXGroup;
 			children = (
+				0225D2BE299A5C8B0015919D /* loaders */,
 				0228C28F29B643B300F8B558 /* debug */,
 				0225D2B72998FD300015919D /* resources */,
 				029A61B32978776B00206D64 /* systems */,

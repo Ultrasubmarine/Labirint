@@ -24,10 +24,10 @@ char* GetPath_Apple(CFStringRef name, CFStringRef type)
 
 char* GetPath(std::string& title, std::string& type)
 {
-    #ifdef __APPLE__
+#ifdef __APPLE__
     CFStringRef p_name = CFStringCreateWithCString(NULL, title.c_str(), NULL);
     CFStringRef p_type = CFStringCreateWithCString(NULL, type.c_str(), NULL);
     return GetPath_Apple(p_name, p_type);
-    #endif
+#endif
         return NULL;
 }
