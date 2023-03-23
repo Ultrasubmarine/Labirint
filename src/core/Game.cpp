@@ -33,12 +33,16 @@ int Game::Init()
     return 0;
 }
 
-Game::~Game()
+void Game::Destroy()
 {
+    delete sceneManager;
+}
+
+Game::~Game()
+{    
     delete debug;
     delete resourceManager;
-    delete renderSystem;
-    delete sceneManager;
+    delete renderSystem; 
     delete window;
 }
 

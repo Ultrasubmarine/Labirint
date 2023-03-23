@@ -78,8 +78,8 @@
             filePath = "src/core/game.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "Game::Loop()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1006,8 +1006,8 @@
             filePath = "src/core/Game.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "Game::~Game()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1022,10 +1022,10 @@
             filePath = "src/core/Game.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "Game::Input()"
-            landmarkType = "7">
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1054,8 +1054,8 @@
             filePath = "src/core/Game.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "Game::Loop()"
             landmarkType = "7">
          </BreakpointContent>

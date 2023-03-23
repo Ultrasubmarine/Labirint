@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
         return -1;
 
     Game::Instance().Loop();
+    Game::Instance().Destroy();
     return 0;
 
 

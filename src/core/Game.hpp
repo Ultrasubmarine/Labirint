@@ -29,6 +29,7 @@ class Game : public Singleton<Game>
     void Update(float deltaTime);
     void Render();
     
+    
 public:
 
     SDL_Event event;
@@ -45,6 +46,7 @@ public:
     
     int Init();
     void Loop();
+    void Destroy();
 };
 
 #endif /* Game_hpp */
