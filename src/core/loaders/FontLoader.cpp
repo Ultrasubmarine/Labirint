@@ -18,7 +18,13 @@ FontLoader::FontLoader(SDL_Renderer *render)
     }
 }
 
-std::shared_ptr<TTF_Font> FontLoader::GetFont(std::string& name)
+void FontLoader::DeleteFont(Font* font)
+{
+    _fonts.erase(font->name);
+    delete font;
+}
+
+std::shared_ptr<Font> FontLoader::GetFont(std::string& name)
 {
     if(auto it = _fonts.find(name); it != _fonts.end())
         return it->second.lock();
@@ -26,14 +32,14 @@ std::shared_ptr<TTF_Font> FontLoader::GetFont(std::string& name)
     return nullptr;
 }
 
-std::shared_ptr<TTF_Font> FontLoader::LoadFont(std::string& name, char *fullPath)
+std::shared_ptr<Font> FontLoader::LoadFont(std::string& name, char *fullPath)
 {
     auto f =TTF_OpenFont(fullPath, 24);
-    std::shared_ptr<TTF_Font> font{f, [](TTF_Font* f){  TTF_CloseFont(f); } };
+    std::shared_ptr<Font> font{new Font{name,f}, [this](Font *f){ this->DeleteFont(f);} };
     
     if(font)
     {
-        _fonts[name] = std::weak_ptr<TTF_Font>{font};
+        _fonts[name] = std::weak_ptr<Font>{font};
         return font;
     }
     
@@ -41,14 +47,14 @@ std::shared_ptr<TTF_Font> FontLoader::LoadFont(std::string& name, char *fullPath
 }
 
 
-std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_ptr<TTF_Font> font, int fsize, SDL_Color color)
+std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_ptr<Font> font, int fsize, SDL_Color color)
 {
-    if( TTF_SetFontSize(font.get(), fsize) == -1)
+    if( TTF_SetFontSize( font.get()->font, fsize) == -1)
     {
         std::cout<<"error: FontLoader::GetText() set size. \ntext:"""<<text<<""" \nsize:"<<fsize<<"\n";
     }
     
-    SDL_Surface* surfaceText = TTF_RenderText_Solid(font.get(), text.c_str(), color);
+    SDL_Surface* surfaceText = TTF_RenderText_Solid(font.get()->font, text.c_str(), color);
     SDL_Texture* textTex = SDL_CreateTextureFromSurface(_render, surfaceText);
     
     SDL_Rect rect;
@@ -68,4 +74,5 @@ std::shared_ptr<TextTexture> FontLoader::GetText(std::string& text, std::shared_
 FontLoader::~FontLoader()
 {
 }
+
 

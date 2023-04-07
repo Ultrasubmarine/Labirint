@@ -16,6 +16,12 @@ TextureLoader::TextureLoader(SDL_Renderer *render)
     _render = render;
 }
 
+void TextureLoader::DeleteTexture(Texture* texture)
+{
+    _textures.erase(texture->name);
+    delete texture;
+}
+
 std::shared_ptr<Texture> TextureLoader::GetTexture(std::string& name)
 {
     if(auto it = _textures.find(name); it != _textures.end())
@@ -39,7 +45,7 @@ std::shared_ptr<Texture> TextureLoader::LoadTexture(std::string& name, char *ful
     
     if(bmpTex)
     {
-        std::shared_ptr<Texture> texture{new Texture{ name, bmpTex, src}};
+        std::shared_ptr<Texture> texture{new Texture{ name, bmpTex, src}, [this](Texture* t){ this->DeleteTexture(t);}};
         
         _textures[name] = std::weak_ptr<Texture>{texture};
         return texture;

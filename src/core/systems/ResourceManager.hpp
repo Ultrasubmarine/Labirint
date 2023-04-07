@@ -35,7 +35,7 @@ class ResourceManager
     FontLoader* _fontLoader;
     JsonLoader* _jsonLoader;
     
-    std::shared_ptr<TTF_Font> GetFont(std::string& name);
+    std::shared_ptr<Font> GetFont(std::string& name);
     
 public:
     ResourceManager(RenderSystem* render);

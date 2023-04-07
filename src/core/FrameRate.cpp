@@ -14,6 +14,8 @@ void FrameRate::FirstInitialization()
     delta = std::chrono::nanoseconds::zero();
     now_clock = std::chrono::steady_clock::now();
     
+    fixedDelta = std::chrono::seconds(1);
+    fixedDelta /= DEFAULT_FPS;
 }
 
 void FrameRate::SetFixedFrame(int fps)
@@ -50,4 +52,10 @@ void FrameRate::WaitFrame()
 float FrameRate::GetDeltaTime()
 {
     return delta.count()/ static_cast<float>(std::nano::den);
+}
+
+
+float FrameRate::GetFixedDeltaTime()
+{
+    return fixedDelta.count()/ static_cast<float>(std::nano::den);
 }

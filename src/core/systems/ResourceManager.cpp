@@ -39,7 +39,7 @@ std::shared_ptr<Texture> ResourceManager::GetTexture(std::string& title)
     return t;
 }
 
-std::shared_ptr<TTF_Font> ResourceManager::GetFont(std::string& name)
+std::shared_ptr<Font> ResourceManager::GetFont(std::string& name)
 {
     auto ft = _fontLoader->GetFont(name);
     if(ft)

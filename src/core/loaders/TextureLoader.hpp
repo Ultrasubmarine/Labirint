@@ -23,6 +23,8 @@ class TextureLoader
 
     std::unordered_map<std::string, std::weak_ptr<Texture>> _textures;
 
+    void DeleteTexture(Texture* texture);
+    
 public:
     TextureLoader(SDL_Renderer *render);
     ~TextureLoader();

@@ -11,14 +11,13 @@
 #include <string>
 #include <stdio.h>
 #include <SDL2/SDL.h>
-
+#include <iostream>
 struct Texture
 {
     std::string name;
     
     SDL_Texture *texture;
     SDL_Rect src;
-    
     
     ~Texture()
     {

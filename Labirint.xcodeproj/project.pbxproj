@@ -78,6 +78,7 @@
 		022A7C5C297D73F50056C438 /* ComponentSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentSystem.cpp; sourceTree = "<group>"; };
 		022A7C5D297D73F50056C438 /* ComponentSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ComponentSystem.hpp; sourceTree = "<group>"; };
 		02696DDB29251EFA0099F80F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../Users/sbm/Projects/Labirint/main.cpp; sourceTree = DEVELOPER_DIR; };
+		02888EE129E0905000D2EC22 /* Font.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Font.h; sourceTree = "<group>"; };
 		029A304629114F8500FD3779 /* Labirint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Labirint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A304C29114F8500FD3779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029A305329114F8500FD3779 /* Labirint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Labirint.entitlements; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 			children = (
 				0225D2B92998FD590015919D /* Texture.hpp */,
 				0228C27729AB816500F8B558 /* TextTexture.hpp */,
+				02888EE129E0905000D2EC22 /* Font.h */,
 			);
 			path = resources;
 			sourceTree = "<group>";

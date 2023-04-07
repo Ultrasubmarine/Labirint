@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <chrono>
 
+#define DEFAULT_FPS 60
+
 class FrameRate
 {
     bool fixedFrameRate = false;
@@ -27,6 +29,7 @@ public:
     void WaitFrame();
     
     float GetDeltaTime(); /// in milliseconds
+    float GetFixedDeltaTime();
     
 };
 #endif /* FrameRate_hpp */

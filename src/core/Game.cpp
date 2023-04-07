@@ -86,7 +86,6 @@ void Game::Loop()
 {
     frameRate.FirstInitialization();
     
-    LOG("first initialization " + std::to_string(6) + " end");
     while(play)
     {
         Input();

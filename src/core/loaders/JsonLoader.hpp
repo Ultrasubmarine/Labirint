@@ -22,7 +22,7 @@ public:
     static const json* GetGameSettings();
     static const json* LoadGameSettings(char *fullPath);
    
-    const json* GetJson(char *fullPath);
+    const json* GetJson(char *fullPath); /// free memory in json*
 };
 
 #endif /* JsonLoader_hpp */

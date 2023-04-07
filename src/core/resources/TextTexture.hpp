@@ -11,15 +11,15 @@
 #include <stdio.h>
 #include <string>
 
+#include "Font.h"
 #include <SDL2/SDL.h>
-#include <SDL2_ttf/SDL_ttf.h>
 
 
 struct TextTexture
 {
     SDL_Texture *texture;
     
-    std::shared_ptr<TTF_Font> font;
+    std::shared_ptr<Font> font;
     std::string text;
     SDL_Color color;
     SDL_Rect rect;
