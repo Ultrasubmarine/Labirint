@@ -38,9 +38,12 @@ void DebugSystem::Render(SDL_Renderer* render)
     SDL_RenderCopy(render, fpsInfo.text->texture, &fpsInfo.text->rect, fpsInfo.dst);
 }
 
-void DebugSystem::Log(std::string str)
+void DebugSystem::Log(std::string str , LogType log)
 {
-    std::cout<<str<<std::endl;
+    if(log == LogType::error)
+        std::cout<<"ERROR: "<<str<<std::endl;
+    else
+        std::cout<<str<<std::endl;
 }
 
 

@@ -6,6 +6,8 @@
 //
 
 #include "Window.hpp"
+#include "Debug.h"
+
 
 Window::~Window()
 {
@@ -17,8 +19,8 @@ Window::Window(const json* settings)
 {
     if( SDL_Init(SDL_INIT_EVERYTHING ^ SDL_INIT_AUDIO))
     {
-      printf("error Window::Window() -> SDL_Init()\n");
-      return ;
+        LOG_ERROR("Window::Window() -> SDL_Init()");
+        return ;
     }
     
     const char* title;
@@ -38,7 +40,7 @@ Window::Window(const json* settings)
                      SDL_WINDOW_RESIZABLE);
     
     if(!window)
-        printf("error: fail creating window \n");
+        LOG_ERROR("fail creating window");
 
     return;
 }

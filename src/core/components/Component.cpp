@@ -7,6 +7,7 @@
 
 #include "Component.hpp"
 #include "ComponentSystem.hpp"
+#include "Debug.h"
 
 Component::Component(SId id)
 {
@@ -15,7 +16,7 @@ Component::Component(SId id)
 
 Component::~Component()
 {
-    std::cout<< "Delete Component (type: "<<_typeInfo->name<<" sid: "<<_sid<<")"<<endl;
+    LOG("Delete Component (type: " + std::string{_typeInfo->name} + " sid: " + std::to_string(_sid) + ")");
 };
 
 const SId Component::GetSid()
@@ -36,7 +37,6 @@ bool RegisterComponent(const char *componentName, TCreateComponent createFunc)
     
     auto ti = TypeInfoStorage::GetTypeInfoByName(componentName);
     return ComponentSystem::RegisterComponent(*ti, createFunc);
-    
 }
 
 bool RegisterUpdate(TypeId compoenntID)

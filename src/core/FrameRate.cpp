@@ -6,6 +6,7 @@
 //
 
 #include "FrameRate.hpp"
+
 #include <thread>
 
 
@@ -34,6 +35,7 @@ void FrameRate::WaitFrame()
     
     delta = now_clock - last_clock;
     
+        
     if(fixedFrameRate)
     {
         auto wait = fixedDelta - delta;

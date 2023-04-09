@@ -13,6 +13,9 @@
 
 //#ifdef DEBUG
 #define LOG(message) Game::Instance().debug->Log(std::string{message})
+
+#define LOG_ERROR(message) Game::Instance().debug->Log(std::string{message}, LogType::error)
+
 //#else
 //#define LOG(message)
 

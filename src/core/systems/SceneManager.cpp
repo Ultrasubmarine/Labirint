@@ -8,6 +8,7 @@
 #include "CoreFunctions.hpp"
 #include "SceneManager.hpp"
 #include "Game.hpp"
+#include "Debug.h"
 
 SceneManager::~SceneManager()
 {
@@ -28,7 +29,7 @@ Scene* SceneManager::LoadScene(std::string& s_name)
     auto sceneSettings =  Game::Instance().resourceManager->GetScene(s_name);
     if(!sceneSettings)
     {
-        printf("error: SceneManager::LoadScene() fail load scene ""%s""\n", s_name.c_str());
+        LOG_ERROR("SceneManager::LoadScene() fail load scene " + s_name);
         return nullptr;
     }
     

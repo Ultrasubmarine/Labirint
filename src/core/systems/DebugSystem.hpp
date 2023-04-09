@@ -13,6 +13,8 @@
 #include <SDL2/SDL.h>
 #include "TextTexture.hpp"
 
+//class SDL_Renderer;
+
 struct DebugFPS
 {
     int last_fps;
@@ -23,6 +25,12 @@ struct DebugFPS
     ~DebugFPS();
 };
 
+enum LogType
+{
+    none,
+    exeption,
+    error
+};
 
 class DebugSystem
 {
@@ -34,7 +42,7 @@ public:
     
     void Update();
     void Render(SDL_Renderer* renderer);
-    void Log(std::string str);
+    void Log(std::string str, LogType log = none);
 };
 
 #endif /* DebugSystem_hpp */

@@ -6,15 +6,16 @@
 //
 
 #include "GameHub.hpp"
+#include "Debug.h"
 
 GameHub::GameHub(SId id): _id(id)
 {
-    std::cout<< "Create GameObject (sid: "<<_id<<")"<<endl;
+    LOG("Create GameObject (sid: " + std::to_string(_id) + ")");
 };
 
 GameHub::~GameHub()
 {
-    std::cout<< "Delete GameObject (sid: "<<_id<<")"<<endl;
+    LOG("Delete GameObject (sid: " + std::to_string(_id) + ")");
 };
 
 SId GameHub::GetSid()

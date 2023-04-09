@@ -7,7 +7,7 @@
 
 #include "ResourceManager.hpp"
 #include "GetPath.hpp"
-#include <iostream>
+#include "Debug.h"
 
 ResourceManager::ResourceManager(RenderSystem* renderSystem)
 {
@@ -89,7 +89,7 @@ const json* ResourceManager::GetScene(std::string& title)
     
     if(*json_path == '\0')
     {
-        std::cout<<"error: ResourceManager::GetScene() scene (" <<title<<") didn't found";//<<endl;
+        LOG_ERROR("ResourceManager::GetScene() scene (" + title +") didn't found");
         return nullptr;
     }
     

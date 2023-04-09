@@ -6,8 +6,8 @@
 //
 
 #include "Scene.hpp"
-//#include "GetPath.h"
 #include "CoreFunctions.hpp"
+#include "Debug.h"
 
 Scene::Scene(std::string& s_name)
 {
@@ -26,7 +26,7 @@ Scene::~Scene()
     {
         DeleteGameHub(k);
     }
-    std::cout<< "Delete scene "<<name<<endl;
+    LOG("Delete scene");
 }
 
 GameHub* Scene::CreateGameHub(const char* uniqueName)
@@ -35,7 +35,7 @@ GameHub* Scene::CreateGameHub(const char* uniqueName)
     
     if(_allHubs.find(id) != _allHubs.end())
     {
-        std::cout<<"Error Scene::CreateGameHub(): object \""<<uniqueName<<"\" already created";
+        LOG_ERROR("Scene::CreateGameHub(): object " + std::string(uniqueName) + " already created");
         return nullptr;
     }
       

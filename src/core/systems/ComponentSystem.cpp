@@ -120,7 +120,7 @@ bool ComponentSystem::RegisterComponent(const TypeInfo &typeInfo, TCreateCompone
     if(b)
         LOG("ComponentSystem::RegisterComponent: " + std::string(typeInfo.name) +" (Success)");
     else
-        LOG("ComponentSystem::RegisterComponent: " + std::string(typeInfo.name) + "  (Fail)");
+        LOG_ERROR("ComponentSystem::RegisterComponent: " + std::string(typeInfo.name) + "  (Fail)");
 
     return b;
 }
