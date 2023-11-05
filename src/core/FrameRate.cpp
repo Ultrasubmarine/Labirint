@@ -6,9 +6,7 @@
 //
 
 #include "FrameRate.hpp"
-
 #include <thread>
-
 
 void FrameRate::FirstInitialization()
 {
@@ -26,7 +24,6 @@ void FrameRate::SetFixedFrame(int fps)
     fixedDelta = std::chrono::seconds(1);
     fixedDelta /= fps;
 }
-
 
 void FrameRate::WaitFrame()
 {
@@ -50,12 +47,10 @@ void FrameRate::WaitFrame()
     last_clock = std::chrono::steady_clock::now();
 }
 
-
 float FrameRate::GetDeltaTime()
 {
     return delta.count()/ static_cast<float>(std::nano::den);
 }
-
 
 float FrameRate::GetFixedDeltaTime()
 {

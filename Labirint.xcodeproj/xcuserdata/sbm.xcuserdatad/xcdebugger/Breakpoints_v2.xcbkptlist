@@ -1324,8 +1324,8 @@
             filePath = "src/core/FrameRate.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "FrameRate::WaitFrame()"
             landmarkType = "7">
          </BreakpointContent>
