@@ -22,7 +22,7 @@ class Image : public Component
 private:
     std::shared_ptr<Texture> _texture;
     SDL_Rect *dst;
-    Transform* transform;
+    Transform *transform;
     
     uint _layer;
     

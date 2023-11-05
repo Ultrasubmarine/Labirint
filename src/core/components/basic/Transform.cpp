@@ -61,12 +61,14 @@ void Transform::Init()
 
 void Transform::Serialize(json &j)
 {
-    position.x = j["position"]["x"].get<int>();
-    position.y = j["position"]["y"].get<int>();
+//    position.x = j["position"]["x"].get<int>();
+//    position.y = j["position"]["y"].get<int>();
 }
 
 void Transform::Deserialize(json &j)
 {
-   // j << position.x 
+   // j << position.x
+    position.x = j["position"]["x"].get<int>();
+    position.y = j["position"]["y"].get<int>();
 }
 

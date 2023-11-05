@@ -86,7 +86,6 @@ public:
     
     virtual void Serialize(json &j) {};
     virtual void Deserialize(json &j) {};
-    
 };
 
 using TCreateComponent = Component*(*)(SId);

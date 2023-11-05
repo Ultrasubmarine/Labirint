@@ -52,6 +52,10 @@ void Text::ClearDirty()
 
 void Text::Serialize(json &j)
 {
+}
+
+void Text::Deserialize(json &j)
+{
     auto font = j["font"].get<std::string>();
     auto text = j["text"].get<std::string>();
     auto size = j["size"].get<int>();

@@ -52,7 +52,7 @@ Scene* SceneManager::LoadScene(std::string& s_name)
             }
             
             auto c = CreateComponent(id, objectHub);
-            c->Serialize(it_comp.value());
+            c->Deserialize(it_comp.value());
         }
     }
     delete sceneSettings;

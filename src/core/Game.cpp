@@ -59,6 +59,8 @@ void Game::Update(float delta_tick)
     debug->Update();
 }
 
+
+// it's here to indicate that we need SDL.lib in next functions.
 #include <SDL2/SDL.h>
 void Game::Input()
 {

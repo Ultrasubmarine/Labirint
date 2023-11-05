@@ -16,6 +16,7 @@
 
 #define LOG_ERROR(message) Game::Instance().debug->Log(std::string{message}, LogType::error)
 
+#define LOG_EXEPTION(message) Game::Instance().debug->Log(std::string{message}, LogType::exeption)
 //#else
 //#define LOG(message)
 

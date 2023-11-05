@@ -11,41 +11,53 @@
 
 Window::~Window()
 {
-    SDL_DestroyWindow(window);
+    SDL_DestroyWindow(_window);
     SDL_Quit();
 }
 
 Window::Window(const json* settings)
 {
-    if( SDL_Init(SDL_INIT_EVERYTHING ^ SDL_INIT_AUDIO))
-    {
-        LOG_ERROR("Window::Window() -> SDL_Init()");
-        return ;
-    }
-    
-    const char* title;
-    int width, height;
-    
-    if(settings)
-    {
-        title = (*settings)["name"].get<std::string>().c_str();
-        width =(*settings)["screen"]["width"].get<int>();
-        height =(*settings)["screen"]["height"].get<int>();
-    }
-    
-    window = SDL_CreateWindow(title,
-                     SDL_WINDOWPOS_UNDEFINED,
-                     SDL_WINDOWPOS_UNDEFINED,
-                     width, height,
-                     SDL_WINDOW_RESIZABLE);
-    
-    if(!window)
-        LOG_ERROR("fail creating window");
-
+    LoadSettings(settings);
+    CreateWindow();
     return;
 }
 
-SDL_Window* Window::GetWindow()
+void Window::LoadSettings(const json* settings)
 {
-    return window;
+    if(settings && (*settings).contains("window"))
+    {
+        auto& windows_settings = (*settings)["window"];
+        
+        _title = windows_settings["name"].get<std::string>();
+        _width = windows_settings["screen"]["width"].get<int>();
+        _height = windows_settings["screen"]["height"].get<int>();
+    }
+    else
+    {
+        LOG_EXEPTION("Window Settings not found. Used default settings");
+        
+        _title = Window::DEFAULT_TITLE;
+        _width = Window::DEFAULT_WIDTH;
+        _height = Window::DEFAULT_HEIGHT;
+    }
+}
+
+void Window::CreateWindow()
+{
+    if( SDL_Init(SDL_INIT_EVERYTHING ^ SDL_INIT_AUDIO))
+    {
+        LOG_ERROR("Window::CreateWindow() -> SDL_Init()");
+        return ;
+    }
+    
+    _window = SDL_CreateWindow(_title.c_str(),
+                     SDL_WINDOWPOS_UNDEFINED,
+                     SDL_WINDOWPOS_UNDEFINED,
+                     _width, _height,
+                     SDL_WINDOW_RESIZABLE);
+    
+    if(!_window)
+    {
+        LOG_ERROR("Fail creating window");
+    }
 }

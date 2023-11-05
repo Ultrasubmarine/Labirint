@@ -37,6 +37,7 @@ public:
 
     void Render();    
     void Serialize(json &j) override;
+    void Deserialize(json &j) override;
   
     void Draw(SDL_Renderer* render) override;
     
