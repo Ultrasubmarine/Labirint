@@ -10,10 +10,11 @@
 #include <iostream>
 #include <map>
 
+class GameHub;
 
 GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId>* components)
 {
-    GameHub* hub = Game::Instance().sceneManager->GetCurrentScene()->CreateGameHub(uniqueName);
+    GameHub* hub = Game::Instance().sceneManager->GetCurrentScene()->AddGameHub(uniqueName);
     
     if(hub && components)
     {
@@ -37,7 +38,7 @@ void DeleteGameHub(SId objID)
     {
         DeleteComponent(comp.first, objID);
     }
-    Game::Instance().sceneManager->GetCurrentScene()->DestroyGameHub(hub);
+    Game::Instance().sceneManager->GetCurrentScene()->RemoveGameHub(hub);
 };
 
 Component* CreateComponent(TypeId component_id, GameHub* hub)

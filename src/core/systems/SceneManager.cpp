@@ -20,16 +20,16 @@ void SceneManager::DestroyCurrentScene()
     delete currentScene;
 }
 
-Scene* SceneManager::LoadScene(std::string& s_name)
+Scene* SceneManager::LoadScene(std::string& sceneName)
 {
     if(currentScene)
         DestroyCurrentScene();
     
-    currentScene = new Scene(s_name);
-    auto sceneSettings =  Game::Instance().resourceManager->GetScene(s_name);
+    currentScene = new Scene(sceneName);
+    auto sceneSettings =  Game::Instance().resourceManager->GetSceneSettings(sceneName);
     if(!sceneSettings)
     {
-        LOG_ERROR("SceneManager::LoadScene() fail load scene " + s_name);
+        LOG_ERROR("SceneManager::LoadScene() fail load scene " + sceneName);
         return nullptr;
     }
     

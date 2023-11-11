@@ -46,7 +46,7 @@ void Window::CreateWindow()
 {
     if( SDL_Init(SDL_INIT_EVERYTHING ^ SDL_INIT_AUDIO))
     {
-        LOG_ERROR("Window::CreateWindow() -> SDL_Init()");
+        LOG_ERROR("Window::CreateWindow(): SDL_Init() error");
         return ;
     }
     
@@ -58,6 +58,6 @@ void Window::CreateWindow()
     
     if(!_window)
     {
-        LOG_ERROR("Fail creating window");
+        LOG_ERROR("Window::CreateWindow(): Fail creating window");
     }
 }

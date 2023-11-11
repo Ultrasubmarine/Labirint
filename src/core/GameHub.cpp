@@ -18,19 +18,21 @@ GameHub::~GameHub()
     LOG("Delete GameObject (sid: " + std::to_string(_id) + ")");
 };
 
-SId GameHub::GetSid()
+const SId GameHub::GetSid() const
 {
     return _id;
 }
 
-bool GameHub::HasComponent(TypeId component_id)
+bool GameHub::HasComponent(TypeId component_id) const
 {
     if(_components.find(component_id) != _components.end() )
+    {
         return true;
+    }
     return false;
 }
 
-Component* GameHub::GetComponent(TypeId component_id)
+Component* GameHub::GetComponent(TypeId component_id) const
 {
     if(auto it =_components.find(component_id); it!= _components.end() )
     {
@@ -39,7 +41,7 @@ Component* GameHub::GetComponent(TypeId component_id)
     return nullptr;
 }
 
-const std::map<TypeId, Component*>& GameHub::GetAllComponents()
+const std::map<TypeId, Component*>& GameHub::GetAllComponents() const
 {
     return _components;
 }

@@ -45,7 +45,7 @@ public:
     std::shared_ptr<TextTexture> GetTextTexture(std::string& text, std::string& fontName, int fsize, SDL_Color color);
     
     static const json* GetGameSettings();
-    const json* GetScene(std::string& title);
+    const json* GetSceneSettings(std::string& title);
     
     const char* GetResourcePath(ResourceType type, std::string& name, std::string format);
 };

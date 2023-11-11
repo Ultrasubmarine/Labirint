@@ -9,14 +9,14 @@
 #include "CoreFunctions.hpp"
 #include "Debug.h"
 
-Scene::Scene(std::string& s_name)
+Scene::Scene(std::string& name) : _name(name)
 {
-    name = std::string(s_name);
 }
 
 Scene::~Scene()
 {
     vector<SId> allkeys;
+    //TODO refactoring this function with one cycle
     for(auto o : _allHubs)
     {
         allkeys.push_back(o.first);
@@ -26,10 +26,11 @@ Scene::~Scene()
     {
         DeleteGameHub(k);
     }
+    _allHubs.clear();
     LOG("Delete scene");
 }
 
-GameHub* Scene::CreateGameHub(const char* uniqueName)
+GameHub* Scene::AddGameHub(const char* uniqueName)
 {
     auto id = SID(uniqueName);
     
@@ -45,9 +46,10 @@ GameHub* Scene::CreateGameHub(const char* uniqueName)
     return hub;
 }
 
-void Scene::DestroyGameHub(GameHub* hub)
+void Scene::RemoveGameHub(GameHub* hub)
 {
     auto sid = hub->GetSid();
+
     _allHubs.erase(sid);
     DESTROY_SID(sid);
     delete hub;
@@ -63,7 +65,7 @@ GameHub* Scene::GetGameHub(SId id)
 
 const std::string& Scene::GetName()
 {
-    return name;
+    return _name;
 }
 
 

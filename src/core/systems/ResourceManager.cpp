@@ -80,7 +80,7 @@ const json* ResourceManager::GetGameSettings()
     return j;
 }
 
-const json* ResourceManager::GetScene(std::string& title)
+const json* ResourceManager::GetSceneSettings(std::string& title)
 {
     std::string r_path ="resources/scenes/" + title;
     std::string type = "json";

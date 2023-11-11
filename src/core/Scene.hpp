@@ -16,9 +16,10 @@
 
 class Scene
 {
-    std::string name;
+    const std::string _name;
     //TODO <ScenePart, list<GameHub*>>?
     std::map<SId, GameHub*> _allHubs;
+    std::map<SId, GameHub::Ptr> _allHubsSmart;
     
 public:
 
@@ -26,8 +27,8 @@ public:
     ~Scene();
     Scene(std::string& name);
 
-    GameHub* CreateGameHub(const char* uniqueName);
-    void DestroyGameHub(GameHub* hub);
+    GameHub* AddGameHub(const char* uniqueName);
+    void RemoveGameHub(GameHub* hub);
     
     GameHub* GetGameHub(SId id);
     const std::string& GetName();
