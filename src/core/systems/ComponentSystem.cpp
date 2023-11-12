@@ -6,6 +6,7 @@
 //
 
 #include "ComponentSystem.hpp"
+#include "GameHub.hpp"
 #include "Debug.h"
 
 unordered_map<TypeId, unordered_map<SId,Component*>> ComponentSystem::_allComponents = {};
@@ -123,4 +124,12 @@ bool ComponentSystem::RegisterComponent(const TypeInfo &typeInfo, TCreateCompone
         LOG_ERROR("ComponentSystem::RegisterComponent: " + std::string(typeInfo.name) + "  (Fail)");
 
     return b;
+}
+
+void ComponentSystem::OnGameHubDeleted(GameHub* hub)
+{
+    for(auto c : hub->GetAllComponents())
+    {
+        DeleteComponent(c.first, hub->GetSid());
+    }
 }

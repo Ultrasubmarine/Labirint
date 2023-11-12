@@ -13,19 +13,9 @@
 #include <list>
 
 #include "Component.hpp"
-//#include "CoreFunctions.hpp"
 class Scene;
 
-//struct GameHub;
-//inline GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId>* components);
-
-enum ObjectMode
-{
-    SceneOnly,
-    Global
-};
-
-struct GameHub
+struct GameHub final
 {
     using Ptr = std::shared_ptr<GameHub>;
     using WeakPtr = std::weak_ptr<GameHub>;
@@ -36,23 +26,22 @@ protected:
     
 public:
 
-    const SId GetSid() const;
+    const SId GetSid() const { return _id; };
     
     bool HasComponent(TypeId component_id) const;
     Component* GetComponent(TypeId component_id) const;
     const std::map<TypeId, Component*>& GetAllComponents() const;
     
     void AddComponent(TypeId component_id, Component* component);
-    void RemoveComponent(TypeId component_id, Component* component);
-    
+    void RemoveComponent(TypeId component_id, Component* component); 
+   
 private:
-    GameHub(SId id);
     ~GameHub();
+    GameHub(SId id);
     
-    
-    // TODO only one friend function
     friend class Scene;
-  //  friend inline GameHub* CreateGameHub(const char* uniqueName, std::list<TypeId>* components);
 };
 
+
+//void Bub() {};
 #endif /* GameObjectHUB_hpp */

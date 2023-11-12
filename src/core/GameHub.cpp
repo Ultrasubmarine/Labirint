@@ -6,6 +6,7 @@
 //
 
 #include "GameHub.hpp"
+#include "ComponentSystem.hpp"
 #include "Debug.h"
 
 GameHub::GameHub(SId id): _id(id)
@@ -14,14 +15,9 @@ GameHub::GameHub(SId id): _id(id)
 };
 
 GameHub::~GameHub()
-{
+{ 
     LOG("Delete GameObject (sid: " + std::to_string(_id) + ")");
 };
-
-const SId GameHub::GetSid() const
-{
-    return _id;
-}
 
 bool GameHub::HasComponent(TypeId component_id) const
 {

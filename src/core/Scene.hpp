@@ -13,22 +13,20 @@
 
 #include "GameHub.hpp"
 
-
 class Scene
 {
     const std::string _name;
     //TODO <ScenePart, list<GameHub*>>?
-    std::map<SId, GameHub*> _allHubs;
-    std::map<SId, GameHub::Ptr> _allHubsSmart;
+    std::map<SId, GameHub::Ptr> _allHubs;
     
 public:
-
     Scene() = delete;
     ~Scene();
     Scene(std::string& name);
 
-    GameHub* AddGameHub(const char* uniqueName);
-    void RemoveGameHub(GameHub* hub);
+    GameHub::WeakPtr CreateGameHub(const char* uniqueName);
+    void DeleteGameHub(GameHub* hub);
+    void DeleteAllGameHubs();
     
     GameHub* GetGameHub(SId id);
     const std::string& GetName();

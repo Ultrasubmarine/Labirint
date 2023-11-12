@@ -17,6 +17,7 @@
 #include "FactoryMethod.hpp"
 
 using namespace std;
+class GameHub;
 
 class ComponentSystem
 {
@@ -42,6 +43,8 @@ public:
     static void RegisterUpdateComponent(TypeId componentID);
     static void RegisterDrawComponent(TypeId componentID);
     static bool RegisterComponent(const TypeInfo &typeInfo, TCreateComponent createFunc);
+    
+    static void OnGameHubDeleted(GameHub* hub);
 };
 
 #endif /* ComponentSystem_hpp */
